@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Sparkles, FileText, GraduationCap, Clock, Briefcase, Menu, X, ChevronRight, Zap, Flame } from 'lucide-react';
+import { Sparkles, FileText, GraduationCap, Clock, Briefcase, Menu, X, ChevronRight, Zap, Flame, BookMarked } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { id: 'dopamine', label: 'Dopamine Hub', icon: Zap, color: 'text-amber-400 animate-pulse' },
+    { id: 'notes', label: 'Notes & PYQs', icon: BookMarked, color: 'text-emerald-400 font-bold' },
     { id: 'ai', label: 'AI Study Assistant', icon: Sparkles, color: 'text-cyan-400' },
     { id: 'resume', label: 'Resume Builder', icon: FileText, color: 'text-indigo-400' },
     { id: 'interview', label: 'Interview Prep', icon: GraduationCap, color: 'text-purple-400' },
     { id: 'internships', label: 'Internships Board', icon: Briefcase, color: 'text-blue-400' },
-    { id: 'notes', label: 'Notes (Soon)', icon: Clock, color: 'text-emerald-400' },
+    { id: 'dopamine', label: 'Dopamine Hub', icon: Zap, color: 'text-amber-400 animate-pulse' },
   ];
 
   return (

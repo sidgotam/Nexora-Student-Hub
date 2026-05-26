@@ -9,7 +9,7 @@ import Notes from './pages/Notes';
 import DopamineHub from './pages/DopamineHub';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dopamine'); // dopamine, ai, resume, interview, internships, notes
+  const [activeTab, setActiveTab] = useState('notes'); // notes, ai, resume, interview, internships, dopamine
   const [globalMood, setGlobalMood] = useState('focus'); // focus, panic, sleepy, procrastinate
   const moodRef = useRef('focus');
   const canvasRef = useRef(null);
