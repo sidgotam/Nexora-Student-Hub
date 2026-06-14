@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Briefcase, GraduationCap, Code, Wrench, Download, Sparkles, Plus, Trash2, Sliders, ChevronDown } from 'lucide-react';
+import { User, Briefcase, GraduationCap, Code, Wrench, Download, Sparkles, Plus, Trash2, Sliders, ChevronDown, Camera, Layout, Image, FileText } from 'lucide-react';
 
 export default function ResumeBuilder() {
   // Input Forms State
@@ -37,6 +37,11 @@ export default function ResumeBuilder() {
   });
 
   const [skills, setSkills] = useState('React, JavaScript (ES6+), Tailwind CSS, Node.js, Express, MongoDB, Git & GitHub, DSA, Python');
+
+  // Photo & Template Customization States
+  const [photo, setPhoto] = useState(null); // base64 URL representing the uploaded profile picture
+  const [showPhoto, setShowPhoto] = useState(true); // toggle image display on resume sheet
+  const [selectedTemplate, setSelectedTemplate] = useState('modern'); // 'modern', 'classic', 'creative', 'executive'
 
   // Themes and layout parameters
   const [accentColor, setAccentColor] = useState('text-cyan-500'); // text-cyan-500, text-indigo-500, text-purple-500, text-emerald-500
@@ -115,6 +120,21 @@ export default function ResumeBuilder() {
     }
   };
 
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) { // 2MB limit
+        alert('File size exceeds 2MB. Please upload a smaller image.');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleAddExperience = () => {
     setExperiences([...experiences, { company: 'New Company', role: 'Role Title', duration: 'Dates', desc: 'Work descriptions...' }]);
   };
@@ -146,6 +166,72 @@ export default function ResumeBuilder() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row gap-8">
       {/* LEFT: Controls, Theme, and Inputs */}
       <div className="w-full lg:w-5/12 flex flex-col gap-6">
+        {/* Theme & Template customization Swatches */}
+        <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 space-y-4">
+          <div>
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Resume Template Layout</span>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { id: 'modern', name: 'Modern Minimalist', desc: 'Sleek, centered & clean' },
+                { id: 'classic', name: 'Classic Ivy League', desc: 'Georgia academic serif' },
+                { id: 'creative', name: 'Two-Column Split', desc: 'Two-column colored sidebar' },
+                { id: 'executive', name: 'Bold Executive', desc: 'Structural left-bordered headers' }
+              ].map((tmpl) => (
+                <button
+                  key={tmpl.id}
+                  onClick={() => setSelectedTemplate(tmpl.id)}
+                  className={`p-2 rounded-xl text-left border transition-all ${
+                    selectedTemplate === tmpl.id
+                      ? 'bg-slate-950 border-cyan-500/80 shadow-glow-cyan text-white'
+                      : 'bg-slate-950/40 border-slate-850 text-slate-400 hover:text-slate-200 hover:border-slate-800'
+                  }`}
+                >
+                  <p className="text-[10px] font-extrabold truncate">{tmpl.name}</p>
+                  <p className="text-[7.5px] text-slate-500 truncate mt-0.5">{tmpl.desc}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-t border-slate-850 pt-3 flex items-center justify-between gap-3">
+            <div>
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5">Accent Color</span>
+              <div className="flex gap-2">
+                {colors.map((c, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setAccentColor(c.class);
+                      setAccentBg(c.bgClass);
+                    }}
+                    className={`w-5 h-5 rounded-full border-2 ${c.bgClass} ${
+                      accentColor === c.class ? 'border-white scale-110 shadow-glow-cyan' : 'border-transparent'
+                    }`}
+                    title={c.label}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5 text-right">Text Size</span>
+              <div className="flex gap-1.5 bg-slate-950 p-0.5 rounded-lg border border-slate-850">
+                {['text-xs', 'text-sm', 'text-base'].map((fSize) => (
+                  <button
+                    key={fSize}
+                    onClick={() => setFontSize(fSize)}
+                    className={`px-2 py-0.5 text-[9px] font-bold rounded ${
+                      fontSize === fSize ? 'bg-slate-800 text-white' : 'text-slate-500'
+                    }`}
+                  >
+                    {fSize.split('-')[1].toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Form Selector Tab bar */}
         <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800/80 rounded-2xl p-4 space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-2">
@@ -194,6 +280,55 @@ export default function ResumeBuilder() {
           <div className="space-y-4">
             {activeFormTab === 'personal' && (
               <div className="space-y-3 animate-fadeIn">
+                {/* Photo Upload Section */}
+                <div className="p-3 bg-slate-950/60 border border-slate-800/80 rounded-xl space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Profile Image</span>
+                    <span className="text-[8px] text-slate-500 font-mono">LOCAL ONLY • SECURE</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="relative group w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden">
+                      {photo ? (
+                        <img src={photo} alt="Profile" className="w-full h-full object-cover" />
+                      ) : (
+                        <Camera className="w-4 h-4 text-slate-600 group-hover:text-cyan-400 transition-colors" />
+                      )}
+                    </div>
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <label className="cursor-pointer px-2 py-0.5 text-[9px] font-bold bg-slate-850 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 rounded text-slate-350 hover:text-white transition-all">
+                          Choose File
+                          <input type="file" accept="image/*" onChange={handlePhotoUpload} className="hidden" />
+                        </label>
+                        {photo && (
+                          <button
+                            type="button"
+                            onClick={() => setPhoto(null)}
+                            className="px-2 py-0.5 text-[9px] font-bold bg-red-950/40 hover:bg-red-900/30 border border-red-900/40 hover:border-red-900/60 rounded text-red-400 transition-all flex items-center gap-0.5"
+                          >
+                            <Trash2 className="w-2.5 h-2.5" /> Remove
+                          </button>
+                        )}
+                      </div>
+                      <p className="text-[8px] text-slate-500">Supports PNG, JPG (Max 2MB). Disappears on reload.</p>
+                    </div>
+                  </div>
+                  {photo && (
+                    <div className="flex items-center justify-between pt-1.5 border-t border-slate-900/50">
+                      <span className="text-[9px] text-slate-400 font-bold uppercase">Show photo on resume</span>
+                      <button
+                        type="button"
+                        onClick={() => setShowPhoto(!showPhoto)}
+                        className={`px-2 py-0.5 rounded text-[8px] font-bold transition-all ${
+                          showPhoto ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' : 'bg-slate-900 text-slate-650 border border-slate-800'
+                        }`}
+                      >
+                        {showPhoto ? 'VISIBLE' : 'HIDDEN'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="text-[10px] text-slate-500 font-bold block mb-1">FULL NAME</label>
@@ -430,42 +565,6 @@ export default function ResumeBuilder() {
           </div>
         </div>
 
-        {/* Theme customization Swatches */}
-        <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 space-y-3">
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block">Style & Layout Swatches</span>
-          <div className="flex items-center justify-between">
-            <div className="flex gap-2">
-              {colors.map((c, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setAccentColor(c.class);
-                    setAccentBg(c.bgClass);
-                  }}
-                  className={`w-6 h-6 rounded-full border-2 ${c.bgClass} ${
-                    accentColor === c.class ? 'border-white scale-110 shadow-glow-cyan' : 'border-transparent'
-                  }`}
-                  title={c.label}
-                />
-              ))}
-            </div>
-
-            <div className="flex gap-1.5 bg-slate-950 p-0.5 rounded-lg border border-slate-850">
-              {['text-xs', 'text-sm', 'text-base'].map((fSize) => (
-                <button
-                  key={fSize}
-                  onClick={() => setFontSize(fSize)}
-                  className={`px-2.5 py-1 text-[10px] font-bold rounded ${
-                    fontSize === fSize ? 'bg-slate-800 text-white' : 'text-slate-500'
-                  }`}
-                >
-                  {fSize.split('-')[1].toUpperCase()}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* RIGHT SUB: AI Suggestion Drawer */}
         <div className="glass-panel-neon p-4 rounded-2xl space-y-3 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/10 rounded-full blur-2xl" />
@@ -534,101 +633,462 @@ export default function ResumeBuilder() {
           </div>
           <div
             id="resume-sheet-preview"
-            className="w-full max-w-[650px] aspect-[1/1.414] bg-white border border-slate-200 text-slate-800 shadow-2xl p-6 sm:p-10 font-sans text-left relative select-text"
+            className={`w-full max-w-[650px] aspect-[1/1.414] bg-white border border-slate-200 text-slate-800 shadow-2xl p-6 sm:p-10 text-left relative select-text transition-all ${
+              selectedTemplate === 'classic' ? 'font-serif' : 'font-sans'
+            }`}
           >
-            {/* Header branding line */}
-            <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${getLightAccentBg()} to-indigo-600`} />
+            {/* Modern Minimalist Template */}
+            {selectedTemplate === 'modern' && (
+              <>
+                {/* Header branding line */}
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${getLightAccentBg()} to-indigo-600`} />
 
-            {/* Header Details */}
-            <div className="text-center space-y-1">
-              <h2 className={`font-bold tracking-tight text-slate-900 ${getFontSizeClass('name')}`}>
-                {personalInfo.name || 'Your Full Name'}
-              </h2>
-              <p className={`font-semibold uppercase tracking-wider text-slate-500 ${getFontSizeClass('title')}`}>
-                {personalInfo.title || 'Target Job Title'}
-              </p>
-              
-              {/* Contacts Line */}
-              <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-[10px] text-slate-600 pt-1.5 border-t border-slate-100 mt-2 select-text">
-                <span>📧 {personalInfo.email}</span>
-                <span>📞 {personalInfo.phone}</span>
-                <span>💻 {personalInfo.github}</span>
-                <span>🔗 {personalInfo.linkedin}</span>
-              </div>
-            </div>
-
-            {/* Core Body Sections */}
-            <div className="mt-6 space-y-5">
-              
-              {/* EDUCATION */}
-              <div className="space-y-1.5">
-                <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
-                  Academic Credentials
-                </h3>
-                <div className={`flex justify-between items-start ${getFontSizeClass('body')}`}>
-                  <div>
-                    <h4 className="font-bold text-slate-900">{education.school}</h4>
-                    <p className={`text-slate-650 italic ${getFontSizeClass('meta')}`}>{education.degree}</p>
+                {/* Header Details */}
+                <div className={`flex ${photo && showPhoto ? 'flex-row items-center justify-between' : 'flex-col items-center'} gap-4 border-b border-slate-100 pb-4`}>
+                  <div className={photo && showPhoto ? 'text-left space-y-1 flex-1' : 'text-center space-y-1'}>
+                    <h2 className={`font-bold tracking-tight text-slate-900 ${getFontSizeClass('name')}`}>
+                      {personalInfo.name || 'Your Full Name'}
+                    </h2>
+                    <p className={`font-semibold uppercase tracking-wider text-slate-500 ${getFontSizeClass('title')}`}>
+                      {personalInfo.title || 'Target Job Title'}
+                    </p>
+                    
+                    {/* Contacts Line */}
+                    <div className={`flex flex-wrap ${photo && showPhoto ? 'justify-start' : 'justify-center'} gap-x-3.5 gap-y-1 text-[10px] text-slate-600 mt-2 select-text`}>
+                      <span>📧 {personalInfo.email}</span>
+                      <span>📞 {personalInfo.phone}</span>
+                      {personalInfo.github && <span>💻 {personalInfo.github}</span>}
+                      {personalInfo.linkedin && <span>🔗 {personalInfo.linkedin}</span>}
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <span className={`font-semibold text-slate-500 block ${getFontSizeClass('meta')}`}>{education.duration}</span>
-                    <span className={`font-bold ${getLightAccentColor()} uppercase ${getFontSizeClass('meta')}`}>{education.gpa}</span>
+                  {photo && showPhoto && (
+                    <div className="flex-shrink-0 select-none">
+                      <img src={photo} alt="Profile" className="w-16 h-16 rounded-full object-cover border-2 border-slate-200 shadow-sm" />
+                    </div>
+                  )}
+                </div>
+
+                {/* Core Body Sections */}
+                <div className="mt-5 space-y-4">
+                  {/* EDUCATION */}
+                  <div className="space-y-1.5">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Academic Credentials
+                    </h3>
+                    <div className={`flex justify-between items-start ${getFontSizeClass('body')}`}>
+                      <div>
+                        <h4 className="font-bold text-slate-900">{education.school}</h4>
+                        <p className={`text-slate-600 italic ${getFontSizeClass('meta')}`}>{education.degree}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className={`font-semibold text-slate-500 block ${getFontSizeClass('meta')}`}>{education.duration}</span>
+                        <span className={`font-bold ${getLightAccentColor()} uppercase ${getFontSizeClass('meta')}`}>{education.gpa}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* TECHNICAL SKILLS */}
+                  <div className="space-y-1.5">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Technical Core Skills
+                    </h3>
+                    <p className={`leading-relaxed text-slate-750 font-medium ${getFontSizeClass('body')}`}>
+                      {skills || 'List your skills separated by commas...'}
+                    </p>
+                  </div>
+
+                  {/* EXPERIENCES */}
+                  <div className="space-y-2">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Professional Experience
+                    </h3>
+                    {experiences.map((exp, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="font-bold text-slate-900">{exp.role}</h4>
+                            <span className={`font-semibold text-slate-650 ${getFontSizeClass('meta')}`}>{exp.company}</span>
+                          </div>
+                          <span className={`font-semibold text-slate-500 ${getFontSizeClass('meta')}`}>{exp.duration}</span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed pl-3 border-l-2 ${getLightAccentColor().replace('text', 'border') + '/30'} ${getFontSizeClass('body')}`}>
+                          {exp.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* PROJECTS */}
+                  <div className="space-y-2">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Academic & Technical Projects
+                    </h3>
+                    {projects.map((proj, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <h4 className="font-bold text-slate-900">{proj.title}</h4>
+                          <span className={`font-mono bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold ${getFontSizeClass('meta')}`}>
+                            {proj.tech}
+                          </span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed ${getFontSizeClass('body')}`}>
+                          {proj.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Classic Ivy League Template */}
+            {selectedTemplate === 'classic' && (
+              <div className="space-y-4">
+                {/* Traditional floated square photo on top right */}
+                {photo && showPhoto && (
+                  <div className="float-right ml-4 mb-2 select-none">
+                    <img src={photo} alt="Profile" className="w-18 h-22 object-cover border border-slate-350 p-0.5" />
+                  </div>
+                )}
+
+                {/* Header Details */}
+                <div className="text-center space-y-1 pb-3 border-b border-slate-300">
+                  <h2 className={`font-bold tracking-tight text-slate-900 ${getFontSizeClass('name')}`} style={{ fontFamily: 'Georgia, serif' }}>
+                    {personalInfo.name || 'Your Full Name'}
+                  </h2>
+                  <p className="font-semibold uppercase tracking-wider text-slate-600 text-xs italic">
+                    {personalInfo.title || 'Target Job Title'}
+                  </p>
+                  
+                  {/* Contacts Line */}
+                  <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 text-[10px] text-slate-750 font-serif pt-1 select-text">
+                    <span>📧 {personalInfo.email}</span>
+                    <span className="text-slate-400">•</span>
+                    <span>📞 {personalInfo.phone}</span>
+                    {personalInfo.github && (
+                      <>
+                        <span className="text-slate-400">•</span>
+                        <span>💻 {personalInfo.github}</span>
+                      </>
+                    )}
+                    {personalInfo.linkedin && (
+                      <>
+                        <span className="text-slate-400">•</span>
+                        <span>🔗 {personalInfo.linkedin}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Core Body Sections */}
+                <div className="space-y-4 pt-1 clear-none">
+                  {/* EDUCATION */}
+                  <div className="space-y-1">
+                    <h3 className={`font-bold uppercase tracking-wide border-b border-slate-350 pb-0.5 text-slate-800 ${getFontSizeClass('section-heading')}`}>
+                      Education
+                    </h3>
+                    <div className={`flex justify-between items-start ${getFontSizeClass('body')}`}>
+                      <div>
+                        <h4 className="font-bold text-slate-900">{education.school}</h4>
+                        <p className={`text-slate-600 italic ${getFontSizeClass('meta')}`}>{education.degree}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className={`font-semibold text-slate-500 block ${getFontSizeClass('meta')}`}>{education.duration}</span>
+                        <span className={`font-bold text-slate-800 uppercase ${getFontSizeClass('meta')}`}>{education.gpa}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* EXPERIENCES */}
+                  <div className="space-y-2">
+                    <h3 className={`font-bold uppercase tracking-wide border-b border-slate-350 pb-0.5 text-slate-800 ${getFontSizeClass('section-heading')}`}>
+                      Experience
+                    </h3>
+                    {experiences.map((exp, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="font-bold text-slate-900">{exp.role}</h4>
+                            <span className={`font-semibold text-slate-650 italic ${getFontSizeClass('meta')}`}>{exp.company}</span>
+                          </div>
+                          <span className={`font-semibold text-slate-500 ${getFontSizeClass('meta')}`}>{exp.duration}</span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed pl-3 border-l border-slate-300 ${getFontSizeClass('body')}`}>
+                          {exp.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* PROJECTS */}
+                  <div className="space-y-2">
+                    <h3 className={`font-bold uppercase tracking-wide border-b border-slate-350 pb-0.5 text-slate-800 ${getFontSizeClass('section-heading')}`}>
+                      Projects
+                    </h3>
+                    {projects.map((proj, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <h4 className="font-bold text-slate-900">{proj.title}</h4>
+                          <span className={`text-slate-600 font-semibold italic ${getFontSizeClass('meta')}`}>
+                            ({proj.tech})
+                          </span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed ${getFontSizeClass('body')}`}>
+                          {proj.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* TECHNICAL SKILLS */}
+                  <div className="space-y-1">
+                    <h3 className={`font-bold uppercase tracking-wide border-b border-slate-350 pb-0.5 text-slate-800 ${getFontSizeClass('section-heading')}`}>
+                      Skills
+                    </h3>
+                    <p className={`leading-relaxed text-slate-750 font-medium ${getFontSizeClass('body')}`}>
+                      {skills || 'List your skills separated by commas...'}
+                    </p>
                   </div>
                 </div>
               </div>
+            )}
 
-              {/* TECHNICAL SKILLS */}
-              <div className="space-y-1.5">
-                <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
-                  Technical Core Skills
-                </h3>
-                <p className={`leading-relaxed text-slate-750 font-medium ${getFontSizeClass('body')}`}>
-                  {skills || 'List your skills separated by commas...'}
-                </p>
-              </div>
+            {/* Two-Column Creative Template */}
+            {selectedTemplate === 'creative' && (
+              <div className="h-full flex gap-5">
+                {/* Left Sidebar - 33% */}
+                <div className="w-[33%] bg-slate-50/50 -my-6 -ml-6 p-5 border-r border-slate-200/80 flex flex-col gap-4 text-[10.5px]">
+                  {photo && showPhoto && (
+                    <div className="text-center py-2 flex-shrink-0 select-none">
+                      <img src={photo} alt="Profile" className={`w-20 h-20 mx-auto rounded-2xl object-cover border-2 ${getLightAccentColor().replace('text', 'border')} shadow-sm`} />
+                    </div>
+                  )}
 
-              {/* EXPERIENCES */}
-              <div className="space-y-2">
-                <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
-                  Professional Experience
-                </h3>
-                {experiences.map((exp, i) => (
-                  <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h4 className="font-bold text-slate-900">{exp.role}</h4>
-                        <span className={`font-semibold text-slate-600 ${getFontSizeClass('meta')}`}>{exp.company}</span>
+                  {/* Sidebar Contact Info */}
+                  <div className="space-y-2">
+                    <span className={`font-extrabold uppercase tracking-wider text-[10px] block border-b border-slate-200 pb-0.5 ${getLightAccentColor()}`}>
+                      Contact Details
+                    </span>
+                    <div className="space-y-2 text-slate-750 font-medium select-text break-words">
+                      <div className="flex items-start gap-1.5">
+                        <span className="text-xs">📧</span>
+                        <span className="flex-1 leading-snug">{personalInfo.email}</span>
                       </div>
-                      <span className={`font-semibold text-slate-500 ${getFontSizeClass('meta')}`}>{exp.duration}</span>
+                      <div className="flex items-start gap-1.5">
+                        <span className="text-xs">📞</span>
+                        <span className="flex-1 leading-snug">{personalInfo.phone}</span>
+                      </div>
+                      {personalInfo.github && (
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-xs">💻</span>
+                          <span className="flex-1 leading-snug truncate">{personalInfo.github}</span>
+                        </div>
+                      )}
+                      {personalInfo.linkedin && (
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-xs">🔗</span>
+                          <span className="flex-1 leading-snug truncate">{personalInfo.linkedin}</span>
+                        </div>
+                      )}
                     </div>
-                    <p className={`text-slate-700 leading-relaxed pl-3 border-l-2 ${getLightAccentColor().replace('text', 'border') + '/30'} ${getFontSizeClass('body')}`}>
-                      {exp.desc}
+                  </div>
+
+                  {/* Sidebar Education */}
+                  <div className="space-y-2">
+                    <span className={`font-extrabold uppercase tracking-wider text-[10px] block border-b border-slate-200 pb-0.5 ${getLightAccentColor()}`}>
+                      Education
+                    </span>
+                    <div className="space-y-1 text-slate-750">
+                      <h4 className="font-extrabold text-slate-900 text-[10.5px] leading-tight">{education.school}</h4>
+                      <p className="text-[9.5px] font-semibold text-slate-550 italic leading-snug">{education.degree}</p>
+                      <div className="flex justify-between items-center text-[9px] pt-0.5">
+                        <span className="font-medium text-slate-500">{education.duration}</span>
+                        <span className={`font-bold ${getLightAccentColor()}`}>{education.gpa}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sidebar Skills */}
+                  <div className="space-y-2">
+                    <span className={`font-extrabold uppercase tracking-wider text-[10px] block border-b border-slate-200 pb-0.5 ${getLightAccentColor()}`}>
+                      Core Skills
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {(skills || '').split(',').map((skill, index) => {
+                        const trimmed = skill.trim();
+                        if (!trimmed) return null;
+                        return (
+                          <span key={index} className={`px-1.5 py-0.5 rounded text-[8.5px] font-bold ${getLightAccentBg().replace('bg', 'bg-opacity-10 bg')} ${getLightAccentColor()}`}>
+                            {trimmed}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Body Section - 67% */}
+                <div className="flex-1 flex flex-col gap-4">
+                  {/* Header Branding Row */}
+                  <div className="pb-2 border-b border-slate-150">
+                    <h2 className={`font-bold tracking-tight text-slate-900 ${getFontSizeClass('name')}`}>
+                      {personalInfo.name || 'Your Full Name'}
+                    </h2>
+                    <p className={`font-semibold uppercase tracking-wider text-slate-500 ${getFontSizeClass('title')}`}>
+                      {personalInfo.title || 'Target Job Title'}
                     </p>
                   </div>
-                ))}
-              </div>
 
-              {/* PROJECTS */}
-              <div className="space-y-2">
-                <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
-                  Academic & Technical Projects
-                </h3>
-                {projects.map((proj, i) => (
-                  <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
-                    <div className="flex justify-between items-start">
-                      <h4 className="font-bold text-slate-900">{proj.title}</h4>
-                      <span className={`font-mono bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold ${getFontSizeClass('meta')}`}>
-                        {proj.tech}
-                      </span>
-                    </div>
-                    <p className={`text-slate-700 leading-relaxed ${getFontSizeClass('body')}`}>
-                      {proj.desc}
-                    </p>
+                  {/* Experiences */}
+                  <div className="space-y-2.5">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Work Experience
+                    </h3>
+                    {experiences.map((exp, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="font-bold text-slate-900 leading-tight">{exp.role}</h4>
+                            <span className={`font-semibold text-slate-650 ${getFontSizeClass('meta')}`}>{exp.company}</span>
+                          </div>
+                          <span className={`font-semibold text-slate-500 ${getFontSizeClass('meta')}`}>{exp.duration}</span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed pl-2.5 border-l-2 ${getLightAccentColor().replace('text', 'border') + '/30'} ${getFontSizeClass('body')}`}>
+                          {exp.desc}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
 
-            </div>
+                  {/* Projects */}
+                  <div className="space-y-2.5">
+                    <h3 className={`font-extrabold uppercase tracking-widest border-b-2 border-slate-200 pb-0.5 ${getLightAccentColor()} ${getFontSizeClass('section-heading')}`}>
+                      Technical Projects
+                    </h3>
+                    {projects.map((proj, i) => (
+                      <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                        <div className="flex justify-between items-start">
+                          <h4 className="font-bold text-slate-900 leading-tight">{proj.title}</h4>
+                          <span className={`font-mono bg-slate-100 text-slate-600 px-1 py-0.5 rounded font-bold ${getFontSizeClass('meta')}`}>
+                            {proj.tech}
+                          </span>
+                        </div>
+                        <p className={`text-slate-700 leading-relaxed ${getFontSizeClass('body')}`}>
+                          {proj.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Bold Executive Template */}
+            {selectedTemplate === 'executive' && (
+              <div className="space-y-5">
+                {/* Header Details */}
+                <div className="flex items-center gap-4 border-b-2 border-slate-200 pb-4">
+                  {photo && showPhoto && (
+                    <div className="flex-shrink-0 select-none">
+                      <img src={photo} alt="Profile" className={`w-16 h-16 rounded-xl object-cover border-2 ${getLightAccentColor().replace('text', 'border')} shadow-sm`} />
+                    </div>
+                  )}
+                  <div className="text-left space-y-0.5 flex-1">
+                    <h2 className={`font-black tracking-tight text-slate-900 ${getFontSizeClass('name')}`}>
+                      {personalInfo.name || 'Your Full Name'}
+                    </h2>
+                    <p className={`font-extrabold uppercase tracking-widest text-[11px] ${getLightAccentColor()}`}>
+                      {personalInfo.title || 'Target Job Title'}
+                    </p>
+                    
+                    {/* Contacts Row */}
+                    <div className="flex flex-wrap gap-x-3.5 gap-y-1 text-[9.5px] text-slate-650 font-semibold pt-1 select-text">
+                      <span>📧 {personalInfo.email}</span>
+                      <span>📞 {personalInfo.phone}</span>
+                      {personalInfo.github && <span>💻 {personalInfo.github}</span>}
+                      {personalInfo.linkedin && <span>🔗 {personalInfo.linkedin}</span>}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Core Body Sections */}
+                <div className="space-y-5">
+                  {/* EDUCATION */}
+                  <div className="space-y-2">
+                    <h3 className={`font-extrabold uppercase tracking-wider pl-3 border-l-4 ${getLightAccentColor().replace('text', 'border')} ${getFontSizeClass('section-heading')}`}>
+                      Education Credentials
+                    </h3>
+                    <div className={`flex justify-between items-start pl-3 ${getFontSizeClass('body')}`}>
+                      <div>
+                        <h4 className="font-bold text-slate-900">{education.school}</h4>
+                        <p className={`text-slate-600 italic ${getFontSizeClass('meta')}`}>{education.degree}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className={`font-semibold text-slate-500 block ${getFontSizeClass('meta')}`}>{education.duration}</span>
+                        <span className={`font-bold ${getLightAccentColor()} uppercase ${getFontSizeClass('meta')}`}>{education.gpa}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* EXPERIENCES */}
+                  <div className="space-y-3">
+                    <h3 className={`font-extrabold uppercase tracking-wider pl-3 border-l-4 ${getLightAccentColor().replace('text', 'border')} ${getFontSizeClass('section-heading')}`}>
+                      Professional Experience
+                    </h3>
+                    <div className="space-y-3 pl-3">
+                      {experiences.map((exp, i) => (
+                        <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <h4 className="font-bold text-slate-900">{exp.role}</h4>
+                              <span className={`font-semibold text-slate-600 ${getFontSizeClass('meta')}`}>{exp.company}</span>
+                            </div>
+                            <span className={`font-semibold text-slate-500 ${getFontSizeClass('meta')}`}>{exp.duration}</span>
+                          </div>
+                          <p className={`text-slate-750 leading-relaxed ${getFontSizeClass('body')}`}>
+                            {exp.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* PROJECTS */}
+                  <div className="space-y-3">
+                    <h3 className={`font-extrabold uppercase tracking-wider pl-3 border-l-4 ${getLightAccentColor().replace('text', 'border')} ${getFontSizeClass('section-heading')}`}>
+                      Technical Projects
+                    </h3>
+                    <div className="space-y-3 pl-3">
+                      {projects.map((proj, i) => (
+                        <div key={i} className={`space-y-1 ${getFontSizeClass('body')}`}>
+                          <div className="flex justify-between items-start">
+                            <h4 className="font-bold text-slate-900">{proj.title}</h4>
+                            <span className={`font-mono bg-slate-100 text-slate-605 px-1.5 py-0.5 rounded font-bold ${getFontSizeClass('meta')}`}>
+                              {proj.tech}
+                            </span>
+                          </div>
+                          <p className={`text-slate-750 leading-relaxed ${getFontSizeClass('body')}`}>
+                            {proj.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* TECHNICAL SKILLS */}
+                  <div className="space-y-2">
+                    <h3 className={`font-extrabold uppercase tracking-wider pl-3 border-l-4 ${getLightAccentColor().replace('text', 'border')} ${getFontSizeClass('section-heading')}`}>
+                      Key Competencies
+                    </h3>
+                    <div className="pl-3">
+                      <p className={`leading-relaxed text-slate-750 font-medium ${getFontSizeClass('body')}`}>
+                        {skills || 'List your skills separated by commas...'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

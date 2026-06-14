@@ -5,450 +5,234 @@ import {
   HelpCircle, ArrowLeft, RefreshCw, X, MessageSquare, Maximize2, Minimize2, Copy, Flame, Loader2
 } from 'lucide-react';
 
-// ==========================================================================
-// HIGH-FIDELITY AKTU 8-SEMESTER SYLLABUS MAPPING (AUTHENTIC SUBJECT CODES)
-// ==========================================================================
-const ACADEMIC_DATA = {
-  aktu: {
-    name: "APJ Abdul Kalam Technical University (AKTU)",
-    logo: "🎓",
-    branches: {
-      cse: {
-        name: "Computer Science & Engineering",
-        semesters: {
-          1: [
-            { id: "phy", code: "KAS-101T", name: "Engineering Physics", weightage: "High (100 Marks)", difficulty: "Medium", books: ["Engineering Physics by Malik and Singh", "Introduction to Electrodynamics by David J. Griffiths"], weightageData: [{ unit: "Unit 1: Relativistic Mechanics", pct: 20 }, { unit: "Unit 2: Electromagnetic Theory", pct: 20 }, { unit: "Unit 3: Quantum Mechanics", pct: 20 }, { unit: "Unit 4: Wave Optics", pct: 20 }, { unit: "Unit 5: Fiber Optics & Laser", pct: 20 }] },
-            { id: "math1", code: "KAS-103T", name: "Engineering Mathematics-I", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Advanced Engineering Mathematics by E. Kreyszig", "Higher Engineering Mathematics by B.S. Grewal"], weightageData: [{ unit: "Unit 1: Matrices", pct: 20 }, { unit: "Unit 2: Differential Calculus-I", pct: 20 }, { unit: "Unit 3: Differential Calculus-II", pct: 20 }, { unit: "Unit 4: Multivariable Calculus", pct: 20 }, { unit: "Unit 5: Vector Calculus", pct: 20 }] },
-            { id: "bee", code: "KEE-101T", name: "Basic Electrical Engineering", weightage: "Medium (50 Marks)", difficulty: "Medium", books: ["Electrical Technology by B.L. Theraja", "Basic Electrical Engineering by D.P. Kothari"], weightageData: [{ unit: "Unit 1: DC Circuits", pct: 20 }, { unit: "Unit 2: AC Circuits", pct: 20 }, { unit: "Unit 3: Transformers", pct: 20 }, { unit: "Unit 4: Electrical Machines", pct: 20 }, { unit: "Unit 5: Electrical Installations", pct: 20 }] }
-          ],
-          2: [
-            { id: "chem", code: "KAS-201T", name: "Engineering Chemistry", weightage: "High (100 Marks)", difficulty: "Easy", books: ["Engineering Chemistry by Shashi Chawla", "Physical Chemistry by P.W. Atkins"], weightageData: [{ unit: "Unit 1: Atomic & Molecular Structure", pct: 20 }, { unit: "Unit 2: Spectroscopic Techniques", pct: 20 }, { unit: "Unit 3: Electrochemistry", pct: 20 }, { unit: "Unit 4: Water & Phase Rule", pct: 20 }, { unit: "Unit 5: Polymers", pct: 20 }] },
-            { id: "math2", code: "KAS-203T", name: "Engineering Mathematics-II", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Higher Engineering Mathematics by B.S. Grewal", "Advanced Engineering Mathematics by Peter V. O'Neil"], weightageData: [{ unit: "Unit 1: Ordinary Differential Equations", pct: 20 }, { unit: "Unit 2: Multivariable Calculus", pct: 20 }, { unit: "Unit 3: Laplace Transforms", pct: 20 }, { unit: "Unit 4: Fourier Series", pct: 20 }, { unit: "Unit 5: Z-Transforms", pct: 20 }] },
-            { id: "pps", code: "KCS-201T", name: "Programming for Problem Solving", weightage: "High (100 Marks)", difficulty: "Easy", books: ["Programming in ANSI C by E. Balagurusamy", "Let Us C by Yashavant Kanetkar"], weightageData: [{ unit: "Unit 1: Intro to Programming", pct: 20 }, { unit: "Unit 2: Branching Statements", pct: 20 }, { unit: "Unit 3: Loops", pct: 20 }, { unit: "Unit 4: Arrays & Strings", pct: 20 }, { unit: "Unit 5: Pointers & Structures", pct: 20 }] }
-          ],
-          3: [
-            {
-              id: "ds",
-              code: "KCS-301",
-              name: "Data Structures",
-              weightage: "High (100 Marks)",
-              difficulty: "Hard",
-              books: ["Data Structures using C by Aaron M. Tenenbaum", "Fundamentals of Data Structures by Ellis Horowitz"],
-              weightageData: [
-                { unit: "Unit 1: Arrays & Sparse Matrices", pct: 18 },
-                { unit: "Unit 2: Stacks & Queues", pct: 20 },
-                { unit: "Unit 3: Trees & BST", pct: 24 },
-                { unit: "Unit 4: Graphs & Traversal", pct: 20 },
-                { unit: "Unit 5: Sorting & Hashing", pct: 18 }
-              ],
-              units: [
-                {
-                  number: 1,
-                  title: "Introduction to Data Structures & Arrays",
-                  summary: "Dynamic memory allocation (malloc, calloc, free), asymptotic notations, multidimensional arrays address calculation, and sparse matrix triplet representation.",
-                  fullContent: `### UNIT 1: INTRODUCTION TO DATA STRUCTURES & ARRAYS
+import { ACADEMIC_DATA, SEMESTER_SYLLABUS_DATA, generateDynamicContent } from '../data/academicData';
 
-#### 1. Concept of Data Structures
-A data structure is a specialized format for organizing, processing, retrieving, and storing data. Data structures can be **Linear** (elements are sequential, e.g., Arrays, Linked Lists, Stacks, Queues) or **Non-Linear** (elements are hierarchical, e.g., Trees, Graphs).
-
-#### 2. Dynamic Memory Allocation in C
-Unlike static memory allocated at compile-time on the stack, dynamic memory is allocated at runtime on the heap. Key library functions in \`<stdlib.h>\` include:
-*   \`malloc(size_t size)\`: Allocates uninitialized memory of specified bytes. Returns a void pointer (\`void*\`).
-    \`\`\`c
-    int *arr = (int*) malloc(5 * sizeof(int));
-    \`\`\`
-*   \`calloc(num_elements, size_element)\`: Allocates memory and initializes all bits to zero.
-    \`\`\`c
-    int *arr = (int*) calloc(5, sizeof(int));
-    \`\`\`
-*   \`realloc(ptr, new_size)\`: Resizes previously allocated block dynamically.
-*   \`free(ptr)\`: Deallocates the heap block back to the OS memory pool to avoid **Memory Leaks**.
-
-#### 3. Asymptotic Notations
-Used to describe the running time or space efficiency of algorithms:
-1.  **Big-O (O)**: Represents the **Worst-Case** asymptotic upper bound.
-2.  **Omega (Ω)**: Represents the **Best-Case** asymptotic lower bound.
-3.  **Theta (Θ)**: Represents the **Average-Case** tight bounding.
-
-#### 4. Multidimensional Arrays & Address Calculation
-For a 2D array \`A[Row][Col]\` with element size \`W\` bytes:
-*   **Row Major Order (RMO)**: Stores row-by-row.
-    $$\\text{Address}(A[i][j]) = \\text{Base} + W \\times [(i - L_r) \\times C + (j - L_c)]$$
-    *(where $L_r, L_c$ are lower bounds of rows and columns, $C$ is total columns)*
-*   **Column Major Order (CMO)**: Stores column-by-column.
-    $$\\text{Address}(A[i][j]) = \\text{Base} + W \\times [(j - L_c) \\times R + (i - L_r)]$$
-    *(where $R$ is total rows)*
-
-#### 5. Sparse Matrices
-A matrix in which the majority of elements are zero is a **Sparse Matrix**. Storing standard 2D grids for sparse data wastes enormous RAM.
-*   **Triplet Representation**: Uses a $N \\times 3$ matrix where:
-    *   Row 0 stores: \`[Total Rows, Total Columns, Total Non-Zero Values]\`
-    *   Each subsequent row stores: \`[Row Index, Column Index, Non-Zero Value]\`
-*   **Compressed Sparse Row (CSR)**: Uses three 1D arrays: Values, Column Indices, and Row Pointers to compress zero spaces.
-
----
-*Nexora AI Pro-Tip: Address calculations carry a recurring 10-mark question in Section C. Be thorough with RMO/CMO numerical practice.*`
-                },
-                {
-                  number: 2,
-                  title: "Stacks and Queues",
-                  summary: "LIFO vs FIFO properties, stack operations, infix to postfix parsing algorithm, circular queues full/empty conditions, and double-ended queues (Deques).",
-                  fullContent: `### UNIT 2: STACKS AND QUEUES
-
-#### 1. Stack: LIFO (Last In First Out)
-A Stack is a linear collection restricting insertions and deletions to a single end called the **Top**.
-*   **Core Operations**:
-    *   \`Push(item)\`: Adds element to top. Overflow if \`top == MAX - 1\`.
-    *   \`Pop()\`: Removes top element. Underflow if \`top == -1\`.
-    *   \`Peek()\`: Examines top element without removing it.
-
-#### 2. Expressions Parsing via Stack
-Stacks are heavily used in compilers to evaluate arithmetic notations:
-*   **Infix**: Operand Operator Operand (e.g., \`A + B\`)
-*   **Prefix**: Operator Operand Operand (e.g., \`+ A B\`)
-*   **Postfix (RPN)**: Operand Operand Operator (e.g., \`A B +\`)
-
-**Infix-to-Postfix Algorithm**:
-1. Scan the infix string from left to right.
-2. If operand, output it.
-3. If '(' push to stack. If ')' pop and output until '(' is met.
-4. If operator, pop and output operators of greater or equal precedence, then push current operator to stack.
-
-#### 3. Queue: FIFO (First In First Out)
-A linear list where insertions occur at the **Rear** and deletions occur at the **Front**.
-*   **Linear Queue Drawback**: When rear reaches the max capacity, enqueue fails even if front has moved forward, wasting front index vacancies.
-*   **Circular Queue solution**:
-    Connects the last slot back to the first.
-    *   Enqueue: \`rear = (rear + 1) % MAX\`
-    *   Dequeue: \`front = (front + 1) % MAX\`
-    *   **Full Condition**: \`(rear + 1) % MAX == front\`
-    *   **Empty Condition**: \`front == -1\`
-
-#### 4. Deque (Double Ended Queue)
-A queue allowing enqueue and dequeue at both front and rear ends. Can be input-restricted or output-restricted.`
-                }
-              ],
-              pyqs: [
-                {
-                  year: "2023-24",
-                  duration: "3 Hours",
-                  sections: {
-                    a: [
-                      { q: "What is a linear data structure? Give two examples.", a: "A data structure is linear if its elements form a sequential, continuous sequence. Each node (except boundaries) has a single predecessor and successor. Examples include Stacks, Queues, and Linked Lists." },
-                      { q: "Why do we use asymptotic notations in algorithm analysis?", a: "Asymptotic notations (Big-O, Omega, Theta) analyze algorithm efficiency relative to input size without relying on hardware configurations, system load, or compiler efficiency. They capture standard mathematical time and space growth rates." },
-                      { q: "Define sparse matrix and its dynamic representation.", a: "A sparse matrix contains a high percentage of zero values. To save memory, it's represented dynamically using a Triplet Array [Row, Column, Value] containing only non-zero elements, or via a Compressed Sparse Row (CSR) linked structure." },
-                      { q: "Explain the circular queue data structure and its advantages over linear queues.", a: "A circular queue connects the final index back to the starting index in a circle. In linear queues, once Rear reaches capacity, insertion fails even if elements are dequeued at Front. Circular queues resolve this space wastage by using modulo arithmetic: `rear = (rear + 1) % MAX`." },
-                      { q: "What is a height-balanced AVL tree?", a: "An AVL tree is a self-balancing Binary Search Tree where the Balance Factor (BF) of any node, calculated as `Height(Left Subtree) - Height(Right Subtree)`, is strictly constrained to -1, 0, or +1. Balance is restored using tree rotations during insertions/deletions." }
-                    ],
-                    b: [
-                      { 
-                        q: "Explain AVL tree rotation techniques. Show how a RL rotation is performed with an example step-by-step.", 
-                        a: "AVL tree balancing relies on four rotations: Single Left (RR), Single Right (LL), Double Left-Right (LR), and Double Right-Left (RL).\n\n**Right-Left (RL) Rotation** is triggered when a node is unbalanced by an insertion in the left subtree of its right child. It consists of a right rotation on the right child followed by a left rotation on the unbalanced grandparent node.\n\n*Example*:\nInsert 15 into tree with nodes: 10 (root), 20 (right child of 10). Node 20 gets left child 15. The tree has nodes: 10 -> 20 -> 15 (left subtree of 20). Height of right subtree of 10 is 2, height of left subtree of 10 is 0. BF of 10 = -2 (unbalanced).\n- **Step 1 (Right Rotation on right child 20)**: Nodes 20 and 15 rotate right. Node 15 becomes right child of 10, node 20 becomes right child of 15.\n- **Step 2 (Left Rotation on grandparent 10)**: Root node 10 rotates left around node 15. Node 15 becomes the new root, with 10 as its left child and 20 as its right child. The resulting tree is balanced, and all BFs are 0!" 
-                      }
-                    ],
-                    c: []
-                  }
-                }
-              ],
-              quantum: [
-                {
-                  unit: 1,
-                  title: "Arrays & Sparse Matrices",
-                  qas: [
-                    {
-                      q: "Explain the difference between Row Major and Column Major Order representations of a 2D array. Derive the address calculation formula for RMO. (Asked in AKTU 2019, 2021, 2023) [Highly Repeated]",
-                      a: "Row Major Order (RMO) and Column Major Order (CMO) are methods to flatten a multi-dimensional array into 1D contiguous RAM memory.\n\n- **Row Major Order**: Elements are stored row-by-row. Element $A[0][0]$ is followed by $A[0][1]$, then $A[0][2]$, and so on. Once a row finishes, storage moves to the start of the next row.\n- **Column Major Order**: Elements are stored column-by-column. Element $A[0][0]$ is followed by $A[1][0]$, then $A[2][0]$, and so on.\n\n**RMO Address Derivation**:\nLet $A[Row][Col]$ be a 2D array with lower bounds $L_r, L_c$ and size of each element $W$ bytes. To calculate the address of $A[i][j]$:\n1. We must skip all preceding $(i - L_r)$ rows. Each row contains $C$ (total columns) elements.\n2. So, total elements skipped in preceding rows = $(i - L_r) \\times C$.\n3. In the current row, we must move $(j - L_c)$ columns ahead.\n4. Total elements skipped = $[(i - L_r) \\times C] + (j - L_c)$.\n5. Multiplied by element weight $W$ and adding Base memory address:\n$$\\text{Address}(A[i][j]) = \\text{Base} + W \\times [(i - L_r) \\times C + (j - L_c)]$$"
-                    }
-                  ]
-                }
-              ]
-            },
-            { id: "dms", code: "KCS-303", name: "Discrete Mathematics", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Discrete Mathematical Structures by Bernard Kolman", "Discrete Mathematics and its Applications by Kenneth H. Rosen"], weightageData: [{ unit: "Unit 1: Sets & Logic", pct: 20 }, { unit: "Unit 2: Algebraic Structures", pct: 20 }, { unit: "Unit 3: Lattices & Boolean Algebra", pct: 20 }, { unit: "Unit 4: Propositional Logic", pct: 20 }, { unit: "Unit 5: Graph Theory", pct: 20 }] },
-            { id: "css", code: "KNC-301", name: "Computer System Security", weightage: "Medium (50 Marks)", difficulty: "Easy", books: ["Computer Security Principles and Practice by William Stallings"], weightageData: [{ unit: "Unit 1: Intro to Security", pct: 20 }, { unit: "Unit 2: Basic Cryptography", pct: 20 }, { unit: "Unit 3: Network Security", pct: 20 }, { unit: "Unit 4: Access Control Systems", pct: 20 }, { unit: "Unit 5: Policies & Auditing", pct: 20 }] }
-          ],
-          4: [
-            {
-              id: "os",
-              code: "KCS-401",
-              name: "Operating Systems",
-              weightage: "High (100 Marks)",
-              difficulty: "Medium",
-              books: ["Operating System Concepts by Silberschatz, Galvin, and Gagne", "Modern Operating Systems by Andrew S. Tanenbaum"],
-              weightageData: [
-                { unit: "Unit 1: Introduction & System Calls", pct: 15 },
-                { unit: "Unit 2: CPU Scheduling & Threads", pct: 25 },
-                { unit: "Unit 3: Synchronization & Deadlocks", pct: 25 },
-                { unit: "Unit 4: Memory Management & Paging", pct: 20 },
-                { unit: "Unit 5: File Systems & Disk Scheduling", pct: 15 }
-              ],
-              units: [
-                {
-                  number: 1,
-                  title: "Introduction to OS and System Calls",
-                  summary: "OS functions, kernels (micro vs monolithic), process structures, user and system mode, and common system calls.",
-                  fullContent: `### UNIT 1: INTRODUCTION TO OS AND SYSTEM CALLS
-
-#### 1. What is an Operating System?
-An Operating System (OS) is software that acts as an intermediary between user applications and the physical hardware, managing processor, memory, and devices.
-
-#### 2. Monolithic vs Microkernel Architectures
-*   **Monolithic Kernel**: Runs all system services (file system, drivers, virtual memory) in a single address space in supervisor mode. High performance but fragile (a single driver crash crashes the system).
-*   **Microkernel**: Minimalist design running only core services (IPC, basic memory, scheduling) in kernel space. Drivers and filesystem run in user space. High modularity and crash resilience, but communication overhead is high.
-
-#### 3. Dual-Mode Operation
-*   **User Mode (Mode Bit = 1)**: Restrictions on accessing physical registers and device controls. Protects system memory integrity.
-*   **Kernel/Privileged Mode (Mode Bit = 0)**: Full direct hardware execution rights.
-
----
-*Nexora AI Pro-Tip: Memorize the fork() system call behavior. A favorite for 2-mark dry-run outputs in Section A.*`
-                }
-              ],
-              pyqs: [
-                {
-                  year: "2023-24",
-                  duration: "3 Hours",
-                  sections: {
-                    a: [
-                      { q: "Define a system call. Give two examples.", a: "A system call is a programmatic interface that allows a user-level application to request services directly from the operating system's kernel. Examples: `fork()` for process creation, and `read()` for file operations." }
-                    ],
-                    b: [],
-                    c: []
-                  }
-                }
-              ],
-              quantum: [
-                {
-                  unit: 1,
-                  title: "Monolithic vs Microkernels",
-                  qas: [
-                    {
-                      q: "Differentiate between Monolithic and Microkernel operating systems. Highlight their key advantages and trade-offs. (Asked in AKTU 2018, 2021, 2023) [Highly Repeated]",
-                      a: "**Monolithic Kernel**:\n- Runs all operating system services (Virtual Memory, Scheduler, File System, Device Drivers) together in supervisor/kernel mode inside a single address space.\n- *Advantages*: Extremely fast execution speeds due to direct, function-call-based IPC.\n- *Trade-offs*: Low stability; a single bug in a device driver can crash the entire operating system kernel.\n\n**Microkernel**:\n- Strips the kernel down to bare essentials (low-level CPU scheduling, IPC, memory mapping). Runs all other services (drivers, filesystem) as user-space processes.\n- *Advantages*: Highly modular, secure, and crash-resilient. If a driver crashes, it can be restarted dynamically in user space without affecting the core kernel.\n- *Trade-offs*: Slower execution speed because every kernel request requires expensive Inter-Process Communication (IPC) message parsing across user and kernel modes."
-                    }
-                  ]
-                }
-              ]
-            },
-            { id: "micro", code: "KCS-402", name: "Microprocessor & Interfacing", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Microprocessor Architecture, Programming and Applications with the 8085 by Ramesh Gaonkar"], weightageData: [{ unit: "Unit 1: 8085 Architecture", pct: 20 }, { unit: "Unit 2: 8085 Programming", pct: 20 }, { unit: "Unit 3: Interfacing & Timings", pct: 20 }, { unit: "Unit 4: Peripheral Chips", pct: 20 }, { unit: "Unit 5: 8086 Microprocessor", pct: 20 }] },
-            { id: "automata", code: "KCS-403", name: "Theory of Automata & Formal Languages", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Introduction to Automata Theory, Languages and Computation by Hopcroft, Motwani, and Ullman"], weightageData: [{ unit: "Unit 1: Finite Automata", pct: 20 }, { unit: "Unit 2: Regular Expressions", pct: 20 }, { unit: "Unit 3: Context Free Grammars", pct: 20 }, { unit: "Unit 4: Pushdown Automata", pct: 20 }, { unit: "Unit 5: Turing Machines", pct: 20 }] }
-          ],
-          5: [
-            {
-              id: "dbms",
-              code: "KCS-501",
-              name: "Database Management Systems",
-              weightage: "High (100 Marks)",
-              difficulty: "Medium",
-              books: ["Database System Concepts by Korth, Silberschatz, and Sudarshan", "Fundamentals of Database Systems by Elmasri and Navathe"],
-              weightageData: [
-                { unit: "Unit 1: ER Model & Relational Algebra", pct: 20 },
-                { unit: "Unit 2: SQL Queries & DDL/DML", pct: 20 },
-                { unit: "Unit 3: Normalization & Keys", pct: 25 },
-                { unit: "Unit 4: Transaction & Concurrency", pct: 20 },
-                { unit: "Unit 5: Indexing & Crash Recovery", pct: 15 }
-              ],
-              units: [
-                {
-                  number: 3,
-                  title: "Normalization & Functional Dependencies",
-                  summary: "Functional dependencies definition, candidate key search algorithms, anomaly scopes, 1NF, 2NF, 3NF, and Boyce-Codd Normal Form (BCNF) decomposition rules.",
-                  fullContent: `### UNIT 3: NORMALIZATION & FUNCTIONAL DEPENDENCIES
-
-#### 1. Why Normalization?
-Normalization organizes the relational database columns to minimize **Redundancy** (repeated data entry) and prevent **Update Anomalies** (Insertion, Deletion, and Update irregularities).
-
----
-*Nexora AI Pro-Tip: Normalization decomposition and finding Candidate Keys using closure sets ($A^+$) represents a highly repeating 10-mark numeric question in Section B. Be ready.*`
-                }
-              ],
-              pyqs: [
-                {
-                  year: "2023-24",
-                  duration: "3 Hours",
-                  sections: {
-                    a: [
-                      { q: "Explain ACID properties in transactions.", a: "ACID properties ensure transaction reliability in databases:\n- **Atomicity**: All or nothing execution.\n- **Consistency**: Transition from one valid consistent state to another.\n- **Isolation**: Concurrent runs don't interfere.\n- **Durability**: Successful modifications persist in non-volatile memory." }
-                    ],
-                    b: [],
-                    c: []
-                  }
-                }
-              ],
-              quantum: [
-                {
-                  unit: 3,
-                  title: "Candidate Keys & Normalization",
-                  qas: [
-                    {
-                      q: "Formulate the algorithm for finding the Candidate Key of a relation. Trace for R(A, B, C, D, E) with FDs = {A->B, C->D, AC->E}. (Asked in AKTU 2018, 2021, 2023) [Highly Repeated]",
-                      a: "**Candidate Key Discovery Algorithm**:\n1. Separate attributes into three sets:\n   - **L**: Attributes appearing only on the Left side of functional dependencies.\n   - **R**: Attributes appearing only on the Right side of functional dependencies.\n   - **M**: Attributes appearing on Both or Neither sides.\n2. Calculate the closure of **L** (along with elements of **M** as necessary). If the closure yields all attributes of the relation, **L** is the unique Candidate Key.\n\n**Tracing for R(A, B, C, D, E)**:\nFDs: $A \\rightarrow B$, $C \\rightarrow D$, $AC \\rightarrow E$.\n- Left-side elements (essential to Candidate Key): $A, C$\n- Closure of $\{AC\}$:\n  - $(AC)^+ = \\{A, C\\} \\implies \\{A, B, C\\} \\implies \\{A, B, C, D\\} \\implies \\{A, B, C, D, E\\}$\nSince $(AC)^+$ contains all relation attributes, **AC** is the unique Candidate Key."
-                    }
-                  ]
-                }
-              ]
-            },
-            { id: "compiler", code: "KCS-502", name: "Compiler Design", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Compilers: Principles, Techniques, and Tools by Aho, Lam, Sethi, and Ullman"], weightageData: [{ unit: "Unit 1: Lexical Analysis", pct: 20 }, { unit: "Unit 2: Parsing Techniques", pct: 20 }, { unit: "Unit 3: Syntax Directed Translation", pct: 20 }, { unit: "Unit 4: Code Generation", pct: 20 }, { unit: "Unit 5: Code Optimization", pct: 20 }] },
-            { id: "algo", code: "KCS-503", name: "Design & Analysis of Algorithms", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Introduction to Algorithms by Thomas H. Cormen"], weightageData: [{ unit: "Unit 1: Intro & Sorting Complexity", pct: 20 }, { unit: "Unit 2: Greedy & MST", pct: 20 }, { unit: "Unit 3: Dynamic Programming", pct: 20 }, { unit: "Unit 4: Backtracking & Bound", pct: 20 }, { unit: "Unit 5: NP-Completeness Models", pct: 20 }] }
-          ],
-          6: [
-            { id: "se", code: "KCS-601", name: "Software Engineering", weightage: "High (100 Marks)", difficulty: "Medium", books: ["Software Engineering: A Practitioner's Approach by Roger S. Pressman"], weightageData: [{ unit: "Unit 1: SDLC Process Models", pct: 20 }, { unit: "Unit 2: Requirements Analysis", pct: 20 }, { unit: "Unit 3: Architecture & Design", pct: 20 }, { unit: "Unit 4: Software Testing", pct: 20 }, { unit: "Unit 5: Project Management", pct: 20 }] },
-            { id: "cn", code: "KCS-603", name: "Computer Networks", weightage: "High (100 Marks)", difficulty: "Medium", books: ["Computer Networks by Andrew S. Tanenbaum", "Data Communications and Networking by Behrouz A. Forouzan"], weightageData: [{ unit: "Unit 1: Physical & Data Link", pct: 20 }, { unit: "Unit 2: Media Access & Ethernet", pct: 20 }, { unit: "Unit 3: Network Layer routing", pct: 20 }, { unit: "Unit 4: Transport Protocols", pct: 20 }, { unit: "Unit 5: Application protocols", pct: 20 }] },
-            { id: "web", code: "KIT-601", name: "Web Technology", weightage: "High (100 Marks)", difficulty: "Medium", books: ["Web Technologies by Uttam K. Roy"], weightageData: [{ unit: "Unit 1: HTML & CSS Stylings", pct: 20 }, { unit: "Unit 2: Core Javascript & DOM", pct: 20 }, { unit: "Unit 3: Backend Node & Express", pct: 20 }, { unit: "Unit 4: Databases Integrations", pct: 20 }, { unit: "Unit 5: React Framework basics", pct: 20 }] }
-          ],
-          7: [
-            { id: "ai", code: "KCS-701", name: "Artificial Intelligence", weightage: "High (100 Marks)", difficulty: "Medium", books: ["Artificial Intelligence: A Modern Approach by Stuart Russell"], weightageData: [{ unit: "Unit 1: AI & Intelligent Agents", pct: 20 }, { unit: "Unit 2: Heuristic Search", pct: 20 }, { unit: "Unit 3: Logic & Knowledge", pct: 20 }, { unit: "Unit 4: Neural Networks", pct: 20 }, { unit: "Unit 5: NLP Applications", pct: 20 }] },
-            { id: "dsys", code: "KCS-071", name: "Distributed Systems", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Distributed Systems: Principles and Paradigms by Tanenbaum"], weightageData: [{ unit: "Unit 1: System Architectures", pct: 20 }, { unit: "Unit 2: Clocks & Synchronization", pct: 20 }, { unit: "Unit 3: Consensus Protocols", pct: 20 }, { unit: "Unit 4: Distributed File Access", pct: 20 }, { unit: "Unit 5: Shared Memory Models", pct: 20 }] },
-            { id: "cloud", code: "KCS-072", name: "Cloud Computing", weightage: "Medium (50 Marks)", difficulty: "Easy", books: ["Cloud Computing: Principles and Paradigms by Rajkumar Buyya"], weightageData: [{ unit: "Unit 1: Cloud Service Models", pct: 20 }, { unit: "Unit 2: Virtualization Technology", pct: 20 }, { unit: "Unit 3: Infrastructure IaaS/PaaS", pct: 20 }, { unit: "Unit 4: Cloud Data Storage", pct: 20 }, { unit: "Unit 5: Security Configurations", pct: 20 }] }
-          ],
-          8: [
-            { id: "dl", code: "KCS-801", name: "Deep Learning", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville"], weightageData: [{ unit: "Unit 1: Deep Nets & Backprop", pct: 20 }, { unit: "Unit 2: CNN Architectures", pct: 20 }, { unit: "Unit 3: Recurrent Nets & LSTMs", pct: 20 }, { unit: "Unit 4: Attention & Transformers", pct: 20 }, { unit: "Unit 5: Generative Models (GANs)", pct: 20 }] },
-            { id: "nlp", code: "KCS-081", name: "Natural Language Processing", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Speech and Language Processing by Daniel Jurafsky and James H. Martin"], weightageData: [{ unit: "Unit 1: Tokenization & POS Tagging", pct: 20 }, { unit: "Unit 2: Lexical Embeddings", pct: 20 }, { unit: "Unit 3: Sequence Attention Models", pct: 20 }, { unit: "Unit 4: LLMs & Tuning", pct: 20 }, { unit: "Unit 5: Machine Translation", pct: 20 }] },
-            { id: "crypto", code: "KCS-082", name: "Cyber Security & Cryptography", weightage: "Medium (50 Marks)", difficulty: "Medium", books: ["Cryptography and Network Security by Behrouz A. Forouzan"], weightageData: [{ unit: "Unit 1: Cryptographic Algorithms", pct: 20 }, { unit: "Unit 2: Public Key Infrastructure", pct: 20 }, { unit: "Unit 3: IoT & Wireless Defenses", pct: 20 }, { unit: "Unit 4: Big Data Analytics Security", pct: 20 }, { unit: "Unit 5: Blockchain & Smart Contracts", pct: 20 }] }
-          ]
-        }
-      },
-      it: {
-        name: "Information Technology",
-        semesters: {
-          3: [
-            { id: "ds_it", code: "KCS-301", name: "Data Structures", weightage: "High (100 Marks)", difficulty: "Hard", books: ["Data Structures using C by Aaron M. Tenenbaum"], weightageData: [{ unit: "Unit 1: Arrays", pct: 20 }, { unit: "Unit 2: Stacks/Queues", pct: 20 }, { unit: "Unit 3: Trees", pct: 20 }, { unit: "Unit 4: Graphs", pct: 20 }, { unit: "Unit 5: Sorting/Hashing", pct: 20 }] }
-          ]
-        }
-      },
-      ece: { name: "Electronics & Communication", semesters: {} },
-      ee: { name: "Electrical Engineering", semesters: {} }
-    }
-  },
-  dtu: { name: "Delhi Technological University (DTU)", logo: "🏫", branches: {} },
-  mu: { name: "Mumbai University (MU)", logo: "🕌", branches: {} }
-};
-
-// ==========================================================================
-// DYNAMIC OFFLINE ACADEMIC RESOURCE COMPILING ENGINE
-// ==========================================================================
-const generateDynamicContent = (subject) => {
-  const code = subject.code;
-  const name = subject.name;
-  
-  // Generating Units
-  const units = [];
-  const topicsMap = {
-    "Engineering Physics": ["Relativistic Mechanics & Lorentz Transformations", "Electromagnetic Field Theory & Maxwell Equations", "Quantum Mechanics & Wave Equations", "Wave Optics & Interference", "Fiber Optics & Laser Engineering"],
-    "Engineering Mathematics-I": ["Matrices & Linear Algebra", "Differential Calculus-I", "Differential Calculus-II", "Multivariable Calculus", "Vector Calculus"],
-    "Basic Electrical Engineering": ["DC Network Theorems & Circuit Analysis", "Steady-State Analysis of Single Phase AC Circuits", "Three Phase AC Circuits", "Transformers & Induction Motors", "Electrical Installations & Switchgears"],
-    "Engineering Chemistry": ["Atomic and Molecular Structure", "Spectroscopic Techniques and Applications", "Electrochemistry and Corrosion", "Water Chemistry & Phase Rule", "Polymers and Green Chemistry"],
-    "Engineering Mathematics-II": ["Ordinary Differential Equations of First Order", "Multivariable Calculus & Partial Derivatives", "Laplace Transforms & Applications", "Fourier Series & Integrals", "Z-Transforms & Difference Equations"],
-    "Programming for Problem Solving": ["Introduction to Programming & Flowcharts", "Arithmetic Expressions & Conditional Branching", "Loops & Control Statements", "Arrays & String Operations", "Functions, Structures & Pointers in C"],
-    "Computer System Security": ["Introduction to Security & Cryptography Principles", "Vulnerabilities, Threat Vectors & Exploits", "Authentication & Access Control Frameworks", "Firewalls, Intrusion Detection & Network Defenses", "Security Policies & Legal Compliance Regulations"],
-    "Discrete Mathematics": ["Set Theory, Relations & Functions", "Mathematical Logic & Propositional Calculus", "Algebraic Structures & Group Theory", "Lattices & Boolean Algebra", "Combinatorics & Graph Theory Principles"],
-    "Microprocessor & Interfacing": ["8085 Microprocessor Architecture & Registers", "8085 Assembly Language Instructions", "Memory Interfacing & System Timing Charts", "Peripheral Interfacing (8255, 8259, 8254)", "Introduction to 8086 16-Bit Microprocessor"],
-    "Theory of Automata & Formal Languages": ["Finite Automata & Regular Expressions", "Regular Languages & Pumping Lemma", "Context-Free Grammars & Simplifications", "Pushdown Automata & Context-Free Languages", "Turing Machines & Undecidability Theory"],
-    "Compiler Design": ["Lexical Analysis & Finite Automata Models", "Syntax Analysis & Bottom-Up Parsing Techniques", "Syntax-Directed Translation & Attribute Grammars", "Intermediate Code Generation Schemes", "Code Optimization & Target Code Generation"],
-    "Design & Analysis of Algorithms": ["Divide & Conquer Algorithms Complexity", "Greedy Methodologies & Spanning Trees", "Dynamic Programming & Matrix Multiplication", "Backtracking & Branch-and-Bound Paradigms", "NP-Completeness, NP-Hard & Approximation"],
-    "Software Engineering": ["Software Process Models & Agile Methods", "Software Requirements Engineering & Analysis", "Software Architecture & System Design Designs", "Software Testing Strategies & Metrics", "Software Project Management & Quality Control"],
-    "Computer Networks": ["Physical & Data Link Layers Protocols", "Medium Access Control & Ethernet Standards", "Network Layer routing & IP Address Structures", "Transport Layer TCP/IP Protocols & Congestion", "Application Layer DNS, SMTP, HTTP Protocols"],
-    "Web Technology": ["HTML5 structural layouts and CSS3 stylings", "Core Javascript and Document Object Models", "Backend Development with Node.js and Express", "Database Integrations with MongoDB and MySQL", "Modern Web Frameworks React and Security"],
-    "Artificial Intelligence": ["Introduction to AI & Intelligent Agent Architectures", "Uninformed & Informed Search Techniques", "Knowledge Representation & Propositional Logic", "Machine Learning & Artificial Neural Networks", "Natural Language Processing & Expert Systems"],
-    "Distributed Systems": ["Distributed System Architectures & Models", "Logical Clocks & Mutual Exclusion Algorithms", "Consensus & Fault-Tolerance Protocols", "Distributed File Systems & File Access", "Distributed Shared Memory & Security Policies"],
-    "Cloud Computing": ["Introduction to Cloud Service Models", "Virtualization Technologies & Hypervisors", "Cloud Infrastructure Provisioning (IaaS, PaaS)", "Cloud Storage Systems & Data Management", "Cloud Security Policies & AWS/Azure Frameworks"],
-    "Deep Learning": ["Deep Neural Networks & Backpropagation math", "Convolutional Neural Networks (CNNs)", "Recurrent Neural Networks (RNNs) & LSTMs", "Transformers & Attention Mechanism Frameworks", "Generative Adversarial Networks (GANs) & VAEs"],
-    "Natural Language Processing": ["Text Processing, Tokenization & Regex", "Syntactic Parsing & Part-of-Speech Tagging", "Lexical Semantics & Word Embeddings (Word2Vec)", "Sequence-to-Sequence Models & Attention", "Large Language Models & Prompt Engineering"],
-    "Cyber Security & Cryptography": ["Cryptographic Algorithms & Ciphers", "Public Key Infrastructure & Signatures", "IoT & Wireless Security Protocols", "Big Data Analytics & Auditing Frameworks", "Blockchain Technology & Smart Contracts"]
-  };
-
-  const selectedTopics = topicsMap[name] || [
-    "Unit Module Foundation & Core Theoretical Frameworks",
-    "Advanced System Configurations & Engineering Architectures",
-    "Analytical Derivations & Design Methodologies",
-    "Complexity Analysis, Optimization & Performance Metrics",
-    "Real-World Implementations, Security Protocols & Case Studies"
-  ];
-
-  selectedTopics.forEach((topicName, idx) => {
-    units.push({
-      number: idx + 1,
-      title: topicName,
-      summary: `Meticulously covers fundamental and advanced aspects of ${topicName}. Includes core definitions, structural architectures, and repeated university boards numerical derivations.`,
-      fullContent: `### UNIT ${idx + 1}: ${topicName.toUpperCase()}
-
-#### 1. Core Foundational Concepts of ${topicName}
-Detailed examination of the fundamental principles underlying **${topicName}**. Standard university curricula emphasize the necessity of maintaining robust architectural structures and mathematically proven algorithms to resolve modern engineering challenges.
-
-#### 2. Key Academic Definitions & Theorems
-*   **Fundamental Definition**: Establishing standard metrics to compile system data.
-*   **Core Theorem**: Analyzing boundaries relative to input configurations.
-*   **Architectural Model**: Visual representation of the data and control flow pathways.
-
-#### 3. Mathematical Formulations & Derivations
-For any standard system configuration $S$ processing workload $W$:
-$$\\text{Efficiency}(S) = \\frac{\\text{Completed Transactions}(W)}{\\text{Time Delay} \\times \\text{Energy Overhead}}$$
-Where:
-- Completed Transactions represents total computational load completed successfully.
-- Time Delay tracks the processor cycles from initialization to output.
-- Energy Overhead calculates thermal and memory footprints in watts.
-
----
-*Nexora AI Pro-Tip: Be thorough with the mathematical proofs in this unit, as they carry a recurring 10-mark weightage in Section C.*`
-    });
-  });
-
-  // Solved PYQ
-  const pyqs = [
-    {
-      year: "2023-24",
-      duration: "3 Hours",
-      sections: {
-        a: [
-          { q: `What is the primary objective of studying ${name}?`, a: `The primary objective of ${name} is to establish structured methods, mathematical frameworks, and architectural principles to analyze and solve complex problems in engineering and computer applications.` },
-          { q: `Define the core parameters of ${code}.`, a: `The core parameters of ${code} are defined by the standard board curriculum, focusing on modularity, operational efficiency, resource optimization, and architectural reliability.` },
-          { q: "State the mathematical formula used to calculate system efficiency.", a: "System efficiency is calculated as: $\\text{Efficiency} = \\frac{\\text{Useful Work Done}}{\\text{Total Resource Consumption}} \\times 100\\%$. This determines operational overhead." },
-          { q: "Explain the difference between static and dynamic structures.", a: "Static structures allocate memory at compile-time on the stack, which is faster but size-restricted. Dynamic structures allocate memory at runtime on the heap, which is flexible but has pointer overhead." },
-          { q: "Define the worst-case time complexity boundary.", a: "The worst-case complexity (Big-O) represents the mathematical upper bound of resources (time/space) consumed by an algorithm for an input of size N in the most unfavorable scenario." }
-        ],
-        b: [
-          {
-            q: `Explain the step-by-step implementation methodology for ${name}. Describe its benefits.`,
-            a: `Implementing **${name}** requires a structured, multi-phase engineering methodology:\n\n1. **Requirements Gathering & Formal Specifications**: Establishing the mathematical bounds and physical limitations of the system.\n2. **Architectural Modelling**: Constructing clear data-flow diagrams and entity relationships.\n3. **Detailed Mathematical Derivation**: Formulating the performance equations to predict output metrics.\n4. **Optimization Phase**: Applying dynamic programming or greedy adjustments to eliminate bottlenecks.\n5. **Verification & Testing**: Validating the operational correctness under edge-case inputs.\n\n**Core Benefits**:\n- **Resource Efficiency**: Maximizes hardware and software throughput.\n- **Scalability**: Allows systems to expand effortlessly with growing user demands.\n- **Maintainability**: Clear division of concerns facilitates straightforward updates.`
-          }
-        ],
-        c: []
-      }
-    }
-  ];
-
-  // Quantum Series
-  const quantum = [
-    {
-      unit: 1,
-      title: selectedTopics[0],
-      qas: [
-        {
-          q: `Explain the core mathematical principles of ${selectedTopics[0]}. (Asked in AKTU 2019, 2021, 2023) [Highly Repeated]`,
-          a: `The core mathematical principles of **${selectedTopics[0]}** rely on optimizing processing states while maintaining strict resource bounds.\n\n**Theoretical Model**:\nFor a standard model, we analyze input vector $X$ mapped to transformation space $T(X)$:\n$$Y = \\sum_{i=1}^{k} \\omega_i \\cdot X_i + \\beta$$\nWhere:\n*   $\\omega_i$ represents the weight coefficients.\n*   $X_i$ represents the incoming signal values.\n*   $\\beta$ is the bias offset value.\n\nThis linear combination determines the foundational threshold state of the system during standard operational procedures.`
-        }
-      ]
-    },
-    {
-      unit: 2,
-      title: selectedTopics[1],
-      qas: [
-        {
-          q: `Draw and describe the architectural diagrams of ${selectedTopics[1]}. (Asked in AKTU 2018, 2020, 2022) [Repeated]`,
-          a: `The architectural diagram of **${selectedTopics[1]}** outlines the directional flow of data, control triggers, and hardware register mapping.\n\n**System Components**:\n1.  **Input Controller**: Receives and decodes user parameters.\n2.  **Processor core**: Performs active calculations and logical branches.\n3.  **Storage Registry**: Accesses heap memory frames securely.\n4.  **Output Driver**: Transmits compiled signals to adjacent interfaces.`
-        }
-      ]
-    }
-  ];
-
-  return { id: subject.id, code, name, weightage: subject.weightage, difficulty: subject.difficulty, books: subject.books || [`Standard Textbook of ${name}`], weightageData: subject.weightageData, units, pyqs, quantum };
-};
 
 export default function Notes() {
+  const getOfficialSyllabusPath = (sem, branch) => {
+    const yearStr = sem <= 2 ? '1st Year' : sem <= 4 ? '2nd Year' : sem <= 6 ? '3rd Year' : '4th Year';
+    const branchFolder = branch === 'cse' || branch === 'it' ? 'CS & IT' : branch === 'civil' ? 'Civil Engineering' : 'ELectrical Engineering';
+
+    if (yearStr === '1st Year') {
+      if (branchFolder === 'CS & IT') return '/Syllabus/1st Year/CS & IT/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf';
+      if (branchFolder === 'Civil Engineering') return '/Syllabus/1st Year/Civil Engineering/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf';
+      return '/Syllabus/1st Year/ELectrical Engineering/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R (1).pdf';
+    }
+    if (yearStr === '2nd Year') {
+      if (branchFolder === 'CS & IT') return '/Syllabus/2nd Year/CS & IT/B.Tech_2nd_Yr_CSE_v3.pdf';
+      if (branchFolder === 'Civil Engineering') return '/Syllabus/2nd Year/Civil Engineering/B.Tech_2nd_Yr_Civil.pdf';
+      return '/Syllabus/2nd Year/ELectrical Engineering/B.Tech_2nd_Yr_EE_V2.pdf';
+    }
+    if (yearStr === '3rd Year') {
+      if (branchFolder === 'CS & IT') return '/Syllabus/3rd Year/CS & IT/B.TECH CE&IT , CSIT, IT 3rd YR 2024-25.pdf';
+      if (branchFolder === 'Civil Engineering') return '/Syllabus/3rd Year/Civil Engineering/B.Tech. 3rd Year Civil Engineering.pdf';
+      return '/Syllabus/3rd Year/ELectrical Engineering/1 B.Tech. 3rd Year Electrical Engineering 2024-25.pdf';
+    }
+    return null;
+  };
+
+  const downloadQuantumPDF = async (subject, sem, branch) => {
+    const yearStr = sem <= 2 ? '1st Year' : sem <= 4 ? '2nd Year' : sem <= 6 ? '3rd Year' : '4th Year';
+    const branchMapping = {
+      cse: 'CS & IT',
+      it: 'CS & IT',
+      civil: 'Civil Engineering',
+      ee: 'ELectrical Engineering'
+    };
+    const mappedBranch = branchMapping[branch] || branch;
+    const semesterStr = `Semester ${sem}`;
+    const subjectFolder = `${subject.code} - ${subject.name}`.trim().replace(/[\\/:*?"<>|]/g, '_');
+    
+    // Path to the real quantum PDF
+    const pdfPath = `/Quantum/${yearStr}/${mappedBranch}/${semesterStr}/${subjectFolder}/quantum.pdf`;
+    
+    showToast(`🔍 Checking for uploaded Quantum PDF for ${subject.code}...`);
+    
+    try {
+      const response = await fetch(pdfPath, { method: 'HEAD' });
+      if (response.ok) {
+        const link = document.createElement('a');
+        link.href = pdfPath;
+        link.download = `${subject.code}_Quantum_${subject.name.replace(/\s+/g, '_')}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast(`📥 Downloading official Quantum PDF for ${subject.code}!`);
+        return true;
+      }
+    } catch (e) {
+      console.log("Real PDF not found, using booster generator.", e);
+    }
+    
+    // Fallback: trigger standard mock download
+    const compiled = subject.quantum && subject.quantum.length > 0 ? subject : generateDynamicContent(subject);
+    triggerDownload(`${compiled.name}_Quantum_Series`, compiled.quantum, 'quantum');
+    return false;
+  };
+
+  const downloadBookPDF = async (bookName, subject, sem, branch) => {
+    const yearStr = sem <= 2 ? '1st Year' : sem <= 4 ? '2nd Year' : sem <= 6 ? '3rd Year' : '4th Year';
+    const branchMapping = {
+      cse: 'CS & IT',
+      it: 'CS & IT',
+      civil: 'Civil Engineering',
+      ee: 'ELectrical Engineering'
+    };
+    const mappedBranch = branchMapping[branch] || branch;
+    const semesterStr = `Semester ${sem}`;
+    const subjectFolder = `${subject.code} - ${subject.name}`.trim().replace(/[\\/:*?"<>|]/g, '_');
+    const sanitizedBookName = bookName.replace(/[\\/:*?"<>|]/g, '_');
+    
+    // Path to the real textbook PDF
+    const pdfPath = `/Books/${yearStr}/${mappedBranch}/${semesterStr}/${subjectFolder}/${sanitizedBookName}.pdf`;
+    
+    showToast(`🔍 Checking for textbook PDF: ${bookName}...`);
+    
+    try {
+      const response = await fetch(pdfPath, { method: 'HEAD' });
+      if (response.ok) {
+        const link = document.createElement('a');
+        link.href = pdfPath;
+        link.download = `${subject.code}_Book_${sanitizedBookName.replace(/\s+/g, '_')}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast(`📥 Downloading textbook: ${bookName}!`);
+        return true;
+      }
+    } catch (e) {
+      console.log("Real textbook PDF not found, triggering fallback.", e);
+    }
+    
+    // Fallback: download a text file explaining how to upload this book, and show toast
+    const fileContent = `🎓 AKTU textbook: ${bookName}\nSubject: ${subject.name} (${subject.code})\n\nThis textbook is currently syncing in our servers.\nTo upload the actual PDF:\n1. Place your PDF in: public/Books/${yearStr}/${mappedBranch}/${semesterStr}/${subjectFolder}/\n2. Rename it to: ${sanitizedBookName}.pdf\n\nNexora Student Hub systems will automatically verify and enable immediate downloads!`;
+    const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${sanitizedBookName.replace(/\s+/g, '_')}_Upload_Guide.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    showToast(`📖 Book is syncing. Upload it in public/Books/... to publish it!`);
+    return false;
+  };
+
+  const downloadSemesterQuantum = (sem, branch) => {
+    // Get all subjects in this semester & branch
+    const subjects = ACADEMIC_DATA[selectedUniv]?.branches[branch]?.semesters[sem] || [];
+    if (subjects.length === 0) {
+      showToast(`📚 Quantum series is currently syncing for Sem ${sem} (${branch.toUpperCase()})...`);
+      return;
+    }
+    
+    showToast(`⚡ Compiling Semester ${sem} Quantum Series Solved Notes Package...`);
+    
+    // Compile all subjects' units & quantum series questions into a massive master HTML booklet
+    let masterBody = `
+      <h1 style="color: #0891b2; font-family: sans-serif; text-align: center; font-size: 28px; border-bottom: 3px double #e2e8f0; padding-bottom: 15px; margin-bottom: 30px;">
+        🎓 AKTU Semester ${sem} - Quantum Series Solved Package
+      </h1>
+      <p style="text-align: center; color: #475569; font-style: italic; font-family: sans-serif; font-size: 14px; margin-top: -15px;">
+        Branch: ${ACADEMIC_DATA[selectedUniv]?.branches[branch]?.name || branch.toUpperCase()}
+      </p>
+      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-bottom: 40px; font-family: sans-serif;">
+        <h3 style="margin-top: 0; color: #1e293b;">📌 Package Subjects Included:</h3>
+        <ol style="margin-bottom: 0; padding-left: 20px; line-height: 1.6; color: #334155;">
+          ${subjects.map(sub => `<li><strong>${sub.code}:</strong> ${sub.name}</li>`).join('')}
+        </ol>
+      </div>
+    `;
+    
+    subjects.forEach((sub, subIdx) => {
+      // Generate dynamic content if subject doesn't have it pre-defined
+      const compiled = sub.quantum && sub.quantum.length > 0 ? sub : generateDynamicContent(sub);
+      
+      masterBody += `
+        <div style="page-break-before: always; margin-top: 40px;">
+          <div style="background-color: #0891b2; color: #ffffff; padding: 15px 25px; border-radius: 8px; font-family: sans-serif; margin-bottom: 25px;">
+            <span style="font-family: monospace; font-size: 11px; letter-spacing: 1px; font-weight: bold; background-color: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">SUBJECT ${subIdx+1}</span>
+            <h2 style="margin: 5px 0 0 0; font-size: 22px; font-weight: 800;">${compiled.name} (${compiled.code})</h2>
+          </div>
+          
+          ${compiled.quantum.map(unit => `
+            <div style="margin-bottom: 35px; border: 1px solid #e2e8f0; padding: 25px; border-radius: 12px; background-color: #fafafa;">
+              <div style="display: flex; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #0891b2; font-family: sans-serif;">UNIT ${unit.unit}: ${unit.title.toUpperCase()}</h3>
+                <span style="background-color: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; font-family: monospace; margin-left: auto;">AKTU BOARD REPEATED</span>
+              </div>
+              
+              <div style="margin-top: 15px;">
+                ${unit.qas.map((qaItem, idx) => `
+                  <div style="margin-bottom: 25px; background-color: #ffffff; border: 1px solid #f1f5f9; padding: 15px; border-radius: 8px;">
+                    <p style="font-weight: bold; color: #0f172a; font-family: sans-serif; margin-top: 0;">Q${idx + 1}. ${qaItem.q}</p>
+                    <div style="color: #334155; line-height: 1.6; font-family: sans-serif; border-left: 2px solid #e2e8f0; padding-left: 15px; margin-top: 10px; font-size: 13.5px; white-space: pre-wrap;">
+                      <strong style="color: #059669; font-size: 10px; display: block; font-family: monospace; text-transform: uppercase; margin-bottom: 5px;">Board Answer Key:</strong>
+                      ${qaItem.a}
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    });
+    
+    // Compile the full HTML document and trigger download
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <title>AKTU Sem-${sem} ${branch.toUpperCase()} Quantum Series Solved Package</title>
+        <style>
+          body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 40px; max-width: 900px; margin: 0 auto; color: #0f172a; line-height: 1.6; background-color: #ffffff; }
+          .no-print-toolbar { display: flex; justify-content: space-between; align-items: center; background-color: #0f172a; color: #ffffff; padding: 15px 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+          .btn-print { background-color: #059669; color: #ffffff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; font-size: 13px; }
+          .btn-print:hover { background-color: #047857; }
+          @media print {
+            body { padding: 0; }
+            .no-print-toolbar { display: none !important; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="no-print-toolbar">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📚</span>
+            <div>
+              <h4 style="margin: 0; font-size: 14px;">AKTU Quantum Solved Booklets</h4>
+              <p style="margin: 0; font-size: 10px; color: #94a3b8;">Standalone offline package - print to save as PDF</p>
+            </div>
+          </div>
+          <button onclick="window.print()" class="btn-print">🖨️ Print / Save PDF</button>
+        </div>
+        ${masterBody}
+      </body>
+      </html>
+    `;
+    
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Sem${sem}_${branch.toUpperCase()}_Quantum_Series_Solved_Package.html`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    showToast(`📥 Semester ${sem} Quantum package successfully generated and downloaded!`);
+  };
   // Navigation & Selector States
   const [selectedUniv, setSelectedUniv] = useState('aktu');
   const [selectedBranch, setSelectedBranch] = useState('cse');
   const [selectedSem, setSelectedSem] = useState(3);
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [syllabusViewMode, setSyllabusViewMode] = useState('year'); // year or semester
   
   // Dashboard Sub-Tab
   const [activeSubTab, setActiveSubTab] = useState('notes'); // notes, pyqs, blueprint, quantum
@@ -530,8 +314,241 @@ export default function Notes() {
     showToast("📋 Copied notes to clipboard!");
   };
 
+  const triggerDownload = (resourceName, data = null, type = 'notes') => {
+    let title = `${selectedSubject?.name || 'AKTU'} - ${resourceName}`;
+    let bodyContent = "";
+
+    if (type === 'syllabus') {
+      bodyContent = `
+        <h1 style="color: #059669; font-family: sans-serif; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">${selectedSubject.name} (${selectedSubject.code}) Syllabus</h1>
+        <p><strong>University:</strong> Dr. A.P.J. Abdul Kalam Technical University (AKTU)</p>
+        <p><strong>Syllabus Weightage:</strong> ${selectedSubject.weightage}</p>
+        <p><strong>Difficulty Level:</strong> ${selectedSubject.difficulty}</p>
+        
+        <h2 style="color: #1e293b; font-family: sans-serif; margin-top: 25px;">Standard Reference Textbooks:</h2>
+        <ul>
+          ${selectedSubject.books.map(b => `<li style="margin-bottom: 8px; font-family: sans-serif;">${b}</li>`).join('')}
+        </ul>
+        
+        <h2 style="color: #1e293b; font-family: sans-serif; margin-top: 25px;">Weightage Blueprint:</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-family: sans-serif;">
+          <thead>
+            <tr style="background-color: #f1f5f9;">
+              <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">Syllabus Module</th>
+              <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: right; width: 120px;">Weightage</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${selectedSubject.weightageData.map(d => `
+              <tr>
+                <td style="border: 1px solid #cbd5e1; padding: 10px;">${d.unit}</td>
+                <td style="border: 1px solid #cbd5e1; padding: 10px; text-align: right; font-weight: bold; color: #0891b2;">${d.pct}%</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    } else if (type === 'notes') {
+      const unitsToRender = data && data.number ? [data] : selectedSubject.units;
+      bodyContent = `
+        <h1 style="color: #059669; font-family: sans-serif; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">${selectedSubject.name} (${selectedSubject.code}) Study Notes</h1>
+        <p><strong>Dr. A.P.J. Abdul Kalam Technical University (AKTU)</strong></p>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+        
+        ${unitsToRender.map(unit => `
+          <div style="margin-bottom: 35px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span style="background-color: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; font-family: monospace;">UNIT ${unit.number}</span>
+              <h2 style="margin: 0; color: #0f172a; font-family: sans-serif;">${unit.title}</h2>
+            </div>
+            <p style="color: #475569; font-style: italic; font-family: sans-serif; margin-top: 8px;">Summary: ${unit.summary}</p>
+            <div style="background-color: #fafafa; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 15px; font-family: sans-serif; line-height: 1.6; color: #334155; white-space: pre-wrap;">
+              ${unit.fullContent ? unit.fullContent : 'Detailed syllabus notes are dynamically compiled via system sync.'}
+            </div>
+          </div>
+        `).join('')}
+      `;
+    } else if (type === 'pyqs') {
+      const paperData = data || (selectedSubject.pyqs && selectedSubject.pyqs[0]);
+      if (!paperData) return;
+      bodyContent = `
+        <h1 style="color: #4f46e5; font-family: sans-serif; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">AKTU Solved Previous Year Question Paper</h1>
+        <p><strong>Subject:</strong> ${selectedSubject.name} (${selectedSubject.code})</p>
+        <p><strong>Academic Cycle:</strong> ${paperData.year} Board Exam</p>
+        <p><strong>Duration:</strong> ${paperData.duration} • <strong>Full Marks:</strong> 100 Marks</p>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+        
+        <h2 style="color: #1e293b; font-family: sans-serif; background-color: #f8fafc; padding: 8px 15px; border-radius: 6px; border-left: 4px solid #4f46e5; margin-top: 20px;">SECTION A (Short Answer Questions)</h2>
+        <div style="margin-top: 15px;">
+          ${paperData.sections.a.map((qa, idx) => `
+            <div style="margin-bottom: 25px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px;">
+              <p style="font-weight: bold; color: #0f172a; font-family: sans-serif; margin: 0;">Q${idx + 1}. ${qa.q}</p>
+              <div style="color: #334155; line-height: 1.6; font-family: sans-serif; border-left: 2px solid #ecfdf5; padding-left: 15px; margin-top: 8px; font-size: 13.5px; white-space: pre-wrap;">
+                <strong style="color: #059669; font-size: 10px; display: block; font-family: monospace; text-transform: uppercase; margin-bottom: 4px;">Exam Answer:</strong>
+                ${qa.a}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        
+        ${paperData.sections.b && paperData.sections.b.length > 0 ? `
+          <h2 style="color: #1e293b; font-family: sans-serif; background-color: #f8fafc; padding: 8px 15px; border-radius: 6px; border-left: 4px solid #4f46e5; margin-top: 40px;">SECTION B (Analytical & Mathematical Explanations)</h2>
+          <div style="margin-top: 15px;">
+            ${paperData.sections.b.map((qa, idx) => `
+              <div style="margin-bottom: 30px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px;">
+                <p style="font-weight: bold; color: #0f172a; font-family: sans-serif; font-size: 15px; margin: 0;">Q${idx + 1}. ${qa.q}</p>
+                <div style="color: #334155; line-height: 1.6; font-family: sans-serif; border-left: 2px solid #ecfdf5; padding-left: 15px; margin-top: 10px; font-size: 13.5px; white-space: pre-wrap;">
+                  <strong style="color: #059669; font-size: 10px; display: block; font-family: monospace; text-transform: uppercase; margin-bottom: 5px;">Exam Answer:</strong>
+                  ${qa.a}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+
+        ${paperData.sections.c && paperData.sections.c.length > 0 ? `
+          <h2 style="color: #1e293b; font-family: sans-serif; background-color: #f8fafc; padding: 8px 15px; border-radius: 6px; border-left: 4px solid #4f46e5; margin-top: 40px;">SECTION C (Unit-Based Explanations)</h2>
+          <div style="margin-top: 15px;">
+            ${paperData.sections.c.map((qa, idx) => `
+              <div style="margin-bottom: 30px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px;">
+                <p style="font-weight: bold; color: #0f172a; font-family: sans-serif; font-size: 15px; margin: 0;">Q${idx + 1}. ${qa.q}</p>
+                <div style="color: #334155; line-height: 1.6; font-family: sans-serif; border-left: 2px solid #ecfdf5; padding-left: 15px; margin-top: 10px; font-size: 13.5px; white-space: pre-wrap;">
+                  <strong style="color: #059669; font-size: 10px; display: block; font-family: monospace; text-transform: uppercase; margin-bottom: 5px;">Exam Answer:</strong>
+                  ${qa.a}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+      `;
+    } else if (type === 'quantum') {
+      const quantumData = data || selectedSubject.quantum;
+      bodyContent = `
+        <h1 style="color: #0891b2; font-family: sans-serif; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">AKTU Quantum Series Booster</h1>
+        <p><strong>Subject:</strong> ${selectedSubject.name} (${selectedSubject.code})</p>
+        <p><strong>Features:</strong> High-Frequency Repeating Questions & Solved Board Derivations</p>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+        
+        ${quantumData.map(unit => `
+          <div style="margin-bottom: 40px; border: 1px solid #e2e8f0; padding: 25px; border-radius: 12px; background-color: #fafafa;">
+            <div style="display: flex; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 15px;">
+              <h3 style="margin: 0; color: #0891b2; font-family: sans-serif;">UNIT ${unit.unit}: ${unit.title.toUpperCase()}</h3>
+              <span style="background-color: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; font-family: monospace; margin-left: auto;">AKTU BOARD REPEATED</span>
+            </div>
+            
+            <div style="margin-top: 15px;">
+              ${unit.qas.map((qaItem, idx) => `
+                <div style="margin-bottom: 25px; background-color: #ffffff; border: 1px solid #f1f5f9; padding: 15px; border-radius: 8px;">
+                  <p style="font-weight: bold; color: #0f172a; font-family: sans-serif; margin-top: 0;">Q${idx + 1}. ${qaItem.q}</p>
+                  <div style="color: #334155; line-height: 1.6; font-family: sans-serif; border-left: 2px solid #e2e8f0; padding-left: 15px; margin-top: 10px; font-size: 13.5px; white-space: pre-wrap;">
+                    <strong style="color: #059669; font-size: 10px; display: block; font-family: monospace; text-transform: uppercase; margin-bottom: 5px;">Board Answer Key:</strong>
+                    ${qaItem.a}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>${title}</title>
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #334155;
+            padding: 40px;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.6;
+          }
+          h1, h2, h3, h4 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          }
+          code {
+            background-color: #f1f5f9;
+            color: #0f766e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 90%;
+          }
+          @media print {
+            body {
+              padding: 0;
+            }
+            .no-print {
+              display: none !important;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="no-print" style="background-color: #ecfdf5; border: 1px solid #a7f3d0; padding: 15px; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; font-family: sans-serif;">
+          <div>
+            <strong style="color: #065f46; font-size: 14px;">🎓 AKTU Study Kit — Nexora Student Hub</strong>
+            <p style="margin: 5px 0 0 0; font-size: 12px; color: #047857;">Press <strong>Ctrl + P</strong> (Windows) or <strong>Cmd + P</strong> (Mac) to save this study bundle as a perfectly styled PDF!</p>
+          </div>
+          <button onclick="window.print()" style="margin-left: auto; background-color: #059669; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Print / Save PDF</button>
+        </div>
+        ${bodyContent}
+      </body>
+      </html>
+    `;
+
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${resourceName.replace(/\s+/g, '_')}_AKTU.html`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    showToast(` Solved Study File: ${resourceName}_AKTU.html successfully generated and downloaded!`);
+  };
+
   const triggerMockDownload = (resourceName) => {
-    showToast(`📥 Downloading: ${resourceName}.pdf (1.8 MB)`);
+    if (!selectedSubject) return;
+    if (resourceName.includes('_Syllabus')) {
+      triggerDownload(resourceName, selectedSubject, 'syllabus');
+    } else if (resourceName.includes('_Quantum_Series')) {
+      downloadQuantumPDF(selectedSubject, selectedSem, selectedBranch);
+    } else if (resourceName.includes('Solved_PYQ_')) {
+      const year = resourceName.replace('Solved_PYQ_', '');
+      const paper = selectedSubject.pyqs.find(p => p.year === year) || (selectedSubject.pyqs && selectedSubject.pyqs[0]);
+      triggerDownload(resourceName, paper, 'pyqs');
+    } else if (resourceName.includes('Unit_') && resourceName.includes('_Notes')) {
+      const unitNum = parseInt(resourceName.replace('Unit_', '').replace('_Notes', ''));
+      const unit = selectedSubject.units.find(u => u.number === unitNum) || (selectedSubject.units && selectedSubject.units[0]);
+      triggerDownload(resourceName, unit, 'notes');
+    } else {
+      // General note/modal title downloader fallback
+      if (readerModal.isOpen && readerModal.type === 'note') {
+        triggerDownload(resourceName, { number: '', title: resourceName, fullContent: readerModal.content }, 'notes');
+      } else if (readerModal.isOpen && readerModal.type === 'pyq') {
+        triggerDownload(resourceName, readerModal.content, 'pyqs');
+      } else {
+        // Ultimate fallback: simple text download
+        const fileContent = `🎓 AKTU Study resource: ${resourceName}\nCompiled by Nexora Student Hub.`;
+        const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${resourceName.replace(/\s+/g, '_')}_AKTU.txt`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        showToast(`📥 Study File: ${resourceName}_AKTU.txt downloaded!`);
+      }
+    }
   };
 
   // Google Gemini API Live Compiler
@@ -796,6 +813,201 @@ export default function Notes() {
         </div>
 
         {/* ==========================================================================
+           OFFICIAL AKTU AND ITS SYLLABUS HUB
+           ========================================================================== */}
+        <div className="glass-panel-neon p-6 rounded-2xl relative overflow-hidden space-y-5 animate-fadeIn">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-emerald-500/10 to-cyan-500/5 rounded-full blur-3xl -z-10" />
+          
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-900 pb-3.5">
+            <div className="space-y-1">
+              <span className="text-[9px] font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-black tracking-widest uppercase">BOARD REPOSITORY</span>
+              <h2 className="text-xl font-black text-white flex items-center gap-2">
+                🎓 Dr. A.P.J. Abdul Kalam Technical University (AKTU) Syllabus Hub
+              </h2>
+              <p className="text-xs text-slate-400">Access and download the official AKTU university board syllabus PDF files directly in high fidelity.</p>
+            </div>
+            
+            {/* View Mode Toggle */}
+            <div className="flex items-center bg-slate-950 p-1.5 rounded-xl border border-slate-900 gap-1.5 select-none no-print self-start md:self-auto shadow-inner">
+              <button
+                onClick={() => setSyllabusViewMode('year')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-[10px] sm:text-xs font-bold rounded-lg transition-all ${
+                  syllabusViewMode === 'year'
+                    ? 'bg-slate-900 text-emerald-400 border border-slate-800 shadow-glow-cyan'
+                    : 'text-slate-400 hover:text-slate-205'
+                }`}
+              >
+                📅 Academic Year
+              </button>
+              <button
+                onClick={() => setSyllabusViewMode('semester')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-[10px] sm:text-xs font-bold rounded-lg transition-all ${
+                  syllabusViewMode === 'semester'
+                    ? 'bg-slate-900 text-emerald-400 border border-slate-800 shadow-glow-cyan'
+                    : 'text-slate-400 hover:text-slate-205'
+                }`}
+              >
+                📊 Semester-Wise
+              </button>
+            </div>
+          </div>
+
+          {syllabusViewMode === 'year' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 animate-fadeIn">
+              {[
+                {
+                  year: "1st Year",
+                  desc: "Common first-year foundation curriculum (Effective from 2022-23)",
+                  branches: [
+                    { name: "Computer Science & IT", file: "Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf", path: "/Syllabus/1st Year/CS & IT/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf" },
+                    { name: "Civil Engineering", file: "Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf", path: "/Syllabus/1st Year/Civil Engineering/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R.pdf" },
+                    { name: "Electrical Engineering", file: "Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R (1).pdf", path: "/Syllabus/1st Year/ELectrical Engineering/Syllabus_BTech_First_Yr_Common_other_than_AG_&_BT_effective_from_2022_23_R (1).pdf" }
+                  ]
+                },
+                {
+                  year: "2nd Year",
+                  desc: "Sophomore level branch-specific specialized syllabus",
+                  branches: [
+                    { name: "Computer Science & IT", file: "B.Tech_2nd_Yr_CSE_v3.pdf", path: "/Syllabus/2nd Year/CS & IT/B.Tech_2nd_Yr_CSE_v3.pdf" },
+                    { name: "Civil Engineering", file: "B.Tech_2nd_Yr_Civil.pdf", path: "/Syllabus/2nd Year/Civil Engineering/B.Tech_2nd_Yr_Civil.pdf" },
+                    { name: "Electrical Engineering", file: "B.Tech_2nd_Yr_EE_V2.pdf", path: "/Syllabus/2nd Year/ELectrical Engineering/B.Tech_2nd_Yr_EE_V2.pdf" }
+                  ]
+                },
+                {
+                  year: "3rd Year",
+                  desc: "Pre-final year advanced theory & lab syllabus (Effective 2024-25)",
+                  branches: [
+                    { name: "Computer Science & IT", file: "B.TECH CE&IT , CSIT, IT 3rd YR 2024-25.pdf", path: "/Syllabus/3rd Year/CS & IT/B.TECH CE&IT , CSIT, IT 3rd YR 2024-25.pdf" },
+                    { name: "Civil Engineering", file: "B.Tech. 3rd Year Civil Engineering.pdf", path: "/Syllabus/3rd Year/Civil Engineering/B.Tech. 3rd Year Civil Engineering.pdf" },
+                    { name: "Electrical Engineering", file: "1 B.Tech. 3rd Year Electrical Engineering 2024-25.pdf", path: "/Syllabus/3rd Year/ELectrical Engineering/1 B.Tech. 3rd Year Electrical Engineering 2024-25.pdf" }
+                  ]
+                },
+                {
+                  year: "4th Year",
+                  desc: "Final year advanced technical electives & project outlines",
+                  branches: [
+                    { name: "Computer Science & IT", file: null, path: null },
+                    { name: "Civil Engineering", file: null, path: null },
+                    { name: "Electrical Engineering", file: null, path: null }
+                  ]
+                }
+              ].map((yData, yIdx) => (
+                <div key={yIdx} className="p-4 bg-slate-950/60 border border-slate-900 rounded-xl flex flex-col justify-between space-y-3.5 hover:border-slate-800 transition-all group">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold text-emerald-400 font-mono tracking-wider">{yData.year.toUpperCase()}</span>
+                    <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">{yData.year} Syllabus</h4>
+                    <p className="text-[10px] text-slate-500 leading-normal">{yData.desc}</p>
+                  </div>
+
+                  <div className="space-y-1.5 pt-1">
+                    {yData.branches.map((br, bIdx) => (
+                      <div key={bIdx} className="flex items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-950 text-[10px]">
+                        <span className="text-slate-350 font-medium truncate max-w-[100px]">{br.name}</span>
+                        {br.path ? (
+                          <div className="flex items-center gap-1 no-print">
+                            <a
+                              href={br.path}
+                              download={br.file}
+                              className="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/20 hover:border-emerald-500 text-emerald-400 hover:text-white transition-all font-bold tracking-wide"
+                              title="Download Syllabus PDF"
+                            >
+                              <Download className="w-2 h-2" /> PDF
+                            </a>
+                            <button
+                              onClick={() => {
+                                const yearNum = parseInt(yData.year.replace('1st', '1').replace('2nd', '2').replace('3rd', '3').replace('4th', '4'));
+                                const semA = yearNum * 2 - 1;
+                                const branchKey = br.name.includes('Computer Science') ? 'cse' : br.name.includes('Civil') ? 'civil' : 'ee';
+                                downloadSemesterQuantum(semA, branchKey);
+                              }}
+                              className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/20 hover:border-cyan-500 text-cyan-400 hover:text-white transition-all font-bold"
+                              title="Download Solved Quantum: Odd Sem"
+                            >
+                              ⚡Q1
+                            </button>
+                            <button
+                              onClick={() => {
+                                const yearNum = parseInt(yData.year.replace('1st', '1').replace('2nd', '2').replace('3rd', '3').replace('4th', '4'));
+                                const semB = yearNum * 2;
+                                const branchKey = br.name.includes('Computer Science') ? 'cse' : br.name.includes('Civil') ? 'civil' : 'ee';
+                                downloadSemesterQuantum(semB, branchKey);
+                              }}
+                              className="flex items-center gap-0.5 px-1 py-0.5 rounded bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/20 hover:border-cyan-500 text-cyan-400 hover:text-white transition-all font-bold"
+                              title="Download Solved Quantum: Even Sem"
+                            >
+                              ⚡Q2
+                            </button>
+                          </div>
+                        ) : (
+                          <span className="text-[8px] font-mono text-slate-500 bg-slate-950 border border-slate-900 px-1.5 py-0.5 rounded select-none">SYNCING</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-fadeIn">
+              {SEMESTER_SYLLABUS_DATA.map((sData, sIdx) => {
+                const isOdd = sIdx % 2 === 0;
+                return (
+                  <div key={sIdx} className="p-4 bg-slate-950/60 border border-slate-900 rounded-xl flex flex-col justify-between space-y-3.5 hover:border-slate-800 transition-all group">
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[9px] font-bold text-emerald-400 font-mono tracking-wider">{sData.sem.toUpperCase()}</span>
+                        <span className={`text-[8px] font-mono px-1.5 py-0.5 rounded border select-none ${
+                          isOdd 
+                            ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
+                            : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                        }`}>
+                          {sData.type}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">{sData.sem} Syllabus</h4>
+                      <p className="text-[10px] text-slate-500 leading-normal">{sData.desc}</p>
+                    </div>
+
+                    <div className="space-y-1.5 pt-1">
+                      {sData.branches.map((br, bIdx) => (
+                        <div key={bIdx} className="flex items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-950 text-[10px]">
+                          <span className="text-slate-350 font-medium truncate max-w-[100px]">{br.name}</span>
+                          {br.path ? (
+                            <div className="flex items-center gap-1.5 no-print">
+                              <a
+                                href={br.path}
+                                download={br.file}
+                                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/20 hover:border-emerald-500 text-emerald-400 hover:text-white transition-all font-bold tracking-wide"
+                                title="Download Syllabus PDF"
+                              >
+                                <Download className="w-2 h-2" /> PDF
+                              </a>
+                              <button
+                                onClick={() => {
+                                  const semNum = parseInt(sData.sem.replace('Semester ', ''));
+                                  const branchKey = br.name.includes('Computer Science') ? 'cse' : br.name.includes('Civil') ? 'civil' : 'ee';
+                                  downloadSemesterQuantum(semNum, branchKey);
+                                }}
+                                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/20 hover:border-cyan-500 text-cyan-400 hover:text-white transition-all font-bold tracking-wide shadow-glow-cyan"
+                                title="Download Solved Quantum Booklet"
+                              >
+                                <Sparkles className="w-2.5 h-2.5" /> Quantum
+                              </button>
+                            </div>
+                          ) : (
+                            <span className="text-[8px] font-mono text-slate-500 bg-slate-950 border border-slate-900 px-1.5 py-0.5 rounded select-none">SYNCING</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* ==========================================================================
            MAIN CONTENT INTERFACE
            ========================================================================== */}
         {filteredSubjects.length === 0 ? (
@@ -836,9 +1048,34 @@ export default function Notes() {
                       }`}
                     >
                       <div className="space-y-1">
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between w-full gap-2">
                           <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-slate-950 text-emerald-400 border border-slate-900">{sub.code}</span>
-                          <span className="text-[9px] font-mono text-slate-500 font-semibold">{sub.weightage}</span>
+                           <div className="flex items-center gap-1.5">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const compiled = sub.units && sub.units.length > 0 ? sub : generateDynamicContent(sub);
+                                triggerDownload(`${compiled.name}_Solved_PYQs`, compiled, 'pyqs');
+                              }}
+                              className="p-1 rounded bg-slate-950 hover:bg-slate-900 border border-slate-900 hover:border-emerald-500/40 text-emerald-400 transition-all select-none no-print"
+                              title="Instant Solved PYQs Download"
+                            >
+                              <Download className="w-2.5 h-2.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                downloadQuantumPDF(sub, selectedSem, selectedBranch);
+                              }}
+                              className="p-1 rounded bg-slate-950 hover:bg-slate-900 border border-slate-900 hover:border-cyan-500/40 text-cyan-400 transition-all select-none no-print"
+                              title="Instant Quantum Series Download"
+                            >
+                              <Sparkles className="w-2.5 h-2.5" />
+                            </button>
+                            <span className="text-[9px] font-mono text-slate-500 font-semibold">{sub.weightage}</span>
+                          </div>
                         </div>
                         <h4 className="text-sm font-extrabold truncate w-full group-hover:text-white transition-colors">{sub.name}</h4>
                       </div>
@@ -890,11 +1127,30 @@ export default function Notes() {
                       )}
                     </button>
                     <button 
-                      onClick={() => triggerMockDownload(selectedSubject.name + "_Syllabus")}
-                      className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/30 text-slate-350 hover:text-white"
-                      title="Download PDF"
+                      onClick={() => {
+                        const compiled = selectedSubject.units && selectedSubject.units.length > 0 ? selectedSubject : generateDynamicContent(selectedSubject);
+                        triggerDownload(`${compiled.name}_Solved_PYQs`, compiled, 'pyqs');
+                      }}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white text-xs font-extrabold shadow-glow-purple transition-all select-none no-print shadow-glow-cyan"
+                      title="Download Solved Board PYQs Study Guide"
                     >
-                      <Download className="w-4 h-4 text-emerald-400" />
+                      <Download className="w-3.5 h-3.5 animate-pulse" /> Download PYQs
+                    </button>
+                    <button 
+                      onClick={() => {
+                        downloadQuantumPDF(selectedSubject, selectedSem, selectedBranch);
+                      }}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white text-xs font-extrabold shadow-glow-cyan transition-all select-none no-print"
+                      title="Download Solved Quantum Series Booklet"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 animate-pulse" /> Download Quantum
+                    </button>
+                    <button 
+                      onClick={() => triggerMockDownload(selectedSubject.name + "_Syllabus")}
+                      className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/30 text-slate-350 hover:text-white text-xs font-bold uppercase flex items-center gap-1.5"
+                      title="Download Syllabus PDF"
+                    >
+                      <BookOpen className="w-4 h-4 text-emerald-400" /> Syllabus
                     </button>
                   </div>
                 </div>
@@ -1005,7 +1261,7 @@ export default function Notes() {
                           <p className="text-[11px] text-slate-400">Repeated questions and analytical derivation answers extracted from official past 10-year examination boards.</p>
                         </div>
                         <button 
-                          onClick={() => triggerMockDownload(selectedSubject.name + "_Quantum_Series")}
+                          onClick={() => downloadQuantumPDF(selectedSubject, selectedSem, selectedBranch)}
                           className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-650 hover:bg-emerald-500 text-white text-xs font-bold shadow-glow-cyan transition-all w-full sm:w-auto justify-center"
                         >
                           <Download className="w-3.5 h-3.5 animate-pulse" /> Full Quantum PDF
@@ -1172,9 +1428,18 @@ export default function Notes() {
                         </p>
                         <div className="space-y-2">
                           {selectedSubject.books.map((book, idx) => (
-                            <div key={idx} className="flex gap-2.5 p-2.5 rounded-xl bg-slate-950/60 border border-slate-900 text-xs text-slate-300">
-                              <span className="text-cyan-400">📖</span>
-                              <span>{book}</span>
+                            <div key={idx} className="flex justify-between items-center p-2.5 rounded-xl bg-slate-950/60 border border-slate-900 text-xs text-slate-300 gap-2">
+                              <div className="flex gap-2.5 items-center">
+                                <span className="text-cyan-400">📖</span>
+                                <span className="truncate max-w-[200px] sm:max-w-xs">{book}</span>
+                              </div>
+                              <button
+                                onClick={() => downloadBookPDF(book, selectedSubject, selectedSem, selectedBranch)}
+                                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1 cursor-pointer shrink-0"
+                                title={`Download PDF for ${book}`}
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                              </button>
                             </div>
                           ))}
                         </div>
@@ -1530,6 +1795,16 @@ export default function Notes() {
                         </div>
                       </div>
                     )}
+
+                    {/* Quick Modal Actions Footer inside PYQ */}
+                    <div className="mt-8 pt-6 border-t border-slate-900/60 flex flex-wrap gap-2 justify-end no-print">
+                      <button 
+                        onClick={() => triggerMockDownload(readerModal.title)}
+                        className="flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-950 border border-slate-855 hover:border-slate-800 text-xs text-slate-400 hover:text-white"
+                      >
+                        <Download className="w-3.5 h-3.5" /> Download Solved Paper
+                      </button>
+                    </div>
 
                   </div>
                 )}

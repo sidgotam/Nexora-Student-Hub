@@ -414,11 +414,11 @@ export default function DopamineHub({ setActiveTab, setGlobalMood }) {
           </div>
         </div>
 
-        {/* ORACLE WHEEL AND FOCUS MINI-GAME SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* ORACLE WHEEL SECTION */}
+        <div className="flex justify-center">
           
           {/* SPIN ORACLE PANEL */}
-          <div className="lg:col-span-7 bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-between min-h-[480px] shadow-glow-purple relative overflow-hidden">
+          <div className="w-full max-w-2xl bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-between min-h-[480px] shadow-glow-purple relative overflow-hidden">
             <div className="absolute top-4 left-4 z-10">
               <span className="text-[10px] font-bold font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded uppercase tracking-wider">
                 Dopamine Loop
@@ -516,82 +516,6 @@ export default function DopamineHub({ setActiveTab, setGlobalMood }) {
             </div>
           </div>
 
-          {/* FOCUS MIN-GAME PANEL */}
-          <div className="lg:col-span-5 bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-[480px] shadow-glow-cyan relative overflow-hidden">
-            <div className="absolute top-4 left-4 z-10">
-              <span className="text-[10px] font-bold font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded uppercase tracking-wider">
-                Focus Shield
-              </span>
-            </div>
-
-            <div className="text-center max-w-md space-y-1">
-              <h2 className="text-xl font-extrabold text-white">Focus Shield Charger</h2>
-              <p className="text-[11px] text-slate-400">
-                Breathe rhythmically in synchronization with our cybernetic pulse bubble. Complete 30s to unlock study coins and the Rare Monk badge!
-              </p>
-            </div>
-
-            {/* Animated breathing circle */}
-            <div className="flex items-center justify-center my-6 relative">
-              <div 
-                className={`w-36 h-36 rounded-full border-4 flex flex-col items-center justify-center text-center transition-all duration-1000 ${
-                  focusActive 
-                    ? 'border-cyan-500/50 bg-cyan-950/20 scale-110 shadow-glow-cyan animate-pulse'
-                    : 'border-slate-800 bg-slate-950 text-slate-500'
-                }`}
-              >
-                {!focusActive ? (
-                  focusCompleted ? (
-                    <div className="space-y-1 p-2">
-                      <Trophy className="w-7 h-7 text-amber-400 mx-auto" />
-                      <span className="text-[10px] font-bold font-mono text-white block">SHIELD ENGAGED</span>
-                      <span className="text-[9px] text-emerald-400 font-extrabold">+30 Coins | +80 XP</span>
-                    </div>
-                  ) : (
-                    <div className="p-2 space-y-1">
-                      <Zap className="w-6 h-6 mx-auto text-slate-600" />
-                      <span className="text-[10px] font-mono uppercase tracking-wider block">IDLE BEAM</span>
-                      <span className="text-[9px] text-slate-500">Press Start</span>
-                    </div>
-                  )
-                ) : (
-                  <div className="space-y-1">
-                    <span className="text-xl font-mono font-black text-cyan-400 tracking-wider">
-                      {Math.min(100, Math.floor(focusProgress))}%
-                    </span>
-                    <span className="text-[9px] font-bold tracking-widest text-slate-300 block uppercase animate-pulse">
-                      BREATHE IN/OUT
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* absolute glowing particle orbit rings */}
-              {focusActive && (
-                <div className="absolute -inset-4 rounded-full border border-dashed border-cyan-500/20 animate-spin" style={{ animationDuration: '10s' }} />
-              )}
-            </div>
-
-            <div className="space-y-3">
-              <button
-                onClick={startFocusGame}
-                disabled={focusActive}
-                className="w-full flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-cyan-400 font-bold text-xs tracking-wider hover:text-white transition-all uppercase cursor-pointer"
-              >
-                <Play className="w-3.5 h-3.5 fill-cyan-400 hover:fill-white" /> {focusActive ? 'SHIELD IS LOADING...' : 'START FOCUS DRILL'}
-              </button>
-
-              {focusActive && (
-                <div className="space-y-1">
-                  <div className="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
-                    <div className="bg-cyan-400 h-full transition-all duration-1000" style={{ width: `${focusProgress}%` }} />
-                  </div>
-                  <p className="text-[9px] text-center font-mono text-slate-500">KEEP THIS TAB OPEN TO BIND BRAIN PARTICLES</p>
-                </div>
-              )}
-            </div>
-          </div>
-
         </div>
 
         {/* PSYCHOLOGICAL CLICKBAIT AD BOARD */}
@@ -606,7 +530,7 @@ export default function DopamineHub({ setActiveTab, setGlobalMood }) {
             <span className="text-[9px] font-mono text-slate-500 font-bold uppercase">Sponsor: Brain Chemistry Corp</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* AD Card 1 - Resume Builder */}
             <div 
@@ -710,39 +634,6 @@ export default function DopamineHub({ setActiveTab, setGlobalMood }) {
               </div>
             </div>
 
-            {/* AD Card 4 - Dynamic focus ad */}
-            <div 
-              onClick={() => {
-                playSynthSound('focus');
-                startFocusGame();
-              }}
-              className="group glass-panel p-5 rounded-2xl hover:border-amber-500/40 relative overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px]"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-500/10 to-orange-600/10 rounded-full blur-2xl group-hover:scale-125 transition-transform" />
-              <div className="space-y-2 relative">
-                <div className="flex justify-between items-center">
-                  <span className="text-[9px] font-bold font-mono text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded uppercase">
-                    Security Firewall
-                  </span>
-                  <span className="text-[8px] text-amber-400 font-bold tracking-widest font-mono uppercase bg-amber-500/10 px-1.5 py-0.5 rounded">
-                    SCROLL BLOCKER
-                  </span>
-                </div>
-                <h3 className="text-md sm:text-lg font-black text-white leading-snug group-hover:text-amber-300 transition-colors">
-                  WARNING: Excessive academic lethargy detected. Run Shield Generator to restore neuro-balance!
-                </h3>
-                <p className="text-[11px] text-slate-400 leading-normal">
-                  Brain logs report high levels of unfocused latency. Press here to activate the 30-second rhythmic Focus Shield instantly.
-                </p>
-              </div>
-              <div className="mt-4 pt-2 border-t border-slate-900 flex justify-between items-center text-xs font-bold">
-                <span className="text-amber-400 group-hover:underline flex items-center gap-1">
-                  Restore Cortex Energy <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </span>
-                <span className="text-[9px] font-mono text-slate-500 uppercase">SPONSORED LINK</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
@@ -756,9 +647,8 @@ export default function DopamineHub({ setActiveTab, setGlobalMood }) {
             </h3>
             <p className="text-xs text-slate-400 mt-1 mb-4">Complete spin tests, waitlists, and focus tasks to fill your display locker with rare trophies.</p>
             
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-3 gap-3">
               {[
-                { id: 'monk', key: 'monk', label: 'Deep Monk', desc: 'Completed 30s Focus Shield', icon: '🧘', color: 'border-emerald-500 bg-emerald-500/10 text-emerald-400' },
                 { id: 'ats', key: 'ats', label: 'ATS Assassin', desc: 'Visited ATS Resume Builder', icon: '🥷', color: 'border-indigo-500 bg-indigo-500/10 text-indigo-400' },
                 { id: 'spinner', key: 'spinner', label: 'Oracle Spinner', desc: 'Took daily dopamine spin', icon: '🎡', color: 'border-purple-500 bg-purple-500/10 text-purple-400 animate-pulse' },
                 { id: 'vip', key: 'vip', label: 'Waitlist VIP', desc: 'Joined engineering notes waitlist', icon: '🎫', color: 'border-amber-500 bg-amber-500/10 text-amber-400' }

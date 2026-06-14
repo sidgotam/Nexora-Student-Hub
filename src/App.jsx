@@ -7,6 +7,7 @@ import InterviewPrep from './pages/InterviewPrep';
 import Internships from './pages/Internships';
 import Notes from './pages/Notes';
 import DopamineHub from './pages/DopamineHub';
+import MernDocs from './pages/MernDocs';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('notes'); // notes, ai, resume, interview, internships, dopamine
@@ -185,6 +186,7 @@ export default function App() {
         {activeTab === 'interview' && <InterviewPrep />}
         {activeTab === 'internships' && <Internships />}
         {activeTab === 'notes' && <Notes />}
+        {activeTab === 'merndocs' && <MernDocs />}
       </main>
 
       {/* Sticky floating robot */}

@@ -1,0 +1,2365 @@
+﻿[
+    {
+        "title":  "Introduction",
+        "id":  0,
+        "elements":  [
+                         {
+                             "text":  "MERN STACK",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Complete Developer Documentation",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Beginner to Advanced",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "MongoDB  •  Express.js  •  React.js  •  Node.js",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Version 1.0  |  2025  |  Full Stack Web Development",
+                             "type":  "p"
+                         }
+                     ]
+    },
+    {
+        "title":  "Table of Contents",
+        "id":  2,
+        "elements":  [
+                         {
+                             "text":  "This document covers the MERN stack from absolute beginner concepts to advanced production techniques, including architecture, security, testing, deployment, and performance optimization.",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "1",
+                                              "Introduction to MERN Stack"
+                                          ],
+                                          [
+                                              "2",
+                                              "Development Environment Setup"
+                                          ],
+                                          [
+                                              "3",
+                                              "MongoDB – Database Layer"
+                                          ],
+                                          [
+                                              "4",
+                                              "Express.js – Server Framework"
+                                          ],
+                                          [
+                                              "5",
+                                              "React.js – Frontend Library"
+                                          ],
+                                          [
+                                              "6",
+                                              "Node.js – Runtime Environment"
+                                          ],
+                                          [
+                                              "7",
+                                              "REST API Design \u0026 Development"
+                                          ],
+                                          [
+                                              "8",
+                                              "Authentication \u0026 Authorization"
+                                          ],
+                                          [
+                                              "9",
+                                              "State Management"
+                                          ],
+                                          [
+                                              "10",
+                                              "File Uploads \u0026 Media Handling"
+                                          ],
+                                          [
+                                              "11",
+                                              "Real-Time Communication with Socket.IO"
+                                          ],
+                                          [
+                                              "12",
+                                              "Testing (Unit, Integration, E2E)"
+                                          ],
+                                          [
+                                              "13",
+                                              "Performance Optimization"
+                                          ],
+                                          [
+                                              "14",
+                                              "Security Best Practices"
+                                          ],
+                                          [
+                                              "15",
+                                              "Deployment \u0026 DevOps"
+                                          ],
+                                          [
+                                              "16",
+                                              "Advanced Patterns \u0026 Architecture"
+                                          ],
+                                          [
+                                              "17",
+                                              "Complete Project – Full Stack App"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Chapter",
+                                             "Topic"
+                                         ],
+                             "type":  "table"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 1: Introduction to MERN Stack",
+        "id":  3,
+        "elements":  [
+                         {
+                             "text":  "1.1 What is the MERN Stack?",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "MERN is an acronym for a set of JavaScript technologies used to develop full-stack web applications. Each letter stands for a specific technology that handles a different layer of the application:",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "M",
+                                              "MongoDB",
+                                              "NoSQL Database",
+                                              "JavaScript / BSON"
+                                          ],
+                                          [
+                                              "E",
+                                              "Express.js",
+                                              "Backend Framework",
+                                              "JavaScript (Node.js)"
+                                          ],
+                                          [
+                                              "R",
+                                              "React.js",
+                                              "Frontend UI Library",
+                                              "JavaScript / JSX"
+                                          ],
+                                          [
+                                              "N",
+                                              "Node.js",
+                                              "Runtime Environment",
+                                              "JavaScript"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Letter",
+                                             "Technology",
+                                             "Role",
+                                             "Language"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "The biggest advantage of MERN is that JavaScript is used across all layers of the application — from the database query language to the server logic to the browser UI. This allows developers to write the entire stack in a single programming language, making it easier to share code, types, and logic across the frontend and backend.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "1.2 Why Choose MERN?",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "1.2.1 Advantages",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Single Language Everywhere: JavaScript/TypeScript is used across all layers, reducing context switching and allowing full-stack developers to own entire features end-to-end.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "JSON Throughout: MongoDB stores data as BSON (Binary JSON), Express/Node transmit JSON over APIs, and React consumes JSON — meaning data flows from database to UI with minimal transformation.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Massive Ecosystem: npm (Node Package Manager) has over 2 million packages. Any feature you need almost certainly has a well-maintained library.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "High Performance: Node.js uses a non-blocking, event-driven I/O model that handles thousands of concurrent connections efficiently, making it ideal for real-time applications.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Component-Based UI: React\u0027s component model encourages reusability, separation of concerns, and testability in the frontend.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Flexible Schema: MongoDB\u0027s document model allows you to iterate quickly without rigid database migrations.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Large Community: Enormous developer communities for each technology mean extensive tutorials, Stack Overflow answers, and open-source contributions.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "1.2.2 When NOT to Use MERN",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Applications requiring strict ACID transactions across many tables (consider PostgreSQL + Prisma instead).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Heavy numerical computation or data science workloads (Python ecosystem is superior).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Legacy enterprise environments locked into Java or .NET.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "1.3 The MVC Architecture in MERN",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "The MERN stack naturally maps to the Model-View-Controller (MVC) pattern:",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Model",
+                                              "MongoDB + Mongoose",
+                                              "Data storage, schemas, validation, business logic"
+                                          ],
+                                          [
+                                              "View",
+                                              "React.js",
+                                              "UI rendering, user interaction, presentation logic"
+                                          ],
+                                          [
+                                              "Controller",
+                                              "Express.js + Node.js",
+                                              "Request handling, routing, API orchestration"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "MVC Layer",
+                                             "MERN Component",
+                                             "Responsibility"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "1.4 How MERN Components Communicate",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "In a typical MERN application, data flows as follows:",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "User interacts with the React frontend (clicks a button, fills a form).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "React makes an HTTP request (typically using fetch or axios) to an Express.js REST API endpoint.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Express routes the request to the appropriate controller function.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "The controller queries MongoDB using Mongoose models.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "MongoDB returns data; Mongoose validates and transforms it.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Express sends a JSON response back to React.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "React updates its state, triggering a re-render of the UI.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Key Concept: All communication between React and Express happens via HTTP/HTTPS using JSON. React runs entirely in the browser; Node.js/Express runs on the server. They are separate processes that communicate over a network.",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "1.5 Comparing MERN to Other Stacks",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "MERN",
+                                              "React",
+                                              "Express/Node",
+                                              "MongoDB",
+                                              "JavaScript"
+                                          ],
+                                          [
+                                              "MEAN",
+                                              "Angular",
+                                              "Express/Node",
+                                              "MongoDB",
+                                              "JavaScript/TypeScript"
+                                          ],
+                                          [
+                                              "LAMP",
+                                              "PHP (server-rendered)",
+                                              "Apache/PHP",
+                                              "MySQL",
+                                              "PHP"
+                                          ],
+                                          [
+                                              "Django",
+                                              "Templates/React",
+                                              "Django",
+                                              "PostgreSQL",
+                                              "Python"
+                                          ],
+                                          [
+                                              "Rails",
+                                              "ERB/React",
+                                              "Ruby on Rails",
+                                              "PostgreSQL",
+                                              "Ruby"
+                                          ],
+                                          [
+                                              ".NET",
+                                              "Razor/React",
+                                              "ASP.NET",
+                                              "SQL Server",
+                                              "C#"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Stack",
+                                             "Frontend",
+                                             "Backend",
+                                             "Database",
+                                             "Language"
+                                         ],
+                             "type":  "table"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 2: Development Environment Setup",
+        "id":  4,
+        "elements":  [
+                         {
+                             "text":  "2.1 Required Software",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Before writing any code, you need to install the following tools on your development machine:",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Node.js",
+                                              "18.x LTS",
+                                              "JavaScript runtime",
+                                              "nodejs.org"
+                                          ],
+                                          [
+                                              "npm",
+                                              "9.x (bundled)",
+                                              "Package manager",
+                                              "Bundled with Node"
+                                          ],
+                                          [
+                                              "MongoDB",
+                                              "6.x",
+                                              "NoSQL database",
+                                              "mongodb.com"
+                                          ],
+                                          [
+                                              "VS Code",
+                                              "Latest",
+                                              "Code editor",
+                                              "code.visualstudio.com"
+                                          ],
+                                          [
+                                              "Git",
+                                              "2.x",
+                                              "Version control",
+                                              "git-scm.com"
+                                          ],
+                                          [
+                                              "Postman",
+                                              "Latest",
+                                              "API testing",
+                                              "postman.com"
+                                          ],
+                                          [
+                                              "MongoDB Compass",
+                                              "Latest",
+                                              "DB GUI",
+                                              "mongodb.com/compass"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Tool",
+                                             "Version (min)",
+                                             "Purpose",
+                                             "Download"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "2.2 Installing Node.js",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Node.js is the foundation of the MERN backend. Always install the LTS (Long-Term Support) version for production use.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "On macOS (using Homebrew)",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "# Install Homebrew first (if not installed)\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n# Install Node.js LTS\nbrew install node@18\n\n# Verify installation\nnode --version    # Should output v18.x.x\nnpm --version     # Should output 9.x.x",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "On Windows",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Download the Windows Installer (.msi) from nodejs.org and run it. Accept all defaults. After installation, verify in Command Prompt or PowerShell:",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "node --version\nnpm --version",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "On Linux (Ubuntu/Debian)",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -\nsudo apt-get install -y nodejs\n\n# Verify\nnode --version\nnpm --version",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "Using nvm (Recommended for Developers)",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "nvm (Node Version Manager) lets you switch between Node versions easily, which is useful when working on multiple projects.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "# Install nvm\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash\n\n# Reload shell config\nsource ~/.bashrc  # or ~/.zshrc for zsh\n\n# Install and use Node 18\nnvm install 18\nnvm use 18\nnvm alias default 18",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "2.3 Installing MongoDB",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Option A: Local Installation",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "For local development, install MongoDB Community Edition on your machine.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "# macOS\nbrew tap mongodb/brew\nbrew install mongodb-community@6.0\nbrew services start mongodb-community@6.0\n\n# Ubuntu\nwget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -\necho \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list\nsudo apt-get update \u0026\u0026 sudo apt-get install -y mongodb-org\nsudo systemctl start mongod\nsudo systemctl enable mongod",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "Option B: MongoDB Atlas (Cloud — Recommended)",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "MongoDB Atlas is the official cloud database service. It has a free tier (M0) which is perfect for learning and small projects.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Go to cloud.mongodb.com and create a free account.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Create a new project and click \u0027Build a Database\u0027.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Choose the FREE tier (M0 Sandbox), select a cloud provider and region.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Create a database user (username + password) — save these securely.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Add your IP address to the IP Access List (or use 0.0.0.0/0 for development).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Click \u0027Connect\u0027 → \u0027Connect your application\u0027 → copy the connection string.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "2.4 VS Code Extensions for MERN Development",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Install these extensions in VS Code for the best development experience:",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "ESLint",
+                                              "Microsoft",
+                                              "JavaScript linting"
+                                          ],
+                                          [
+                                              "Prettier",
+                                              "Prettier",
+                                              "Code formatting"
+                                          ],
+                                          [
+                                              "ES7+ React Snippets",
+                                              "dsznajder",
+                                              "React code snippets"
+                                          ],
+                                          [
+                                              "MongoDB for VS Code",
+                                              "MongoDB",
+                                              "Query MongoDB in editor"
+                                          ],
+                                          [
+                                              "Thunder Client",
+                                              "Ranga Vadhineni",
+                                              "API testing (like Postman)"
+                                          ],
+                                          [
+                                              "GitLens",
+                                              "GitKraken",
+                                              "Enhanced Git integration"
+                                          ],
+                                          [
+                                              "Path Intellisense",
+                                              "Christian Kohler",
+                                              "Autocomplete file paths"
+                                          ],
+                                          [
+                                              "Bracket Pair Colorizer",
+                                              "CoenraadS",
+                                              "Colorize matching brackets"
+                                          ],
+                                          [
+                                              "Auto Import",
+                                              "steoates",
+                                              "Auto-import JS/TS modules"
+                                          ],
+                                          [
+                                              "Tailwind CSS IntelliSense",
+                                              "Tailwind Labs",
+                                              "Tailwind class autocomplete"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Extension",
+                                             "Publisher",
+                                             "Purpose"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "2.5 Creating Your First MERN Project Structure",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "A well-organized project structure is critical for maintainability. Here is the recommended folder structure:",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "my-mern-app/\n├── client/                  # React frontend\n│   ├── public/\n│   │   └── index.html\n│   ├── src/\n│   │   ├── api/             # API call functions\n│   │   ├── assets/          # Images, fonts\n│   │   ├── components/      # Reusable UI components\n│   │   │   ├── common/      # Buttons, Inputs, Modals\n│   │   │   └── layout/      # Header, Footer, Sidebar\n│   │   ├── context/         # React Context providers\n│   │   ├── hooks/           # Custom React hooks\n│   │   ├── pages/           # Page-level components\n│   │   ├── store/           # Redux store (if used)\n│   │   ├── styles/          # Global CSS / theme\n│   │   ├── utils/           # Helper functions\n│   │   ├── App.jsx\n│   │   └── main.jsx\n│   ├── .env\n│   └── package.json\n│\n├── server/                  # Express backend\n│   ├── config/              # DB config, env vars\n│   ├── controllers/         # Request handlers\n│   ├── middleware/          # Auth, error, logging\n│   ├── models/              # Mongoose schemas\n│   ├── routes/              # Express routes\n│   ├── services/            # Business logic\n│   ├── utils/               # Backend utilities\n│   ├── .env\n│   ├── app.js               # Express app setup\n│   └── server.js            # Entry point\n│\n├── .gitignore\n└── README.md",
+                             "type":  "note"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 3: MongoDB – Database Layer",
+        "id":  5,
+        "elements":  [
+                         {
+                             "text":  "3.1 Introduction to MongoDB",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "MongoDB is a document-oriented NoSQL database. Instead of storing data in rows and columns like a relational database (MySQL, PostgreSQL), MongoDB stores data as JSON-like documents. These documents are grouped into collections, which are analogous to tables in SQL.",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Database",
+                                              "Database"
+                                          ],
+                                          [
+                                              "Table",
+                                              "Collection"
+                                          ],
+                                          [
+                                              "Row / Record",
+                                              "Document"
+                                          ],
+                                          [
+                                              "Column",
+                                              "Field"
+                                          ],
+                                          [
+                                              "Primary Key",
+                                              "_id (ObjectId)"
+                                          ],
+                                          [
+                                              "JOIN",
+                                              "$lookup (aggregation)"
+                                          ],
+                                          [
+                                              "Foreign Key",
+                                              "Reference (manual) or Embedded Document"
+                                          ],
+                                          [
+                                              "INDEX",
+                                              "Index"
+                                          ],
+                                          [
+                                              "Schema",
+                                              "Flexible (optional with Mongoose)"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "SQL Concept",
+                                             "MongoDB Equivalent"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "3.2 MongoDB Document Structure",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "A MongoDB document is a JSON-like object (stored as BSON internally) with key-value pairs. Here is an example user document:",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "{\n  \"_id\": ObjectId(\"64f1a2b3c4d5e6f7a8b9c0d1\"),\n  \"username\": \"john_doe\",\n  \"email\": \"john@example.com\",\n  \"age\": 29,\n  \"isActive\": true,\n  \"roles\": [\"user\", \"editor\"],\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"New York\",\n    \"country\": \"USA\"\n  },\n  \"posts\": [\n    { \"title\": \"First Post\", \"createdAt\": ISODate(\"2024-01-15\") }\n  ],\n  \"createdAt\": ISODate(\"2024-01-01T00:00:00Z\"),\n  \"updatedAt\": ISODate(\"2024-06-01T00:00:00Z\")\n}",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.3 MongoDB CRUD Operations",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "3.3.1 Create",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// Insert one document\ndb.users.insertOne({ name: \"Alice\", email: \"alice@example.com\", age: 25 });\n\n// Insert multiple documents\ndb.users.insertMany([\n  { name: \"Bob\", email: \"bob@example.com\", age: 30 },\n  { name: \"Charlie\", email: \"charlie@example.com\", age: 22 }\n]);",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.3.2 Read",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// Find all documents\ndb.users.find();\n\n// Find with filter\ndb.users.find({ age: { $gte: 25 } });\n\n// Find one\ndb.users.findOne({ email: \"alice@example.com\" });\n\n// Projection (select specific fields)\ndb.users.find({}, { name: 1, email: 1, _id: 0 });\n\n// Sort, Skip, Limit\ndb.users.find().sort({ age: -1 }).skip(10).limit(5);",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.3.3 Update",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// Update one document\ndb.users.updateOne(\n  { email: \"alice@example.com\" },\n  { $set: { age: 26, updatedAt: new Date() } }\n);\n\n// Update many\ndb.users.updateMany({ isActive: false }, { $set: { isActive: true } });\n\n// Upsert (insert if not found)\ndb.users.updateOne(\n  { email: \"newuser@example.com\" },\n  { $set: { name: \"New User\", email: \"newuser@example.com\" } },\n  { upsert: true }\n);",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.3.4 Delete",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// Delete one\ndb.users.deleteOne({ email: \"alice@example.com\" });\n\n// Delete many\ndb.users.deleteMany({ isActive: false });",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.4 MongoDB Query Operators",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "$eq",
+                                              "Comparison",
+                                              "{ age: { $eq: 25 } }",
+                                              "Equals"
+                                          ],
+                                          [
+                                              "$ne",
+                                              "Comparison",
+                                              "{ age: { $ne: 25 } }",
+                                              "Not equals"
+                                          ],
+                                          [
+                                              "$gt / $gte",
+                                              "Comparison",
+                                              "{ age: { $gte: 18 } }",
+                                              "Greater than / equal"
+                                          ],
+                                          [
+                                              "$lt / $lte",
+                                              "Comparison",
+                                              "{ age: { $lt: 65 } }",
+                                              "Less than / equal"
+                                          ],
+                                          [
+                                              "$in",
+                                              "Comparison",
+                                              "{ role: { $in: [\"admin\",\"mod\"] } }",
+                                              "Value in array"
+                                          ],
+                                          [
+                                              "$nin",
+                                              "Comparison",
+                                              "{ role: { $nin: [\"banned\"] } }",
+                                              "Value not in array"
+                                          ],
+                                          [
+                                              "$and",
+                                              "Logical",
+                                              "{ $and: [{age:{$gt:18}},{active:true}] }",
+                                              "Both conditions true"
+                                          ],
+                                          [
+                                              "$or",
+                                              "Logical",
+                                              "{ $or: [{age:25},{name:\"Bob\"}] }",
+                                              "Either condition true"
+                                          ],
+                                          [
+                                              "$not",
+                                              "Logical",
+                                              "{ age: { $not: { $lt: 18 } } }",
+                                              "Negates condition"
+                                          ],
+                                          [
+                                              "$exists",
+                                              "Element",
+                                              "{ phone: { $exists: true } }",
+                                              "Field exists"
+                                          ],
+                                          [
+                                              "$type",
+                                              "Element",
+                                              "{ age: { $type: \"int\" } }",
+                                              "Field is of type"
+                                          ],
+                                          [
+                                              "$regex",
+                                              "Evaluation",
+                                              "{ name: { $regex: /^A/i } }",
+                                              "Regex match"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Operator",
+                                             "Category",
+                                             "Example",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "3.5 MongoDB Aggregation Pipeline",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "The aggregation pipeline is MongoDB\u0027s most powerful data processing tool. It consists of stages, where each stage transforms the documents flowing through it.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "db.orders.aggregate([\n  // Stage 1: Filter\n  { $match: { status: \"completed\", createdAt: { $gte: new Date(\"2024-01-01\") } } },\n\n  // Stage 2: Join with users collection\n  { $lookup: {\n    from: \"users\",\n    localField: \"userId\",\n    foreignField: \"_id\",\n    as: \"user\"\n  }},\n\n  // Stage 3: Unwind array\n  { $unwind: \"$user\" },\n\n  // Stage 4: Group and aggregate\n  { $group: {\n    _id: \"$user.country\",\n    totalRevenue: { $sum: \"$amount\" },\n    orderCount: { $sum: 1 },\n    avgOrderValue: { $avg: \"$amount\" }\n  }},\n\n  // Stage 5: Sort\n  { $sort: { totalRevenue: -1 } },\n\n  // Stage 6: Limit results\n  { $limit: 10 }\n]);",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "3.6 Mongoose – MongoDB ODM",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Mongoose is an Object Document Mapper (ODM) for MongoDB and Node.js. It provides schema-based modeling, built-in type casting, validation, query building, and middleware hooks.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "3.6.1 Installation \u0026 Connection",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "npm install mongoose\n\n// config/database.js\nconst mongoose = require(\u0027mongoose\u0027);\n\nconst connectDB = async () =\u003e {\n  try {\n    const conn = await mongoose.connect(process.env.MONGO_URI, {\n      useNewUrlParser: true,\n      useUnifiedTopology: true,\n    });\n    console.log(`MongoDB Connected: ${conn.connection.host}`);\n  } catch (error) {\n    console.error(`Error: ${error.message}`);\n    process.exit(1);\n  }\n};\n\nmodule.exports = connectDB;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "3.6.2 Defining a Schema",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// models/User.js\nconst mongoose = require(\u0027mongoose\u0027);\nconst bcrypt = require(\u0027bcryptjs\u0027);\n\nconst userSchema = new mongoose.Schema({\n  username: {\n    type: String,\n    required: [true, \u0027Username is required\u0027],\n    unique: true,\n    trim: true,\n    minlength: [3, \u0027Username must be at least 3 characters\u0027],\n    maxlength: [30, \u0027Username cannot exceed 30 characters\u0027]\n  },\n  email: {\n    type: String,\n    required: [true, \u0027Email is required\u0027],\n    unique: true,\n    lowercase: true,\n    match: [/^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$/, \u0027Invalid email\u0027]\n  },\n  password: {\n    type: String,\n    required: true,\n    minlength: 8,\n    select: false  // Exclude from queries by default\n  },\n  role: {\n    type: String,\n    enum: [\u0027user\u0027, \u0027admin\u0027, \u0027moderator\u0027],\n    default: \u0027user\u0027\n  },\n  avatar: { type: String, default: \u0027\u0027 },\n  isActive: { type: Boolean, default: true },\n  lastLogin: { type: Date }\n}, {\n  timestamps: true   // Adds createdAt and updatedAt\n});\n\n// Pre-save middleware: hash password\nuserSchema.pre(\u0027save\u0027, async function(next) {\n  if (!this.isModified(\u0027password\u0027)) return next();\n  this.password = await bcrypt.hash(this.password, 12);\n  next();\n});\n\n// Instance method: compare passwords\nuserSchema.methods.comparePassword = async function(candidatePassword) {\n  return await bcrypt.compare(candidatePassword, this.password);\n};\n\n// Static method: find by email\nuserSchema.statics.findByEmail = function(email) {\n  return this.findOne({ email: email.toLowerCase() });\n};\n\nmodule.exports = mongoose.model(\u0027User\u0027, userSchema);",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "3.7 MongoDB Indexing",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Indexes are critical for query performance. Without an index, MongoDB must do a full collection scan (O(n)) for every query.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "// Single field index\nuserSchema.index({ email: 1 });  // 1 = ascending, -1 = descending\n\n// Compound index\nuserSchema.index({ lastName: 1, firstName: 1 });\n\n// Text index (full-text search)\npostSchema.index({ title: \u0027text\u0027, content: \u0027text\u0027 });\n\n// TTL index (auto-delete after expiry)\nsessionSchema.index({ createdAt: 1 }, { expireAfterSeconds: 3600 });\n\n// Unique index\nuserSchema.index({ username: 1 }, { unique: true });\n\n// Partial index (only index documents matching condition)\nuserSchema.index({ email: 1 }, { partialFilterExpression: { isActive: true } });",
+                             "type":  "note"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 4: Express.js – Server Framework",
+        "id":  6,
+        "elements":  [
+                         {
+                             "text":  "4.1 Introduction to Express.js",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Express.js is a minimal, flexible Node.js web application framework. It provides robust features for building web and mobile applications, including routing, middleware, template engines, and HTTP utilities. Express is not opinionated — it lets you structure your application however you like.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "4.2 Creating an Express Application",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm init -y\nnpm install express dotenv cors helmet morgan\n\n// app.js\nconst express = require(\u0027express\u0027);\nconst cors = require(\u0027cors\u0027);\nconst helmet = require(\u0027helmet\u0027);\nconst morgan = require(\u0027morgan\u0027);\n\nconst app = express();\n\n// ── Security Middleware ──────────────────────\napp.use(helmet());  // Sets security HTTP headers\n\n// ── CORS ────────────────────────────────────\napp.use(cors({\n  origin: process.env.CLIENT_URL || \u0027http://localhost:3000\u0027,\n  credentials: true\n}));\n\n// ── Body Parsers ─────────────────────────────\napp.use(express.json({ limit: \u002710kb\u0027 }));\napp.use(express.urlencoded({ extended: true }));\n\n// ── Logging ──────────────────────────────────\nif (process.env.NODE_ENV === \u0027development\u0027) {\n  app.use(morgan(\u0027dev\u0027));\n}\n\n// ── Routes ───────────────────────────────────\napp.use(\u0027/api/v1/auth\u0027, require(\u0027./routes/authRoutes\u0027));\napp.use(\u0027/api/v1/users\u0027, require(\u0027./routes/userRoutes\u0027));\napp.use(\u0027/api/v1/posts\u0027, require(\u0027./routes/postRoutes\u0027));\n\n// ── 404 Handler ──────────────────────────────\napp.use((req, res) =\u003e {\n  res.status(404).json({ success: false, message: \u0027Route not found\u0027 });\n});\n\n// ── Global Error Handler ─────────────────────\napp.use((err, req, res, next) =\u003e {\n  const statusCode = err.statusCode || 500;\n  res.status(statusCode).json({\n    success: false,\n    message: err.message || \u0027Internal Server Error\u0027,\n    ...(process.env.NODE_ENV === \u0027development\u0027 \u0026\u0026 { stack: err.stack })\n  });\n});\n\nmodule.exports = app;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "4.3 Routing in Express",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Express Router lets you modularize your routes into separate files, keeping the codebase clean and organized.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "// routes/userRoutes.js\nconst express = require(\u0027express\u0027);\nconst router = express.Router();\nconst { protect, restrictTo } = require(\u0027../middleware/authMiddleware\u0027);\nconst {\n  getAllUsers, getUserById, updateUser, deleteUser\n} = require(\u0027../controllers/userController\u0027);\n\n// Public routes\nrouter.get(\u0027/\u0027, getAllUsers);\nrouter.get(\u0027/:id\u0027, getUserById);\n\n// Protected routes (require authentication)\nrouter.use(protect);  // All routes below require auth\n\n// Admin only routes\nrouter.delete(\u0027/:id\u0027, restrictTo(\u0027admin\u0027), deleteUser);\nrouter.patch(\u0027/:id\u0027, updateUser);\n\nmodule.exports = router;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "4.4 Express Middleware",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Middleware functions are functions that have access to the request object (req), response object (res), and the next middleware function in the application\u0027s request-response cycle.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Middleware Execution Flow:",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Request → Middleware 1 → Middleware 2 → Route Handler → Response",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "// Custom middleware examples\n\n// 1. Logger middleware\nconst requestLogger = (req, res, next) =\u003e {\n  console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);\n  next();  // Must call next() or the request hangs\n};\n\n// 2. Rate limiter\nconst rateLimit = require(\u0027express-rate-limit\u0027);\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000, // 15 minutes\n  max: 100,                  // 100 requests per window\n  message: \u0027Too many requests, please try again later.\u0027\n});\napp.use(\u0027/api\u0027, limiter);\n\n// 3. Request timing middleware\nconst timingMiddleware = (req, res, next) =\u003e {\n  req.startTime = Date.now();\n  res.on(\u0027finish\u0027, () =\u003e {\n    const duration = Date.now() - req.startTime;\n    console.log(`${req.method} ${req.url} took ${duration}ms`);\n  });\n  next();\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "4.5 Controllers \u0026 Error Handling",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// utils/AppError.js\nclass AppError extends Error {\n  constructor(message, statusCode) {\n    super(message);\n    this.statusCode = statusCode;\n    this.status = `${statusCode}`.startsWith(\u00274\u0027) ? \u0027fail\u0027 : \u0027error\u0027;\n    this.isOperational = true;\n    Error.captureStackTrace(this, this.constructor);\n  }\n}\nmodule.exports = AppError;\n\n// utils/catchAsync.js\nconst catchAsync = (fn) =\u003e (req, res, next) =\u003e {\n  fn(req, res, next).catch(next);\n};\nmodule.exports = catchAsync;\n\n// controllers/userController.js\nconst User = require(\u0027../models/User\u0027);\nconst AppError = require(\u0027../utils/AppError\u0027);\nconst catchAsync = require(\u0027../utils/catchAsync\u0027);\n\nexports.getUserById = catchAsync(async (req, res, next) =\u003e {\n  const user = await User.findById(req.params.id);\n  if (!user) return next(new AppError(\u0027User not found\u0027, 404));\n  res.status(200).json({ success: true, data: { user } });\n});\n\nexports.updateUser = catchAsync(async (req, res, next) =\u003e {\n  const { name, email } = req.body;  // Only allow specific fields\n  const user = await User.findByIdAndUpdate(\n    req.params.id,\n    { name, email },\n    { new: true, runValidators: true }\n  );\n  if (!user) return next(new AppError(\u0027User not found\u0027, 404));\n  res.status(200).json({ success: true, data: { user } });\n});",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 5: React.js – Frontend Library",
+        "id":  7,
+        "elements":  [
+                         {
+                             "text":  "5.1 Introduction to React",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "React is a declarative, component-based JavaScript library for building user interfaces. Created by Facebook (Meta) in 2013, it has become the most popular frontend library in the world. React\u0027s core ideas are components, props, state, and the virtual DOM.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "Core Concepts at a Glance:",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Components: Self-contained, reusable UI pieces (like LEGO blocks).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Props: Data passed from parent to child components (read-only).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "State: Internal data that changes over time (triggers re-renders).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Virtual DOM: React\u0027s in-memory representation of the UI; React diffs it against the real DOM to make minimal updates.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Hooks: Functions that let functional components use state and lifecycle features.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "JSX: JavaScript XML syntax — a way to write HTML inside JavaScript.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "5.2 Setting Up React with Vite",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Vite is the modern, faster alternative to Create React App (CRA). It uses native ES modules for near-instant HMR (Hot Module Replacement).",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "# Create React app with Vite\nnpm create vite@latest client -- --template react\ncd client\nnpm install\n\n# Install common dependencies\nnpm install axios react-router-dom react-query\nnpm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p\n\n# Start development server\nnpm run dev",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.3 JSX – JavaScript XML",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "JSX is a syntax extension that lets you write HTML-like markup inside JavaScript. It is compiled by Babel into React.createElement() calls.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "// JSX — what you write\nconst element = (\n  \u003cdiv className=\u0027card\u0027\u003e\n    \u003ch1\u003eHello, {username}!\u003c/h1\u003e\n    \u003cp\u003eYou have {messages.length} new messages.\u003c/p\u003e\n    {isLoggedIn ? \u003cDashboard /\u003e : \u003cLogin /\u003e}\n    {items.map(item =\u003e (\n      \u003cli key={item.id}\u003e{item.name}\u003c/li\u003e\n    ))}\n  \u003c/div\u003e\n);\n\n// Rules of JSX:\n// 1. Return ONE root element (wrap in \u003c\u003e \u003c/\u003e Fragment if needed)\n// 2. Close ALL tags: \u003cimg /\u003e, \u003cbr /\u003e, \u003cinput /\u003e\n// 3. Use className instead of class\n// 4. Use htmlFor instead of for\n// 5. JS expressions go in curly braces { }\n// 6. Keys are required for list items",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.4 Components",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "5.4.1 Functional Component",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// components/UserCard.jsx\nconst UserCard = ({ user, onDelete }) =\u003e {\n  return (\n    \u003cdiv className=\u0027bg-white shadow rounded-lg p-4\u0027\u003e\n      \u003cimg src={user.avatar} alt={user.name} className=\u0027w-12 h-12 rounded-full\u0027 /\u003e\n      \u003ch2 className=\u0027text-xl font-bold\u0027\u003e{user.name}\u003c/h2\u003e\n      \u003cp className=\u0027text-gray-600\u0027\u003e{user.email}\u003c/p\u003e\n      \u003cspan className={`badge ${user.isActive ? \u0027badge-green\u0027 : \u0027badge-red\u0027}`}\u003e\n        {user.isActive ? \u0027Active\u0027 : \u0027Inactive\u0027}\n      \u003c/span\u003e\n      \u003cbutton\n        onClick={() =\u003e onDelete(user._id)}\n        className=\u0027mt-2 bg-red-500 text-white px-3 py-1 rounded\u0027\n      \u003e\n        Delete\n      \u003c/button\u003e\n    \u003c/div\u003e\n  );\n};\n\nexport default UserCard;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.5 React Hooks – Complete Reference",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "5.5.1 useState",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "import { useState } from \u0027react\u0027;\n\nconst Counter = () =\u003e {\n  const [count, setCount] = useState(0);\n  const [user, setUser] = useState({ name: \u0027\u0027, email: \u0027\u0027 });\n\n  // Update primitive\n  const increment = () =\u003e setCount(prev =\u003e prev + 1);\n\n  // Update object (must spread to preserve other properties)\n  const updateEmail = (e) =\u003e setUser(prev =\u003e ({ ...prev, email: e.target.value }));\n\n  return (\n    \u003cdiv\u003e\n      \u003cp\u003eCount: {count}\u003c/p\u003e\n      \u003cbutton onClick={increment}\u003e+\u003c/button\u003e\n    \u003c/div\u003e\n  );\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.5.2 useEffect",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "import { useState, useEffect } from \u0027react\u0027;\n\nconst UserProfile = ({ userId }) =\u003e {\n  const [user, setUser] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() =\u003e {\n    // This runs after every render where userId changes\n    const controller = new AbortController();\n\n    const fetchUser = async () =\u003e {\n      try {\n        setLoading(true);\n        const res = await fetch(`/api/users/${userId}`, {\n          signal: controller.signal\n        });\n        const data = await res.json();\n        setUser(data.user);\n      } catch (err) {\n        if (err.name !== \u0027AbortError\u0027) setError(err.message);\n      } finally {\n        setLoading(false);\n      }\n    };\n\n    fetchUser();\n\n    // Cleanup: cancel fetch on unmount or userId change\n    return () =\u003e controller.abort();\n  }, [userId]);  // Dependency array\n\n  if (loading) return \u003cdiv\u003eLoading...\u003c/div\u003e;\n  if (error) return \u003cdiv\u003eError: {error}\u003c/div\u003e;\n  return \u003cdiv\u003e{user?.name}\u003c/div\u003e;\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.5.3 useContext",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// context/AuthContext.jsx\nimport { createContext, useContext, useState, useEffect } from \u0027react\u0027;\nimport axios from \u0027axios\u0027;\n\nconst AuthContext = createContext(null);\n\nexport const AuthProvider = ({ children }) =\u003e {\n  const [user, setUser] = useState(null);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() =\u003e {\n    const token = localStorage.getItem(\u0027token\u0027);\n    if (token) {\n      axios.defaults.headers.common[\u0027Authorization\u0027] = `Bearer ${token}`;\n      // Verify token and fetch user profile\n      axios.get(\u0027/api/v1/auth/me\u0027)\n        .then(res =\u003e setUser(res.data.user))\n        .catch(() =\u003e localStorage.removeItem(\u0027token\u0027))\n        .finally(() =\u003e setLoading(false));\n    } else {\n      setLoading(false);\n    }\n  }, []);\n\n  const login = async (email, password) =\u003e {\n    const res = await axios.post(\u0027/api/v1/auth/login\u0027, { email, password });\n    const { token, user } = res.data;\n    localStorage.setItem(\u0027token\u0027, token);\n    axios.defaults.headers.common[\u0027Authorization\u0027] = `Bearer ${token}`;\n    setUser(user);\n    return user;\n  };\n\n  const logout = () =\u003e {\n    localStorage.removeItem(\u0027token\u0027);\n    delete axios.defaults.headers.common[\u0027Authorization\u0027];\n    setUser(null);\n  };\n\n  return (\n    \u003cAuthContext.Provider value={{ user, login, logout, loading }}\u003e\n      {children}\n    \u003c/AuthContext.Provider\u003e\n  );\n};\n\n// Custom hook\nexport const useAuth = () =\u003e {\n  const context = useContext(AuthContext);\n  if (!context) throw new Error(\u0027useAuth must be used within AuthProvider\u0027);\n  return context;\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.5.4 useReducer, useMemo, useCallback, useRef",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "import { useReducer, useMemo, useCallback, useRef } from \u0027react\u0027;\n\n// useReducer — for complex state logic\nconst cartReducer = (state, action) =\u003e {\n  switch (action.type) {\n    case \u0027ADD_ITEM\u0027:\n      return { ...state, items: [...state.items, action.payload] };\n    case \u0027REMOVE_ITEM\u0027:\n      return { ...state, items: state.items.filter(i =\u003e i.id !== action.payload) };\n    case \u0027CLEAR_CART\u0027:\n      return { ...state, items: [] };\n    default: return state;\n  }\n};\nconst [cart, dispatch] = useReducer(cartReducer, { items: [] });\n\n// useMemo — memoize expensive calculations\nconst sortedProducts = useMemo(() =\u003e {\n  return [...products].sort((a, b) =\u003e a.price - b.price);\n}, [products]);  // Recalculate only when products changes\n\n// useCallback — memoize functions to avoid re-creation\nconst handleDelete = useCallback((id) =\u003e {\n  dispatch({ type: \u0027REMOVE_ITEM\u0027, payload: id });\n}, [dispatch]);\n\n// useRef — access DOM elements or persist values\nconst inputRef = useRef(null);\nconst focusInput = () =\u003e inputRef.current.focus();\nreturn \u003cinput ref={inputRef} /\u003e;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "5.6 React Router v6",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// App.jsx\nimport { BrowserRouter, Routes, Route, Navigate } from \u0027react-router-dom\u0027;\nimport { useAuth } from \u0027./context/AuthContext\u0027;\n\n// Protected Route component\nconst PrivateRoute = ({ children }) =\u003e {\n  const { user, loading } = useAuth();\n  if (loading) return \u003cdiv\u003eLoading...\u003c/div\u003e;\n  return user ? children : \u003cNavigate to=\u0027/login\u0027 replace /\u003e;\n};\n\nconst App = () =\u003e (\n  \u003cBrowserRouter\u003e\n    \u003cRoutes\u003e\n      {/* Public routes */}\n      \u003cRoute path=\u0027/\u0027 element={\u003cHomePage /\u003e} /\u003e\n      \u003cRoute path=\u0027/login\u0027 element={\u003cLoginPage /\u003e} /\u003e\n      \u003cRoute path=\u0027/register\u0027 element={\u003cRegisterPage /\u003e} /\u003e\n      \u003cRoute path=\u0027/posts/:id\u0027 element={\u003cPostDetailPage /\u003e} /\u003e\n\n      {/* Protected routes */}\n      \u003cRoute path=\u0027/dashboard\u0027 element={\n        \u003cPrivateRoute\u003e\u003cDashboardPage /\u003e\u003c/PrivateRoute\u003e\n      } /\u003e\n      \u003cRoute path=\u0027/profile\u0027 element={\n        \u003cPrivateRoute\u003e\u003cProfilePage /\u003e\u003c/PrivateRoute\u003e\n      } /\u003e\n\n      {/* Nested routes */}\n      \u003cRoute path=\u0027/admin\u0027 element={\u003cPrivateRoute\u003e\u003cAdminLayout /\u003e\u003c/PrivateRoute\u003e}\u003e\n        \u003cRoute index element={\u003cAdminDashboard /\u003e} /\u003e\n        \u003cRoute path=\u0027users\u0027 element={\u003cAdminUsers /\u003e} /\u003e\n        \u003cRoute path=\u0027posts\u0027 element={\u003cAdminPosts /\u003e} /\u003e\n      \u003c/Route\u003e\n\n      {/* 404 */}\n      \u003cRoute path=\u0027*\u0027 element={\u003cNotFoundPage /\u003e} /\u003e\n    \u003c/Routes\u003e\n  \u003c/BrowserRouter\u003e\n);",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 6: Node.js – Runtime Environment",
+        "id":  8,
+        "elements":  [
+                         {
+                             "text":  "6.1 Introduction to Node.js",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Node.js is a JavaScript runtime built on Chrome\u0027s V8 engine. It allows you to run JavaScript outside the browser, on the server. Node.js uses an event-driven, non-blocking I/O model, making it lightweight and efficient for I/O-heavy applications.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "6.2 The Event Loop",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "The event loop is the mechanism that allows Node.js to perform non-blocking I/O operations — despite JavaScript being single-threaded — by offloading operations to the system kernel whenever possible.",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "1",
+                                              "timers",
+                                              "Executes setTimeout and setInterval callbacks"
+                                          ],
+                                          [
+                                              "2",
+                                              "pending callbacks",
+                                              "I/O callbacks deferred to the next iteration"
+                                          ],
+                                          [
+                                              "3",
+                                              "idle, prepare",
+                                              "Internal use only"
+                                          ],
+                                          [
+                                              "4",
+                                              "poll",
+                                              "Retrieve new I/O events; execute I/O callbacks"
+                                          ],
+                                          [
+                                              "5",
+                                              "check",
+                                              "setImmediate() callbacks"
+                                          ],
+                                          [
+                                              "6",
+                                              "close callbacks",
+                                              "socket.on(\u0027close\u0027, ...) callbacks"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Phase",
+                                             "Queue",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "// Demonstrating async non-blocking nature\nconst fs = require(\u0027fs\u0027);\n\nconsole.log(\u00271: Start\u0027);\n\n// Async file read — doesn\u0027t block\nfs.readFile(\u0027./bigfile.txt\u0027, \u0027utf8\u0027, (err, data) =\u003e {\n  console.log(\u00273: File read complete\u0027);\n});\n\n// This executes BEFORE the file read completes\nconsole.log(\u00272: This runs before file read\u0027);\n\n// Output: 1: Start → 2: This runs before... → 3: File read complete",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "6.3 Node.js Core Modules",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "fs",
+                                              "File system operations",
+                                              "Read/write files, create directories"
+                                          ],
+                                          [
+                                              "path",
+                                              "File path utilities",
+                                              "Join paths, get extensions, resolve dirs"
+                                          ],
+                                          [
+                                              "http/https",
+                                              "HTTP server \u0026 client",
+                                              "Create servers, make requests"
+                                          ],
+                                          [
+                                              "os",
+                                              "Operating system info",
+                                              "Get CPU, memory, platform info"
+                                          ],
+                                          [
+                                              "events",
+                                              "EventEmitter class",
+                                              "Custom event-driven patterns"
+                                          ],
+                                          [
+                                              "stream",
+                                              "Streaming data",
+                                              "File streaming, pipe data"
+                                          ],
+                                          [
+                                              "crypto",
+                                              "Cryptography",
+                                              "Hashing, encryption, random bytes"
+                                          ],
+                                          [
+                                              "child_process",
+                                              "Spawn processes",
+                                              "Run shell commands from Node"
+                                          ],
+                                          [
+                                              "url",
+                                              "URL utilities",
+                                              "Parse and format URLs"
+                                          ],
+                                          [
+                                              "util",
+                                              "Utility functions",
+                                              "promisify, debuglog, inspect"
+                                          ],
+                                          [
+                                              "buffer",
+                                              "Binary data",
+                                              "Handle raw binary data"
+                                          ],
+                                          [
+                                              "cluster",
+                                              "Multi-process",
+                                              "Fork worker processes for CPU scaling"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Module",
+                                             "Purpose",
+                                             "Common Usage"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "6.4 Environment Variables \u0026 Configuration",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "# server/.env\nNODE_ENV=development\nPORT=5000\nMONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/mydb\nJWT_SECRET=your_super_secret_key_min_32_characters_long\nJWT_EXPIRES_IN=7d\nJWT_COOKIE_EXPIRES_IN=7\nCLIENT_URL=http://localhost:3000\nSMTP_HOST=smtp.gmail.com\nSMTP_PORT=587\nSMTP_USER=your@gmail.com\nSMTP_PASS=your_app_password\nCLOUDINARY_CLOUD_NAME=your_cloud_name\nCLOUDINARY_API_KEY=your_api_key\nCLOUDINARY_API_SECRET=your_api_secret\n\n// config/config.js\nrequire(\u0027dotenv\u0027).config();\n\nmodule.exports = {\n  env: process.env.NODE_ENV || \u0027development\u0027,\n  port: parseInt(process.env.PORT, 10) || 5000,\n  mongo: { uri: process.env.MONGO_URI },\n  jwt: {\n    secret: process.env.JWT_SECRET,\n    expiresIn: process.env.JWT_EXPIRES_IN || \u00277d\u0027,\n  },\n  clientUrl: process.env.CLIENT_URL,\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "6.5 server.js Entry Point",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// server.js\nconst app = require(\u0027./app\u0027);\nconst connectDB = require(\u0027./config/database\u0027);\nconst config = require(\u0027./config/config\u0027);\n\n// Handle uncaught exceptions (must be at top)\nprocess.on(\u0027uncaughtException\u0027, err =\u003e {\n  console.error(\u0027UNCAUGHT EXCEPTION! Shutting down...\u0027);\n  console.error(err.name, err.message);\n  process.exit(1);\n});\n\n// Connect to database\nconnectDB();\n\n// Start server\nconst server = app.listen(config.port, () =\u003e {\n  console.log(`Server running in ${config.env} mode on port ${config.port}`);\n});\n\n// Handle unhandled promise rejections\nprocess.on(\u0027unhandledRejection\u0027, err =\u003e {\n  console.error(\u0027UNHANDLED REJECTION! Shutting down...\u0027);\n  console.error(err.name, err.message);\n  server.close(() =\u003e process.exit(1));\n});\n\n// Graceful shutdown on SIGTERM (Docker/Kubernetes)\nprocess.on(\u0027SIGTERM\u0027, () =\u003e {\n  console.log(\u0027SIGTERM received. Shutting down gracefully...\u0027);\n  server.close(() =\u003e {\n    console.log(\u0027Process terminated!\u0027);\n    process.exit(0);\n  });\n});",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 7: REST API Design \u0026 Development",
+        "id":  9,
+        "elements":  [
+                         {
+                             "text":  "7.1 REST Principles",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "REST (Representational State Transfer) is an architectural style for designing networked applications. A RESTful API uses HTTP requests to perform CRUD operations on resources.",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Stateless",
+                                              "Each request contains all info needed. Server stores no session state."
+                                          ],
+                                          [
+                                              "Client-Server",
+                                              "Frontend and backend are separate concerns."
+                                          ],
+                                          [
+                                              "Uniform Interface",
+                                              "Consistent URI naming, HTTP methods, and response formats."
+                                          ],
+                                          [
+                                              "Cacheable",
+                                              "Responses should define whether they can be cached."
+                                          ],
+                                          [
+                                              "Layered System",
+                                              "Client can\u0027t tell if it\u0027s connected to the end server or a proxy."
+                                          ],
+                                          [
+                                              "Code on Demand (optional)",
+                                              "Server can send executable code to client."
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "REST Principle",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "7.2 HTTP Methods \u0026 Status Codes",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "GET",
+                                              "Read",
+                                              "GET /api/posts",
+                                              "Retrieve all posts"
+                                          ],
+                                          [
+                                              "GET",
+                                              "Read",
+                                              "GET /api/posts/:id",
+                                              "Retrieve one post"
+                                          ],
+                                          [
+                                              "POST",
+                                              "Create",
+                                              "POST /api/posts",
+                                              "Create a new post"
+                                          ],
+                                          [
+                                              "PUT",
+                                              "Update",
+                                              "PUT /api/posts/:id",
+                                              "Replace entire post"
+                                          ],
+                                          [
+                                              "PATCH",
+                                              "Update",
+                                              "PATCH /api/posts/:id",
+                                              "Partially update post"
+                                          ],
+                                          [
+                                              "DELETE",
+                                              "Delete",
+                                              "DELETE /api/posts/:id",
+                                              "Delete a post"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Method",
+                                             "CRUD",
+                                             "URI Example",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "200 OK",
+                                              "Success",
+                                              "GET, PUT, PATCH successful"
+                                          ],
+                                          [
+                                              "201 Created",
+                                              "Resource created",
+                                              "POST successful"
+                                          ],
+                                          [
+                                              "204 No Content",
+                                              "Success, no body",
+                                              "DELETE successful"
+                                          ],
+                                          [
+                                              "400 Bad Request",
+                                              "Invalid input",
+                                              "Validation failed, malformed JSON"
+                                          ],
+                                          [
+                                              "401 Unauthorized",
+                                              "Not authenticated",
+                                              "Missing or invalid token"
+                                          ],
+                                          [
+                                              "403 Forbidden",
+                                              "Not authorized",
+                                              "Authenticated but lacks permission"
+                                          ],
+                                          [
+                                              "404 Not Found",
+                                              "Resource missing",
+                                              "ID doesn\u0027t exist in DB"
+                                          ],
+                                          [
+                                              "409 Conflict",
+                                              "Data conflict",
+                                              "Duplicate email/username"
+                                          ],
+                                          [
+                                              "422 Unprocessable Entity",
+                                              "Semantic error",
+                                              "Valid JSON but invalid data"
+                                          ],
+                                          [
+                                              "429 Too Many Requests",
+                                              "Rate limited",
+                                              "Too many requests"
+                                          ],
+                                          [
+                                              "500 Internal Server Error",
+                                              "Server error",
+                                              "Unhandled exception"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Status Code",
+                                             "Meaning",
+                                             "When to Use"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "7.3 API Versioning \u0026 URL Design",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// Good URL Design Examples:\n\n// Collections (plural nouns, NOT verbs)\nGET    /api/v1/users          // Get all users\nGET    /api/v1/users/:id      // Get one user\nPOST   /api/v1/users          // Create user\nPATCH  /api/v1/users/:id      // Update user\nDELETE /api/v1/users/:id      // Delete user\n\n// Nested resources\nGET    /api/v1/posts/:postId/comments          // Get post\u0027s comments\nPOST   /api/v1/posts/:postId/comments          // Add comment to post\nDELETE /api/v1/posts/:postId/comments/:id      // Delete specific comment\n\n// Filtering, Sorting, Pagination (query params)\nGET /api/v1/posts?category=tech\u0026sort=-createdAt\u0026page=2\u0026limit=10\n\n// Search\nGET /api/v1/posts?search=mongodb\n\n// Actions on resources (use sub-resources for actions)\nPOST /api/v1/auth/login\nPOST /api/v1/auth/logout\nPOST /api/v1/auth/forgot-password\nPATCH /api/v1/auth/reset-password/:token",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "7.4 Pagination, Filtering \u0026 Sorting",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// utils/APIFeatures.js\nclass APIFeatures {\n  constructor(query, queryString) {\n    this.query = query;\n    this.queryString = queryString;\n  }\n\n  filter() {\n    const queryObj = { ...this.queryString };\n    const excludedFields = [\u0027page\u0027, \u0027sort\u0027, \u0027limit\u0027, \u0027fields\u0027, \u0027search\u0027];\n    excludedFields.forEach(field =\u003e delete queryObj[field]);\n\n    // Advanced filtering: gte, gt, lte, lt → $gte, $gt, $lte, $lt\n    let queryStr = JSON.stringify(queryObj);\n    queryStr = queryStr.replace(/\\b(gte|gt|lte|lt)\\b/g, match =\u003e `$${match}`);\n    this.query = this.query.find(JSON.parse(queryStr));\n    return this;\n  }\n\n  search(fields) {\n    if (this.queryString.search) {\n      const searchRegex = new RegExp(this.queryString.search, \u0027i\u0027);\n      this.query = this.query.find({\n        $or: fields.map(f =\u003e ({ [f]: searchRegex }))\n      });\n    }\n    return this;\n  }\n\n  sort() {\n    if (this.queryString.sort) {\n      const sortBy = this.queryString.sort.split(\u0027,\u0027).join(\u0027 \u0027);\n      this.query = this.query.sort(sortBy);\n    } else {\n      this.query = this.query.sort(\u0027-createdAt\u0027);\n    }\n    return this;\n  }\n\n  paginate() {\n    const page = parseInt(this.queryString.page, 10) || 1;\n    const limit = parseInt(this.queryString.limit, 10) || 10;\n    const skip = (page - 1) * limit;\n    this.query = this.query.skip(skip).limit(limit);\n    this.paginationInfo = { page, limit };\n    return this;\n  }\n}\nmodule.exports = APIFeatures;",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 8: Authentication \u0026 Authorization",
+        "id":  10,
+        "elements":  [
+                         {
+                             "text":  "8.1 Authentication vs Authorization",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Authentication (AuthN)",
+                                              "Who are you?",
+                                              "Username + password, JWT token"
+                                          ],
+                                          [
+                                              "Authorization (AuthZ)",
+                                              "What can you do?",
+                                              "Role-based access, permissions"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Concept",
+                                             "Question Answered",
+                                             "Example"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "8.2 JWT (JSON Web Tokens)",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "JWT is a compact, self-contained way to securely transmit information between parties as a JSON object. JWTs consist of three Base64URL-encoded parts separated by dots: Header.Payload.Signature",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "npm install jsonwebtoken bcryptjs\n\n// utils/jwtUtils.js\nconst jwt = require(\u0027jsonwebtoken\u0027);\n\nconst signToken = (userId) =\u003e {\n  return jwt.sign({ id: userId }, process.env.JWT_SECRET, {\n    expiresIn: process.env.JWT_EXPIRES_IN\n  });\n};\n\nconst verifyToken = (token) =\u003e {\n  return jwt.verify(token, process.env.JWT_SECRET);\n};\n\nconst createAndSendToken = (user, statusCode, res) =\u003e {\n  const token = signToken(user._id);\n  const cookieOptions = {\n    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),\n    httpOnly: true,  // Cannot be accessed by JS (XSS protection)\n    secure: process.env.NODE_ENV === \u0027production\u0027,  // HTTPS only in prod\n    sameSite: \u0027strict\u0027  // CSRF protection\n  };\n  res.cookie(\u0027jwt\u0027, token, cookieOptions);\n  user.password = undefined;  // Remove password from output\n  res.status(statusCode).json({ success: true, token, data: { user } });\n};\n\nmodule.exports = { signToken, verifyToken, createAndSendToken };",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "8.3 Auth Controller",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// controllers/authController.js\nconst User = require(\u0027../models/User\u0027);\nconst { createAndSendToken, verifyToken } = require(\u0027../utils/jwtUtils\u0027);\nconst AppError = require(\u0027../utils/AppError\u0027);\nconst catchAsync = require(\u0027../utils/catchAsync\u0027);\n\n// Register\nexports.register = catchAsync(async (req, res, next) =\u003e {\n  const { username, email, password } = req.body;\n\n  // Check if email already exists\n  const existingUser = await User.findOne({ email });\n  if (existingUser) return next(new AppError(\u0027Email already in use\u0027, 409));\n\n  const user = await User.create({ username, email, password });\n  createAndSendToken(user, 201, res);\n});\n\n// Login\nexports.login = catchAsync(async (req, res, next) =\u003e {\n  const { email, password } = req.body;\n  if (!email || !password)\n    return next(new AppError(\u0027Please provide email and password\u0027, 400));\n\n  // Must explicitly select password (it\u0027s select: false in schema)\n  const user = await User.findOne({ email }).select(\u0027+password\u0027);\n  if (!user || !(await user.comparePassword(password)))\n    return next(new AppError(\u0027Invalid email or password\u0027, 401));\n\n  createAndSendToken(user, 200, res);\n});\n\n// Logout\nexports.logout = (req, res) =\u003e {\n  res.cookie(\u0027jwt\u0027, \u0027loggedout\u0027, {\n    expires: new Date(Date.now() + 1000),\n    httpOnly: true\n  });\n  res.status(200).json({ success: true, message: \u0027Logged out successfully\u0027 });\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "8.4 Auth Middleware",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// middleware/authMiddleware.js\nconst jwt = require(\u0027jsonwebtoken\u0027);\nconst User = require(\u0027../models/User\u0027);\nconst AppError = require(\u0027../utils/AppError\u0027);\nconst catchAsync = require(\u0027../utils/catchAsync\u0027);\n\n// Protect — verify JWT\nexports.protect = catchAsync(async (req, res, next) =\u003e {\n  let token;\n\n  // Check Authorization header\n  if (req.headers.authorization?.startsWith(\u0027Bearer\u0027)) {\n    token = req.headers.authorization.split(\u0027 \u0027)[1];\n  } else if (req.cookies?.jwt) {\n    token = req.cookies.jwt;\n  }\n\n  if (!token) return next(new AppError(\u0027Not authenticated. Please log in.\u0027, 401));\n\n  // Verify token\n  let decoded;\n  try {\n    decoded = jwt.verify(token, process.env.JWT_SECRET);\n  } catch (err) {\n    if (err.name === \u0027TokenExpiredError\u0027)\n      return next(new AppError(\u0027Token expired. Please log in again.\u0027, 401));\n    return next(new AppError(\u0027Invalid token.\u0027, 401));\n  }\n\n  // Check if user still exists\n  const user = await User.findById(decoded.id);\n  if (!user) return next(new AppError(\u0027User no longer exists.\u0027, 401));\n\n  req.user = user;\n  next();\n});\n\n// Restrict to specific roles\nexports.restrictTo = (...roles) =\u003e (req, res, next) =\u003e {\n  if (!roles.includes(req.user.role))\n    return next(new AppError(\u0027You do not have permission.\u0027, 403));\n  next();\n};",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 9: State Management",
+        "id":  11,
+        "elements":  [
+                         {
+                             "text":  "9.1 Types of State in React",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Local / UI state",
+                                              "Single component",
+                                              "useState, useReducer"
+                                          ],
+                                          [
+                                              "Shared state",
+                                              "Multiple related components",
+                                              "Lift state up, Context API"
+                                          ],
+                                          [
+                                              "Global state",
+                                              "Entire application",
+                                              "Redux, Zustand, Jotai, Recoil"
+                                          ],
+                                          [
+                                              "Server state",
+                                              "Remote data (API)",
+                                              "React Query, SWR, RTK Query"
+                                          ],
+                                          [
+                                              "URL state",
+                                              "Browser URL",
+                                              "React Router, useSearchParams"
+                                          ],
+                                          [
+                                              "Form state",
+                                              "Form data",
+                                              "react-hook-form, Formik"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "State Type",
+                                             "Where it Lives",
+                                             "Tools"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "9.2 React Query (TanStack Query)",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "React Query is the best tool for managing server state — data that lives on a remote server and needs to be fetched, cached, synchronized, and updated.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "npm install @tanstack/react-query\n\n// main.jsx — Setup\nimport { QueryClient, QueryClientProvider } from \u0027@tanstack/react-query\u0027;\nconst queryClient = new QueryClient({\n  defaultOptions: {\n    queries: {\n      staleTime: 5 * 60 * 1000,  // Data fresh for 5 min\n      cacheTime: 10 * 60 * 1000, // Cache for 10 min\n      retry: 3,\n      refetchOnWindowFocus: false,\n    },\n  },\n});\n\n// api/postsApi.js\nimport axios from \u0027axios\u0027;\nconst API = axios.create({ baseURL: \u0027/api/v1\u0027 });\n\nexport const postsApi = {\n  getAll: (params) =\u003e API.get(\u0027/posts\u0027, { params }).then(r =\u003e r.data),\n  getById: (id) =\u003e API.get(`/posts/${id}`).then(r =\u003e r.data),\n  create: (data) =\u003e API.post(\u0027/posts\u0027, data).then(r =\u003e r.data),\n  update: (id, data) =\u003e API.patch(`/posts/${id}`, data).then(r =\u003e r.data),\n  delete: (id) =\u003e API.delete(`/posts/${id}`).then(r =\u003e r.data),\n};\n\n// hooks/usePosts.js\nimport { useQuery, useMutation, useQueryClient } from \u0027@tanstack/react-query\u0027;\nimport { postsApi } from \u0027../api/postsApi\u0027;\n\nexport const usePosts = (params) =\u003e useQuery({\n  queryKey: [\u0027posts\u0027, params],\n  queryFn: () =\u003e postsApi.getAll(params),\n});\n\nexport const useCreatePost = () =\u003e {\n  const queryClient = useQueryClient();\n  return useMutation({\n    mutationFn: postsApi.create,\n    onSuccess: () =\u003e {\n      queryClient.invalidateQueries({ queryKey: [\u0027posts\u0027] });\n    },\n  });\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "9.3 Zustand – Global State",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install zustand\n\n// store/useCartStore.js\nimport { create } from \u0027zustand\u0027;\nimport { persist } from \u0027zustand/middleware\u0027;\n\nconst useCartStore = create(persist(\n  (set, get) =\u003e ({\n    items: [],\n\n    addItem: (product) =\u003e {\n      const existing = get().items.find(i =\u003e i._id === product._id);\n      if (existing) {\n        set(state =\u003e ({\n          items: state.items.map(i =\u003e\n            i._id === product._id ? { ...i, quantity: i.quantity + 1 } : i\n          )\n        }));\n      } else {\n        set(state =\u003e ({ items: [...state.items, { ...product, quantity: 1 }] }));\n      }\n    },\n\n    removeItem: (productId) =\u003e set(state =\u003e ({\n      items: state.items.filter(i =\u003e i._id !== productId)\n    })),\n\n    clearCart: () =\u003e set({ items: [] }),\n\n    // Computed values\n    get totalItems() { return get().items.reduce((sum, i) =\u003e sum + i.quantity, 0); },\n    get totalPrice() { return get().items.reduce((sum, i) =\u003e sum + i.price * i.quantity, 0); },\n  }),\n  { name: \u0027cart-storage\u0027 }  // Persists to localStorage\n));\n\nexport default useCartStore;",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 10: File Uploads \u0026 Media Handling",
+        "id":  12,
+        "elements":  [
+                         {
+                             "text":  "10.1 Multer – File Upload Middleware",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install multer cloudinary multer-storage-cloudinary\n\n// config/cloudinary.js\nconst cloudinary = require(\u0027cloudinary\u0027).v2;\nconst { CloudinaryStorage } = require(\u0027multer-storage-cloudinary\u0027);\nconst multer = require(\u0027multer\u0027);\n\ncloudinary.config({\n  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,\n  api_key: process.env.CLOUDINARY_API_KEY,\n  api_secret: process.env.CLOUDINARY_API_SECRET,\n});\n\nconst storage = new CloudinaryStorage({\n  cloudinary,\n  params: {\n    folder: \u0027mern-app\u0027,\n    allowed_formats: [\u0027jpg\u0027, \u0027jpeg\u0027, \u0027png\u0027, \u0027webp\u0027],\n    transformation: [{ width: 800, height: 800, crop: \u0027limit\u0027 }]\n  }\n});\n\nconst upload = multer({\n  storage,\n  limits: { fileSize: 5 * 1024 * 1024 },  // 5MB limit\n  fileFilter: (req, file, cb) =\u003e {\n    if (file.mimetype.startsWith(\u0027image/\u0027)) {\n      cb(null, true);\n    } else {\n      cb(new Error(\u0027Only images are allowed\u0027), false);\n    }\n  }\n});\n\nmodule.exports = { upload, cloudinary };\n\n// routes/uploadRoutes.js\nconst { upload } = require(\u0027../config/cloudinary\u0027);\n\n// Single file\nrouter.post(\u0027/avatar\u0027, protect, upload.single(\u0027avatar\u0027), updateAvatar);\n\n// Multiple files\nrouter.post(\u0027/gallery\u0027, protect, upload.array(\u0027images\u0027, 10), uploadGallery);",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "10.2 React File Upload Component",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// components/ImageUpload.jsx\nimport { useState, useRef } from \u0027react\u0027;\nimport axios from \u0027axios\u0027;\n\nconst ImageUpload = ({ onUploadComplete }) =\u003e {\n  const [preview, setPreview] = useState(null);\n  const [uploading, setUploading] = useState(false);\n  const [progress, setProgress] = useState(0);\n  const fileRef = useRef();\n\n  const handleFileChange = (e) =\u003e {\n    const file = e.target.files[0];\n    if (!file) return;\n    setPreview(URL.createObjectURL(file));\n  };\n\n  const handleUpload = async () =\u003e {\n    const file = fileRef.current.files[0];\n    if (!file) return;\n    const formData = new FormData();\n    formData.append(\u0027avatar\u0027, file);\n    setUploading(true);\n    try {\n      const { data } = await axios.post(\u0027/api/v1/upload/avatar\u0027, formData, {\n        headers: { \u0027Content-Type\u0027: \u0027multipart/form-data\u0027 },\n        onUploadProgress: (e) =\u003e setProgress(Math.round(e.loaded * 100 / e.total))\n      });\n      onUploadComplete(data.url);\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setUploading(false);\n    }\n  };\n\n  return (\n    \u003cdiv\u003e\n      \u003cinput type=\u0027file\u0027 ref={fileRef} accept=\u0027image/*\u0027 onChange={handleFileChange} /\u003e\n      {preview \u0026\u0026 \u003cimg src={preview} alt=\u0027Preview\u0027 className=\u0027w-32 h-32 object-cover rounded\u0027 /\u003e}\n      {progress \u003e 0 \u0026\u0026 \u003cdiv\u003eUploading: {progress}%\u003c/div\u003e}\n      \u003cbutton onClick={handleUpload} disabled={uploading}\u003e\n        {uploading ? \u0027Uploading...\u0027 : \u0027Upload\u0027}\n      \u003c/button\u003e\n    \u003c/div\u003e\n  );\n};",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 11: Real-Time Communication with Socket.IO",
+        "id":  13,
+        "elements":  [
+                         {
+                             "text":  "11.1 Introduction to WebSockets",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "WebSockets provide a persistent, bidirectional communication channel between the client and server — unlike HTTP which is request-response. Socket.IO is a library that wraps WebSockets with fallback support and additional features like rooms, namespaces, and automatic reconnection.",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "11.2 Socket.IO Server Setup",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install socket.io\n\n// server.js\nconst http = require(\u0027http\u0027);\nconst { Server } = require(\u0027socket.io\u0027);\nconst app = require(\u0027./app\u0027);\n\nconst server = http.createServer(app);\nconst io = new Server(server, {\n  cors: { origin: process.env.CLIENT_URL, credentials: true }\n});\n\n// Middleware: attach io to req\napp.use((req, res, next) =\u003e { req.io = io; next(); });\n\n// JWT authentication for sockets\nio.use((socket, next) =\u003e {\n  const token = socket.handshake.auth.token;\n  try {\n    const decoded = jwt.verify(token, process.env.JWT_SECRET);\n    socket.userId = decoded.id;\n    next();\n  } catch (err) {\n    next(new Error(\u0027Authentication error\u0027));\n  }\n});\n\nio.on(\u0027connection\u0027, (socket) =\u003e {\n  console.log(`User ${socket.userId} connected`);\n\n  // Join user to their personal room\n  socket.join(`user:${socket.userId}`);\n\n  // Chat room events\n  socket.on(\u0027join_room\u0027, (roomId) =\u003e socket.join(roomId));\n  socket.on(\u0027leave_room\u0027, (roomId) =\u003e socket.leave(roomId));\n\n  socket.on(\u0027send_message\u0027, async (data) =\u003e {\n    const message = await Message.create({\n      content: data.content,\n      roomId: data.roomId,\n      sender: socket.userId\n    });\n    io.to(data.roomId).emit(\u0027receive_message\u0027, message);\n  });\n\n  socket.on(\u0027typing\u0027, (roomId) =\u003e {\n    socket.to(roomId).emit(\u0027user_typing\u0027, { userId: socket.userId });\n  });\n\n  socket.on(\u0027disconnect\u0027, () =\u003e {\n    console.log(`User ${socket.userId} disconnected`);\n    io.emit(\u0027user_offline\u0027, socket.userId);\n  });\n});",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "11.3 Socket.IO React Client",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install socket.io-client\n\n// hooks/useSocket.js\nimport { useEffect, useRef } from \u0027react\u0027;\nimport { io } from \u0027socket.io-client\u0027;\nimport { useAuth } from \u0027../context/AuthContext\u0027;\n\nexport const useSocket = () =\u003e {\n  const socketRef = useRef(null);\n  const { user } = useAuth();\n\n  useEffect(() =\u003e {\n    if (!user) return;\n\n    socketRef.current = io(import.meta.env.VITE_API_URL, {\n      auth: { token: localStorage.getItem(\u0027token\u0027) }\n    });\n\n    socketRef.current.on(\u0027connect\u0027, () =\u003e console.log(\u0027Connected to server\u0027));\n    socketRef.current.on(\u0027connect_error\u0027, (err) =\u003e console.error(err));\n\n    return () =\u003e {\n      socketRef.current?.disconnect();\n    };\n  }, [user]);\n\n  return socketRef.current;\n};",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 12: Testing – Unit, Integration \u0026 E2E",
+        "id":  14,
+        "elements":  [
+                         {
+                             "text":  "12.1 Testing Philosophy",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "The testing pyramid describes the ideal balance of tests: many fast unit tests at the base, fewer integration tests in the middle, and even fewer slow E2E tests at the top.",
+                             "type":  "p"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Unit",
+                                              "Very Fast",
+                                              "Low",
+                                              "Individual functions/components",
+                                              "Jest, Vitest"
+                                          ],
+                                          [
+                                              "Integration",
+                                              "Medium",
+                                              "Medium",
+                                              "API endpoints, DB interactions",
+                                              "Supertest + Jest"
+                                          ],
+                                          [
+                                              "E2E (End-to-End)",
+                                              "Slow",
+                                              "High",
+                                              "Full user flows in browser",
+                                              "Cypress, Playwright"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Test Type",
+                                             "Speed",
+                                             "Cost",
+                                             "What it Tests",
+                                             "Tool"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "12.2 Backend Testing with Jest \u0026 Supertest",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install -D jest supertest @types/jest @types/supertest\n\n// __tests__/auth.test.js\nconst request = require(\u0027supertest\u0027);\nconst app = require(\u0027../app\u0027);\nconst mongoose = require(\u0027mongoose\u0027);\nconst User = require(\u0027../models/User\u0027);\n\nbeforeAll(async () =\u003e {\n  await mongoose.connect(process.env.MONGO_TEST_URI);\n});\n\nafterEach(async () =\u003e {\n  await User.deleteMany({});  // Clean up between tests\n});\n\nafterAll(async () =\u003e {\n  await mongoose.connection.close();\n});\n\ndescribe(\u0027POST /api/v1/auth/register\u0027, () =\u003e {\n  it(\u0027should register a user and return a token\u0027, async () =\u003e {\n    const res = await request(app)\n      .post(\u0027/api/v1/auth/register\u0027)\n      .send({ username: \u0027testuser\u0027, email: \u0027test@test.com\u0027, password: \u0027password123\u0027 });\n\n    expect(res.status).toBe(201);\n    expect(res.body.success).toBe(true);\n    expect(res.body.token).toBeDefined();\n    expect(res.body.data.user.password).toBeUndefined(); // Never expose password\n  });\n\n  it(\u0027should return 409 for duplicate email\u0027, async () =\u003e {\n    await User.create({ username: \u0027user1\u0027, email: \u0027test@test.com\u0027, password: \u0027pass123\u0027 });\n    const res = await request(app)\n      .post(\u0027/api/v1/auth/register\u0027)\n      .send({ username: \u0027user2\u0027, email: \u0027test@test.com\u0027, password: \u0027pass123\u0027 });\n    expect(res.status).toBe(409);\n  });\n});",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "12.3 Frontend Testing with Vitest \u0026 React Testing Library",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install -D vitest @testing-library/react @testing-library/user-event jsdom\n\n// components/__tests__/LoginForm.test.jsx\nimport { render, screen, waitFor } from \u0027@testing-library/react\u0027;\nimport userEvent from \u0027@testing-library/user-event\u0027;\nimport { vi } from \u0027vitest\u0027;\nimport LoginForm from \u0027../LoginForm\u0027;\n\nconst mockLogin = vi.fn();\nvi.mock(\u0027../../context/AuthContext\u0027, () =\u003e ({\n  useAuth: () =\u003e ({ login: mockLogin })\n}));\n\ndescribe(\u0027LoginForm\u0027, () =\u003e {\n  it(\u0027renders email and password fields\u0027, () =\u003e {\n    render(\u003cLoginForm /\u003e);\n    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();\n    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();\n  });\n\n  it(\u0027calls login with correct credentials on submit\u0027, async () =\u003e {\n    const user = userEvent.setup();\n    render(\u003cLoginForm /\u003e);\n    await user.type(screen.getByLabelText(/email/i), \u0027test@test.com\u0027);\n    await user.type(screen.getByLabelText(/password/i), \u0027password123\u0027);\n    await user.click(screen.getByRole(\u0027button\u0027, { name: /sign in/i }));\n    await waitFor(() =\u003e {\n      expect(mockLogin).toHaveBeenCalledWith(\u0027test@test.com\u0027, \u0027password123\u0027);\n    });\n  });\n});",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 13: Performance Optimization",
+        "id":  15,
+        "elements":  [
+                         {
+                             "text":  "13.1 Backend Performance",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Database Optimization",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "Always index fields used in query filters, sorts, and $lookup foreign keys.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Use projection to return only needed fields: .select(\u0027name email -_id\u0027).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Use lean() for read-only queries — returns plain JS objects, not Mongoose documents (much faster).",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Implement caching with Redis for frequently accessed, rarely changing data.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Use aggregation pipeline instead of multiple round trips to the database.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Implement pagination — never return unbounded result sets.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "npm install redis ioredis\n\n// middleware/cache.js\nconst redis = require(\u0027ioredis\u0027);\nconst client = new redis(process.env.REDIS_URL);\n\nconst cache = (duration = 60) =\u003e async (req, res, next) =\u003e {\n  const key = `cache:${req.originalUrl}`;\n  try {\n    const cached = await client.get(key);\n    if (cached) {\n      return res.status(200).json(JSON.parse(cached));\n    }\n  } catch (err) {}\n\n  // Intercept response to cache it\n  const originalJson = res.json.bind(res);\n  res.json = (data) =\u003e {\n    client.setex(key, duration, JSON.stringify(data)).catch(() =\u003e {});\n    return originalJson(data);\n  };\n  next();\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "13.2 Frontend Performance",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "React Optimization Techniques",
+                             "type":  "h3"
+                         },
+                         {
+                             "text":  "// 1. Code Splitting with React.lazy\nimport { lazy, Suspense } from \u0027react\u0027;\nconst AdminPanel = lazy(() =\u003e import(\u0027./pages/AdminPanel\u0027));\n\u003cSuspense fallback={\u003cLoading /\u003e}\u003e\u003cAdminPanel /\u003e\u003c/Suspense\u003e\n\n// 2. Memoize expensive component\nimport { memo, useMemo, useCallback } from \u0027react\u0027;\nconst ProductList = memo(({ products, onDelete }) =\u003e {\n  const sorted = useMemo(() =\u003e [...products].sort((a,b) =\u003e a.price - b.price), [products]);\n  const handleDelete = useCallback((id) =\u003e onDelete(id), [onDelete]);\n  return sorted.map(p =\u003e \u003cProductCard key={p._id} product={p} onDelete={handleDelete} /\u003e);\n});\n\n// 3. Virtual scrolling for large lists\nnpm install @tanstack/react-virtual\n\n// 4. Image optimization\n// Use WebP format, lazy loading, and proper dimensions\n\u003cimg src={imgUrl} loading=\u0027lazy\u0027 width={300} height={200} alt=\u0027...\u0027 /\u003e\n\n// 5. Bundle analysis\nnpm run build \u0026\u0026 npx vite-bundle-visualizer",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "13.3 Performance Metrics",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "LCP",
+                                              "\u003c 2.5s",
+                                              "Largest Contentful Paint",
+                                              "Lighthouse, Web Vitals"
+                                          ],
+                                          [
+                                              "FID/INP",
+                                              "\u003c 100ms",
+                                              "Input responsiveness",
+                                              "Lighthouse"
+                                          ],
+                                          [
+                                              "CLS",
+                                              "\u003c 0.1",
+                                              "Cumulative Layout Shift",
+                                              "Lighthouse"
+                                          ],
+                                          [
+                                              "TTFB",
+                                              "\u003c 600ms",
+                                              "Time to First Byte",
+                                              "Chrome DevTools"
+                                          ],
+                                          [
+                                              "TTI",
+                                              "\u003c 3.8s",
+                                              "Time to Interactive",
+                                              "Lighthouse"
+                                          ],
+                                          [
+                                              "Bundle Size",
+                                              "\u003c 200KB gzipped",
+                                              "JS bundle size",
+                                              "Webpack Bundle Analyzer"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Metric",
+                                             "Target",
+                                             "Description",
+                                             "Tool"
+                                         ],
+                             "type":  "table"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 14: Security Best Practices",
+        "id":  16,
+        "elements":  [
+                         {
+                             "text":  "14.1 OWASP Top 10 for MERN",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Injection (NoSQL, XSS)",
+                                              "Mongoose validation, sanitize-html, helmet CSP"
+                                          ],
+                                          [
+                                              "Broken Authentication",
+                                              "Strong JWT, httpOnly cookies, bcrypt password hashing"
+                                          ],
+                                          [
+                                              "Sensitive Data Exposure",
+                                              "HTTPS, never log passwords, encrypted tokens"
+                                          ],
+                                          [
+                                              "Broken Access Control",
+                                              "Role-based middleware, own-resource checks"
+                                          ],
+                                          [
+                                              "Security Misconfiguration",
+                                              "helmet.js, disable X-Powered-By, CORS restrictions"
+                                          ],
+                                          [
+                                              "XSS – Cross-Site Scripting",
+                                              "React auto-escapes JSX, DOMPurify for innerHTML"
+                                          ],
+                                          [
+                                              "CSRF",
+                                              "sameSite cookies, CSRF tokens, verify Origin header"
+                                          ],
+                                          [
+                                              "Using Known Vulnerable Components",
+                                              "npm audit, Dependabot, snyk.io"
+                                          ],
+                                          [
+                                              "Insufficient Logging",
+                                              "Morgan, Winston logger, error tracking"
+                                          ],
+                                          [
+                                              "SSRF",
+                                              "Validate URLs, whitelist allowed domains"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "OWASP Risk",
+                                             "MERN Mitigation"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "14.2 Security Middleware Setup",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install helmet express-mongo-sanitize xss-clean hpp express-rate-limit\n\n// app.js — Security setup\nconst helmet = require(\u0027helmet\u0027);\nconst mongoSanitize = require(\u0027express-mongo-sanitize\u0027);\nconst xss = require(\u0027xss-clean\u0027);\nconst hpp = require(\u0027hpp\u0027);\n\n// 1. Security HTTP headers\napp.use(helmet());\n\n// 2. Rate limiting\nconst limiter = rateLimit({ windowMs: 15*60*1000, max: 100 });\napp.use(\u0027/api\u0027, limiter);\n\n// Auth-specific tighter limit\nconst authLimiter = rateLimit({ windowMs: 15*60*1000, max: 5,\n  message: \u0027Too many login attempts\u0027 });\napp.use(\u0027/api/v1/auth/login\u0027, authLimiter);\n\n// 3. Body parsers with size limits\napp.use(express.json({ limit: \u002710kb\u0027 }));\n\n// 4. NoSQL injection prevention\napp.use(mongoSanitize());  // Sanitizes req.body, req.query, req.params\n\n// 5. XSS prevention\napp.use(xss());\n\n// 6. HTTP Parameter Pollution prevention\napp.use(hpp({ whitelist: [\u0027sort\u0027, \u0027fields\u0027, \u0027page\u0027, \u0027limit\u0027] }));",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "14.3 Password Security",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// Always use bcrypt with cost factor \u003e= 12\nconst bcrypt = require(\u0027bcryptjs\u0027);\n\n// Hashing (done automatically in Mongoose pre-save hook)\nconst hashed = await bcrypt.hash(plainPassword, 12);\n\n// Comparing\nconst isMatch = await bcrypt.compare(plainPassword, hashedPassword);\n\n// Password reset flow\nconst crypto = require(\u0027crypto\u0027);\n\n// Generate secure reset token\nconst resetToken = crypto.randomBytes(32).toString(\u0027hex\u0027);\nconst hashedToken = crypto.createHash(\u0027sha256\u0027).update(resetToken).digest(\u0027hex\u0027);\n\n// Save hashed token to DB (send plain token via email)\nuser.passwordResetToken = hashedToken;\nuser.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 min\nawait user.save({ validateBeforeSave: false });",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 15: Deployment \u0026 DevOps",
+        "id":  17,
+        "elements":  [
+                         {
+                             "text":  "15.1 Deployment Options",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Vercel",
+                                              "Frontend (React)",
+                                              "Yes",
+                                              "React apps with SSR/SSG"
+                                          ],
+                                          [
+                                              "Netlify",
+                                              "Frontend (React)",
+                                              "Yes",
+                                              "Static React apps"
+                                          ],
+                                          [
+                                              "Render",
+                                              "Backend (Node)",
+                                              "Yes",
+                                              "Full-stack, Docker containers"
+                                          ],
+                                          [
+                                              "Railway",
+                                              "Backend (Node)",
+                                              "Limited",
+                                              "Quick backend deployments"
+                                          ],
+                                          [
+                                              "Heroku",
+                                              "Backend (Node)",
+                                              "No (paid)",
+                                              "Classic PaaS deployment"
+                                          ],
+                                          [
+                                              "AWS EC2",
+                                              "Full Stack",
+                                              "Limited (12 mo)",
+                                              "Production-scale apps"
+                                          ],
+                                          [
+                                              "DigitalOcean",
+                                              "Full Stack",
+                                              "No",
+                                              "VPS, Kubernetes, managed DBs"
+                                          ],
+                                          [
+                                              "MongoDB Atlas",
+                                              "Database",
+                                              "Yes (M0)",
+                                              "MongoDB cloud hosting"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Service",
+                                             "Type",
+                                             "Free Tier",
+                                             "Best For"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "15.2 Deploying to Render (Backend)",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "Push your code to GitHub.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Create a free account at render.com.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Click \u0027New\u0027 → \u0027Web Service\u0027 → connect your GitHub repo.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Set the following settings:",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Build Command: npm install",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Start Command: node server.js",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Environment: Node",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Add all environment variables from your .env file in the \u0027Environment\u0027 tab.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Click \u0027Create Web Service\u0027. Render will auto-deploy on every git push.",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "15.3 Dockerizing the MERN App",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "# server/Dockerfile\nFROM node:18-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --only=production\nCOPY . .\nEXPOSE 5000\nUSER node\nCMD [\"node\", \"server.js\"]\n\n# docker-compose.yml\nversion: \u00273.8\u0027\nservices:\n  server:\n    build: ./server\n    ports:\n      - \u00275000:5000\u0027\n    env_file:\n      - ./server/.env\n    depends_on:\n      - mongo\n\n  client:\n    build: ./client\n    ports:\n      - \u00273000:80\u0027\n\n  mongo:\n    image: mongo:6\n    ports:\n      - \u002727017:27017\u0027\n    volumes:\n      - mongodata:/data/db\n\nvolumes:\n  mongodata:",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "15.4 CI/CD with GitHub Actions",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "# .github/workflows/ci.yml\nname: CI/CD Pipeline\n\non:\n  push:\n    branches: [main]\n  pull_request:\n    branches: [main]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \u002718\u0027\n          cache: \u0027npm\u0027\n\n      - name: Install server dependencies\n        run: cd server \u0026\u0026 npm ci\n\n      - name: Run server tests\n        run: cd server \u0026\u0026 npm test\n        env:\n          MONGO_TEST_URI: ${{ secrets.MONGO_TEST_URI }}\n          JWT_SECRET: ${{ secrets.JWT_SECRET }}\n\n      - name: Install client dependencies\n        run: cd client \u0026\u0026 npm ci\n\n      - name: Build client\n        run: cd client \u0026\u0026 npm run build",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 16: Advanced Patterns \u0026 Architecture",
+        "id":  18,
+        "elements":  [
+                         {
+                             "text":  "16.1 Microservices vs Monolith",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "Complexity",
+                                              "Low initial",
+                                              "High initial"
+                                          ],
+                                          [
+                                              "Scalability",
+                                              "Scale entire app",
+                                              "Scale individual services"
+                                          ],
+                                          [
+                                              "Deployment",
+                                              "Simple",
+                                              "Complex (orchestration)"
+                                          ],
+                                          [
+                                              "Team Size",
+                                              "Small teams",
+                                              "Multiple teams"
+                                          ],
+                                          [
+                                              "Data",
+                                              "Shared database",
+                                              "Database per service"
+                                          ],
+                                          [
+                                              "Communication",
+                                              "Direct function calls",
+                                              "HTTP/gRPC/Message queues"
+                                          ],
+                                          [
+                                              "When to Use",
+                                              "Startups, MVPs",
+                                              "Large-scale, high traffic"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Aspect",
+                                             "Monolith",
+                                             "Microservices"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "16.2 GraphQL with Apollo",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install @apollo/server graphql @apollo/client\n\n// server: typeDefs\nconst typeDefs = `\n  type User {\n    _id: ID!\n    username: String!\n    email: String!\n    posts: [Post!]\n  }\n  type Post {\n    _id: ID!\n    title: String!\n    content: String!\n    author: User!\n  }\n  type Query {\n    users: [User!]!\n    user(_id: ID!): User\n    posts: [Post!]!\n  }\n  type Mutation {\n    createPost(title: String!, content: String!): Post!\n    deletePost(_id: ID!): Boolean!\n  }\n`;\n\n// Resolver\nconst resolvers = {\n  Query: {\n    users: () =\u003e User.find(),\n    user: (_, { _id }) =\u003e User.findById(_id),\n  },\n  User: {\n    posts: (parent) =\u003e Post.find({ author: parent._id })\n  },\n  Mutation: {\n    createPost: async (_, args, context) =\u003e {\n      if (!context.user) throw new Error(\u0027Not authenticated\u0027);\n      return Post.create({ ...args, author: context.user._id });\n    }\n  }\n};",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "16.3 TypeScript in MERN",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "npm install typescript @types/node @types/express ts-node nodemon\nnpx tsc --init\n\n// types/index.ts\nimport { Request } from \u0027express\u0027;\nimport { Document, Types } from \u0027mongoose\u0027;\n\nexport interface IUser extends Document {\n  _id: Types.ObjectId;\n  username: string;\n  email: string;\n  password: string;\n  role: \u0027user\u0027 | \u0027admin\u0027 | \u0027moderator\u0027;\n  isActive: boolean;\n  comparePassword(candidatePassword: string): Promise\u003cboolean\u003e;\n}\n\nexport interface AuthRequest extends Request {\n  user?: IUser;\n}\n\n// models/User.ts\nimport mongoose, { Schema } from \u0027mongoose\u0027;\nimport { IUser } from \u0027../types\u0027;\n\nconst userSchema = new Schema\u003cIUser\u003e({\n  username: { type: String, required: true },\n  email: { type: String, required: true, unique: true },\n  password: { type: String, required: true },\n  role: { type: String, enum: [\u0027user\u0027, \u0027admin\u0027, \u0027moderator\u0027], default: \u0027user\u0027 },\n}, { timestamps: true });\n\nexport default mongoose.model\u003cIUser\u003e(\u0027User\u0027, userSchema);",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "16.4 Custom React Hooks Patterns",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// hooks/useDebounce.js\nimport { useState, useEffect } from \u0027react\u0027;\nexport const useDebounce = (value, delay = 300) =\u003e {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n  useEffect(() =\u003e {\n    const timer = setTimeout(() =\u003e setDebouncedValue(value), delay);\n    return () =\u003e clearTimeout(timer);\n  }, [value, delay]);\n  return debouncedValue;\n};\n\n// hooks/useLocalStorage.js\nimport { useState } from \u0027react\u0027;\nexport const useLocalStorage = (key, initialValue) =\u003e {\n  const [stored, setStored] = useState(() =\u003e {\n    try {\n      const item = window.localStorage.getItem(key);\n      return item ? JSON.parse(item) : initialValue;\n    } catch { return initialValue; }\n  });\n  const setValue = (value) =\u003e {\n    setStored(value);\n    localStorage.setItem(key, JSON.stringify(value));\n  };\n  return [stored, setValue];\n};\n\n// hooks/useInfiniteScroll.js\nimport { useEffect, useRef } from \u0027react\u0027;\nexport const useInfiniteScroll = (callback) =\u003e {\n  const observer = useRef(null);\n  const lastElementRef = (node) =\u003e {\n    if (observer.current) observer.current.disconnect();\n    observer.current = new IntersectionObserver(entries =\u003e {\n      if (entries[0].isIntersecting) callback();\n    });\n    if (node) observer.current.observe(node);\n  };\n  return lastElementRef;\n};",
+                             "type":  "code"
+                         }
+                     ]
+    },
+    {
+        "title":  "Chapter 17: Complete Project – Full Stack Blog Application",
+        "id":  19,
+        "elements":  [
+                         {
+                             "text":  "17.1 Project Overview",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "We\u0027ll build a complete Blog platform with the following features:",
+                             "type":  "p"
+                         },
+                         {
+                             "text":  "User authentication (register, login, logout) with JWT",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "CRUD operations for blog posts with rich text",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Image upload per post via Cloudinary",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Comments and nested replies",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Like / unlike posts",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Category and tag filtering",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Pagination and search",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Admin dashboard for content moderation",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "Real-time notifications via Socket.IO",
+                             "type":  "li"
+                         },
+                         {
+                             "text":  "17.2 Complete Data Models",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// models/Post.js\nconst postSchema = new mongoose.Schema({\n  title: { type: String, required: true, maxlength: 200 },\n  slug: { type: String, unique: true },\n  content: { type: String, required: true },\n  excerpt: { type: String, maxlength: 300 },\n  featuredImage: { type: String },\n  author: { type: mongoose.Schema.Types.ObjectId, ref: \u0027User\u0027, required: true },\n  category: { type: String, enum: [\u0027tech\u0027,\u0027lifestyle\u0027,\u0027health\u0027,\u0027travel\u0027,\u0027food\u0027] },\n  tags: [{ type: String }],\n  status: { type: String, enum: [\u0027draft\u0027,\u0027published\u0027,\u0027archived\u0027], default: \u0027draft\u0027 },\n  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: \u0027User\u0027 }],\n  views: { type: Number, default: 0 },\n  readTime: { type: Number },  // in minutes\n}, { timestamps: true });\n\n// Auto-generate slug from title\npostSchema.pre(\u0027save\u0027, function(next) {\n  if (this.isModified(\u0027title\u0027)) {\n    this.slug = this.title.toLowerCase().replace(/[^a-z0-9]+/g, \u0027-\u0027);\n  }\n  if (this.isModified(\u0027content\u0027)) {\n    const wordCount = this.content.trim().split(/\\s+/).length;\n    this.readTime = Math.ceil(wordCount / 200);  // 200 wpm average\n  }\n  next();\n});\n\n// models/Comment.js\nconst commentSchema = new mongoose.Schema({\n  content: { type: String, required: true, maxlength: 1000 },\n  author: { type: mongoose.Schema.Types.ObjectId, ref: \u0027User\u0027, required: true },\n  post: { type: mongoose.Schema.Types.ObjectId, ref: \u0027Post\u0027, required: true },\n  parent: { type: mongoose.Schema.Types.ObjectId, ref: \u0027Comment\u0027, default: null },\n  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: \u0027User\u0027 }],\n  isEdited: { type: Boolean, default: false },\n}, { timestamps: true });",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "17.3 Complete Post Controller",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// controllers/postController.js\nconst Post = require(\u0027../models/Post\u0027);\nconst APIFeatures = require(\u0027../utils/APIFeatures\u0027);\nconst catchAsync = require(\u0027../utils/catchAsync\u0027);\nconst AppError = require(\u0027../utils/AppError\u0027);\n\nexports.getAllPosts = catchAsync(async (req, res) =\u003e {\n  const features = new APIFeatures(Post.find({ status: \u0027published\u0027 }), req.query)\n    .filter()\n    .search([\u0027title\u0027, \u0027content\u0027, \u0027tags\u0027])\n    .sort()\n    .paginate();\n\n  const [posts, total] = await Promise.all([\n    features.query.populate(\u0027author\u0027, \u0027username avatar\u0027).lean(),\n    Post.countDocuments({ status: \u0027published\u0027 })\n  ]);\n\n  const { page, limit } = features.paginationInfo;\n  res.status(200).json({\n    success: true,\n    results: posts.length,\n    pagination: { page, limit, total, pages: Math.ceil(total / limit) },\n    data: { posts }\n  });\n});\n\nexports.likePost = catchAsync(async (req, res, next) =\u003e {\n  const post = await Post.findById(req.params.id);\n  if (!post) return next(new AppError(\u0027Post not found\u0027, 404));\n  const userId = req.user._id.toString();\n  const liked = post.likes.some(id =\u003e id.toString() === userId);\n  if (liked) {\n    post.likes = post.likes.filter(id =\u003e id.toString() !== userId);\n  } else {\n    post.likes.push(req.user._id);\n    // Notify post author via socket\n    req.io.to(`user:${post.author}`).emit(\u0027post_liked\u0027, {\n      postId: post._id, likedBy: req.user.username\n    });\n  }\n  await post.save();\n  res.status(200).json({ success: true, liked: !liked, likesCount: post.likes.length });\n});",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "17.4 Complete React Pages",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "// pages/PostsPage.jsx\nimport { useState } from \u0027react\u0027;\nimport { useSearchParams } from \u0027react-router-dom\u0027;\nimport { useQuery } from \u0027@tanstack/react-query\u0027;\nimport { postsApi } from \u0027../api/postsApi\u0027;\nimport { useDebounce } from \u0027../hooks/useDebounce\u0027;\nimport PostCard from \u0027../components/PostCard\u0027;\nimport Pagination from \u0027../components/Pagination\u0027;\nimport SearchBar from \u0027../components/SearchBar\u0027;\n\nconst PostsPage = () =\u003e {\n  const [searchParams, setSearchParams] = useSearchParams();\n  const [search, setSearch] = useState(searchParams.get(\u0027search\u0027) || \u0027\u0027);\n  const debouncedSearch = useDebounce(search, 500);\n\n  const page = parseInt(searchParams.get(\u0027page\u0027) || \u00271\u0027, 10);\n  const category = searchParams.get(\u0027category\u0027) || \u0027\u0027;\n\n  const { data, isLoading, isError } = useQuery({\n    queryKey: [\u0027posts\u0027, { page, category, search: debouncedSearch }],\n    queryFn: () =\u003e postsApi.getAll({ page, limit: 9, category, search: debouncedSearch }),\n    keepPreviousData: true,\n  });\n\n  if (isLoading) return \u003cdiv className=\u0027flex justify-center p-8\u0027\u003e\u003cSpinner /\u003e\u003c/div\u003e;\n  if (isError) return \u003cErrorMessage /\u003e;\n\n  const { posts, pagination } = data;\n\n  return (\n    \u003cdiv className=\u0027max-w-6xl mx-auto px-4 py-8\u0027\u003e\n      \u003cSearchBar value={search} onChange={setSearch} /\u003e\n      \u003cCategoryFilter current={category} onChange={(c) =\u003e setSearchParams({ category: c })} /\u003e\n      \u003cdiv className=\u0027grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8\u0027\u003e\n        {posts.map(post =\u003e \u003cPostCard key={post._id} post={post} /\u003e)}\n      \u003c/div\u003e\n      \u003cPagination\n        current={page}\n        total={pagination.pages}\n        onChange={(p) =\u003e setSearchParams({ page: p, category })}\n      /\u003e\n    \u003c/div\u003e\n  );\n};\n\nexport default PostsPage;",
+                             "type":  "code"
+                         },
+                         {
+                             "text":  "17.5 Environment Setup Checklist",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "MongoDB",
+                                              "Local / Atlas M0",
+                                              "Atlas M10+ or dedicated cluster"
+                                          ],
+                                          [
+                                              "Node ENV",
+                                              "development",
+                                              "production"
+                                          ],
+                                          [
+                                              "JWT Secret",
+                                              "Any string",
+                                              "Min 32-char cryptographically random"
+                                          ],
+                                          [
+                                              "HTTPS",
+                                              "Optional (HTTP ok)",
+                                              "Required (SSL/TLS)"
+                                          ],
+                                          [
+                                              "CORS",
+                                              "localhost:3000",
+                                              "Exact production domain"
+                                          ],
+                                          [
+                                              "Logging",
+                                              "morgan dev",
+                                              "winston + external logging (Datadog)"
+                                          ],
+                                          [
+                                              "Error messages",
+                                              "Full stack trace",
+                                              "Generic message only"
+                                          ],
+                                          [
+                                              "Rate limiting",
+                                              "Relaxed",
+                                              "Strict (5 auth attempts / 15 min)"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Item",
+                                             "Development",
+                                             "Production"
+                                         ],
+                             "type":  "table"
+                         }
+                     ]
+    },
+    {
+        "title":  "Appendix: Quick Reference \u0026 Cheat Sheet",
+        "id":  20,
+        "elements":  [
+                         {
+                             "text":  "npm Commands",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "npm init -y",
+                                              "Initialize package.json with defaults"
+                                          ],
+                                          [
+                                              "npm install \u003cpkg\u003e",
+                                              "Install a dependency"
+                                          ],
+                                          [
+                                              "npm install -D \u003cpkg\u003e",
+                                              "Install a dev dependency"
+                                          ],
+                                          [
+                                              "npm install -g \u003cpkg\u003e",
+                                              "Install globally"
+                                          ],
+                                          [
+                                              "npm run \u003cscript\u003e",
+                                              "Run a script from package.json"
+                                          ],
+                                          [
+                                              "npm audit",
+                                              "Check for security vulnerabilities"
+                                          ],
+                                          [
+                                              "npm update",
+                                              "Update all packages"
+                                          ],
+                                          [
+                                              "npx \u003ccmd\u003e",
+                                              "Execute a package without installing"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Command",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "Git Commands for MERN Projects",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "git init",
+                                              "Initialize repository"
+                                          ],
+                                          [
+                                              "git add .",
+                                              "Stage all changes"
+                                          ],
+                                          [
+                                              "git commit -m \"message\"",
+                                              "Commit staged changes"
+                                          ],
+                                          [
+                                              "git push origin main",
+                                              "Push to remote main branch"
+                                          ],
+                                          [
+                                              "git pull origin main",
+                                              "Pull latest from remote"
+                                          ],
+                                          [
+                                              "git checkout -b feature/name",
+                                              "Create and switch to feature branch"
+                                          ],
+                                          [
+                                              "git merge feature/name",
+                                              "Merge feature branch into current"
+                                          ],
+                                          [
+                                              "git stash",
+                                              "Temporarily stash changes"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Command",
+                                             "Description"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "MongoDB Shell Commands",
+                             "type":  "h2"
+                         },
+                         {
+                             "text":  "show dbs                          // List databases\nuse mydb                          // Switch to database\nshow collections                  // List collections\ndb.collection.find().pretty()     // Find all (formatted)\ndb.collection.countDocuments()    // Count documents\ndb.collection.createIndex({field: 1})  // Create index\ndb.collection.getIndexes()        // List indexes\ndb.collection.drop()              // Drop collection\ndb.dropDatabase()                 // Drop database",
+                             "type":  "note"
+                         },
+                         {
+                             "text":  "Useful npm Packages",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "express",
+                                              "Web framework"
+                                          ],
+                                          [
+                                              "mongoose",
+                                              "MongoDB ODM"
+                                          ],
+                                          [
+                                              "jsonwebtoken",
+                                              "JWT creation/verification"
+                                          ],
+                                          [
+                                              "bcryptjs",
+                                              "Password hashing"
+                                          ],
+                                          [
+                                              "dotenv",
+                                              "Environment variables"
+                                          ],
+                                          [
+                                              "cors",
+                                              "CORS middleware"
+                                          ],
+                                          [
+                                              "helmet",
+                                              "Security headers"
+                                          ],
+                                          [
+                                              "morgan",
+                                              "HTTP request logger"
+                                          ],
+                                          [
+                                              "express-rate-limit",
+                                              "Rate limiting"
+                                          ],
+                                          [
+                                              "multer",
+                                              "File uploads"
+                                          ],
+                                          [
+                                              "nodemailer",
+                                              "Sending emails"
+                                          ],
+                                          [
+                                              "socket.io",
+                                              "Real-time WebSockets"
+                                          ],
+                                          [
+                                              "joi / zod",
+                                              "Request validation"
+                                          ],
+                                          [
+                                              "axios",
+                                              "HTTP client (frontend)"
+                                          ],
+                                          [
+                                              "react-router-dom",
+                                              "React routing"
+                                          ],
+                                          [
+                                              "@tanstack/react-query",
+                                              "Server state management"
+                                          ],
+                                          [
+                                              "zustand",
+                                              "Client state management"
+                                          ],
+                                          [
+                                              "react-hook-form",
+                                              "Form management"
+                                          ],
+                                          [
+                                              "react-hot-toast",
+                                              "Toast notifications"
+                                          ],
+                                          [
+                                              "date-fns",
+                                              "Date manipulation"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Package",
+                                             "Purpose"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "Common Error Solutions",
+                             "type":  "h2"
+                         },
+                         {
+                             "rows":  [
+                                          [
+                                              "CORS Error",
+                                              "Origin mismatch",
+                                              "Add origin to cors() options"
+                                          ],
+                                          [
+                                              "JWT expired",
+                                              "Token timeout",
+                                              "Refresh token or re-login"
+                                          ],
+                                          [
+                                              "Cast to ObjectId failed",
+                                              "Invalid MongoDB ID",
+                                              "Validate ID with mongoose.isValidObjectId()"
+                                          ],
+                                          [
+                                              "ECONNREFUSED 27017",
+                                              "MongoDB not running",
+                                              "Start MongoDB service"
+                                          ],
+                                          [
+                                              "Cannot read property of undefined",
+                                              "Async race condition",
+                                              "Use optional chaining ?."
+                                          ],
+                                          [
+                                              "Module not found",
+                                              "Missing dependency",
+                                              "npm install \u003cpackage\u003e"
+                                          ],
+                                          [
+                                              "Port already in use",
+                                              "Process conflict",
+                                              "kill $(lsof -t -i:PORT) or change PORT"
+                                          ],
+                                          [
+                                              "Heap out of memory",
+                                              "Memory leak",
+                                              "Increase Node memory: NODE_OPTIONS=--max-old-space-size=4096"
+                                          ]
+                                      ],
+                             "headers":  [
+                                             "Error",
+                                             "Cause",
+                                             "Solution"
+                                         ],
+                             "type":  "table"
+                         },
+                         {
+                             "text":  "Final Note: The MERN stack is a powerful, modern, and deeply interconnected set of technologies. Mastery comes from building real projects — start small, break things, debug them, and keep building. The best MERN developers are not those who memorized every API, but those who understand the underlying concepts and know how to find solutions.",
+                             "type":  "note"
+                         }
+                     ]
+    }
+]

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Sparkles, FileText, GraduationCap, Clock, Briefcase, Menu, X, ChevronRight, Zap, Flame, BookMarked } from 'lucide-react';
+import { Sparkles, FileText, GraduationCap, Clock, Briefcase, Menu, X, ChevronRight, Zap, Flame, BookMarked, Code } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { id: 'notes', label: 'Notes & PYQs', icon: BookMarked, color: 'text-emerald-400 font-bold' },
+    { id: 'merndocs', label: 'MERN DevDocs', icon: Code, color: 'text-orange-400 font-bold' },
     { id: 'ai', label: 'AI Study Assistant', icon: Sparkles, color: 'text-cyan-400' },
     { id: 'resume', label: 'Resume Builder', icon: FileText, color: 'text-indigo-400' },
     { id: 'interview', label: 'Interview Prep', icon: GraduationCap, color: 'text-purple-400' },

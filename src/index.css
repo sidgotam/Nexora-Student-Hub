@@ -268,4 +268,41 @@
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+
+  /* Two-column print layout specific fixes */
+  #resume-sheet-preview .flex {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  #resume-sheet-preview .w-\[33\%\] {
+    width: 33% !important;
+    flex-shrink: 0 !important;
+    background-color: #f8fafc !important; /* Slate-50 background for sidebar */
+    border-right-width: 1px !important;
+    border-right-color: #cbd5e1 !important;
+    margin-top: -24px !important;
+    margin-bottom: -24px !important;
+    margin-left: -24px !important;
+    padding: 20px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #resume-sheet-preview .flex-1 {
+    flex: 1 1 0% !important;
+  }
+
+  /* Profile photo print adjustments */
+  #resume-sheet-preview img {
+    display: block !important;
+    max-width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Specific font overrides for printing classic template */
+  #resume-sheet-preview.font-serif * {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif !important;
+  }
 }
