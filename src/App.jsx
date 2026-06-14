@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
-import FloatingAI from './components/FloatingAI';
-import AIAssistant from './pages/AIAssistant';
 import ResumeBuilder from './pages/ResumeBuilder';
 import InterviewPrep from './pages/InterviewPrep';
 import Internships from './pages/Internships';
@@ -10,7 +8,7 @@ import DopamineHub from './pages/DopamineHub';
 import MernDocs from './pages/MernDocs';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('notes'); // notes, ai, resume, interview, internships, dopamine
+  const [activeTab, setActiveTab] = useState('notes'); // notes, resume, interview, internships, dopamine, merndocs
   const [globalMood, setGlobalMood] = useState('focus'); // focus, panic, sleepy, procrastinate
   const moodRef = useRef('focus');
   const canvasRef = useRef(null);
@@ -181,16 +179,12 @@ export default function App() {
       {/* Main Feature Viewport */}
       <main className="flex-grow z-10">
         {activeTab === 'dopamine' && <DopamineHub setActiveTab={setActiveTab} setGlobalMood={setGlobalMood} />}
-        {activeTab === 'ai' && <AIAssistant />}
         {activeTab === 'resume' && <ResumeBuilder />}
         {activeTab === 'interview' && <InterviewPrep />}
         {activeTab === 'internships' && <Internships />}
         {activeTab === 'notes' && <Notes />}
         {activeTab === 'merndocs' && <MernDocs />}
       </main>
-
-      {/* Sticky floating robot */}
-      <FloatingAI setActiveTab={setActiveTab} />
 
       {/* SEO & Monetization-optimized Footer */}
       <footer className="z-10 border-t border-slate-900 bg-slate-950/60 backdrop-blur-md py-8">

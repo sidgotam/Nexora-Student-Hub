@@ -1102,30 +1102,12 @@ export default function Notes() {
                   <div className="space-y-1">
                     <div className="flex flex-wrap items-center gap-1.5">
                       <span className="text-[9px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-black tracking-wider">{selectedSubject.code} DATA ENGINE</span>
-                      {selectedSubject.isAICompiled && (
-                        <span className="text-[9px] font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-bold animate-pulse">GEMINI AI SYNCED</span>
-                      )}
                     </div>
                     <h3 className="text-xl sm:text-2xl font-black text-white">{selectedSubject.name}</h3>
                     <p className="text-xs text-slate-400">Syllabus weightage: <span className="text-emerald-400 font-semibold">{selectedSubject.weightage}</span> • Difficulty index: <span className="text-purple-400 font-semibold">{selectedSubject.difficulty}</span></p>
                   </div>
                   
                   <div className="flex items-center gap-2 self-start md:self-center">
-                    <button 
-                      onClick={() => compileSubjectWithAI(selectedSubject)}
-                      disabled={loadingAI}
-                      className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-950 border border-cyan-500/30 hover:border-cyan-400 text-xs font-semibold text-cyan-400 hover:text-white shadow-glow-cyan transition-all"
-                    >
-                      {loadingAI ? (
-                        <>
-                          <Loader2 className="w-3.5 h-3.5 animate-spin" /> Compiling...
-                        </>
-                      ) : (
-                        <>
-                          <Sparkles className="w-3.5 h-3.5 animate-pulse" /> Sync Gemini AI
-                        </>
-                      )}
-                    </button>
                     <button 
                       onClick={() => {
                         const compiled = selectedSubject.units && selectedSubject.units.length > 0 ? selectedSubject : generateDynamicContent(selectedSubject);
@@ -1374,13 +1356,6 @@ export default function Notes() {
                                 className="flex items-center justify-center gap-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-800 text-xs text-slate-400 hover:text-slate-200"
                               >
                                 <Download className="w-3.5 h-3.5" /> PDF
-                              </button>
-
-                              <button 
-                                onClick={() => showToast("💡 Linked Solved paper reference to active AI assistant.")}
-                                className="flex items-center justify-center gap-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-800 text-xs text-slate-400 hover:text-slate-200"
-                              >
-                                <MessageSquare className="w-3.5 h-3.5 text-cyan-400" /> AI Help
                               </button>
                             </div>
                           </div>

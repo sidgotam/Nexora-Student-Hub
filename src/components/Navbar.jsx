@@ -7,7 +7,6 @@ export default function Navbar({ activeTab, setActiveTab }) {
   const navItems = [
     { id: 'notes', label: 'Notes & PYQs', icon: BookMarked, color: 'text-emerald-400 font-bold' },
     { id: 'merndocs', label: 'MERN DevDocs', icon: Code, color: 'text-orange-400 font-bold' },
-    { id: 'ai', label: 'AI Study Assistant', icon: Sparkles, color: 'text-cyan-400' },
     { id: 'resume', label: 'Resume Builder', icon: FileText, color: 'text-indigo-400' },
     { id: 'interview', label: 'Interview Prep', icon: GraduationCap, color: 'text-purple-400' },
     { id: 'internships', label: 'Internships Board', icon: Briefcase, color: 'text-blue-400' },
@@ -19,7 +18,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('ai')}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('notes')}>
             <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 shadow-glow-cyan">
               <span className="font-extrabold text-white text-lg">N</span>
               <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 opacity-30 blur animate-pulse" />
